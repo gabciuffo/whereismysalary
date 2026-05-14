@@ -1,0 +1,4123 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#FAF7F2" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Where is my Salary" />
+<link rel="apple-touch-icon" href="data:image/png;base64,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" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23FAF7F2'/%3E%3Ctext x='90' y='116' font-size='102' text-anchor='middle' fill='%23C96442' font-family='Georgia,serif' font-style='italic' font-weight='500'%3EWs%3C/text%3E%3Cline x1='56' y1='138' x2='124' y2='138' stroke='%23C96442' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" />
+<title>Where is my Salary</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,400..600&family=Inter:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     CLAUDE DESIGN — warm paper, serif accents, sienna highlight
+     ============================================================ */
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+
+  :root{
+    /* Paper & surfaces */
+    --paper:           #FAF7F2;
+    --paper-tint:      #F5F0E6;
+    --card:            #FFFEFB;
+    --card-elev:       #FFFFFF;
+    --line:            #E8DFCF;
+    --line-soft:       #F0E8D8;
+
+    /* Text */
+    --ink:             #2A2622;
+    --ink-soft:        #5C534A;
+    --ink-muted:       #978C7E;
+    --ink-faint:       #BFB5A4;
+
+    /* Claude sienna accent + companions */
+    --sienna:          #C96442;
+    --sienna-deep:     #A4502F;
+    --sienna-soft:     rgba(201, 100, 66, .10);
+    --sienna-tint:     #FAEFE8;
+
+    --sage:            #6B8E5A;
+    --sage-soft:       rgba(107, 142, 90, .12);
+    --sage-tint:       #ECF1E6;
+
+    --terracotta:      #B85449;
+    --terracotta-soft: rgba(184, 84, 73, .10);
+    --terracotta-tint: #F8E9E5;
+
+    --gold:            #C29B3D;
+    --gold-soft:       rgba(194, 155, 61, .12);
+    --gold-tint:       #F6EFD9;
+
+    --ocean:           #4F7CAC;
+    --ocean-soft:      rgba(79, 124, 172, .10);
+
+    /* Type */
+    --serif: "Source Serif 4", "Source Serif Pro", "Charter", "Georgia", "Times New Roman", serif;
+    --sans:  "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+    --hand:  "Caveat", "Bradley Hand", "Marker Felt", cursive;
+
+    /* Geometry */
+    --radius-card:    18px;
+    --radius-soft:    12px;
+    --radius-pill:    999px;
+
+    /* Shadow */
+    --shadow-rest:  0 1px 0 rgba(125, 105, 75, .04), 0 1px 2px rgba(125, 105, 75, .06);
+    --shadow-soft:  0 6px 18px rgba(125, 105, 75, .08), 0 1px 2px rgba(125, 105, 75, .05);
+    --shadow-warm:  0 14px 40px rgba(155, 110, 75, .12), 0 1px 2px rgba(125, 105, 75, .04);
+  }
+
+  /* Subtle "paper" backdrop — radial warmth + faint noise */
+  body{
+    font-family: var(--sans);
+    color: var(--ink);
+    line-height: 1.5;
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background-color: var(--paper);
+    background-image:
+      radial-gradient(1100px 600px at 8% -10%, var(--sienna-tint) 0%, transparent 60%),
+      radial-gradient(900px 500px at 110% 20%, var(--gold-tint) 0%, transparent 60%),
+      radial-gradient(800px 600px at 50% 110%, var(--paper-tint) 0%, transparent 60%);
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    position: relative;
+  }
+  body::before{
+    /* Faint paper grain via SVG fractal noise */
+    content:"";
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    opacity:.35; mix-blend-mode:multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.45  0 0 0 0 0.36  0 0 0 0 0.25  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  button{ font: inherit; color: inherit; cursor: pointer; border: none; background: none; }
+  input, select, textarea{ font: inherit; color: inherit; }
+  input[type=number]{ -moz-appearance: textfield; }
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button{ -webkit-appearance: none; margin: 0; }
+
+  /* ---------- Layout ---------- */
+  .app{
+    position: relative; z-index: 1;
+    max-width: 760px; margin: 0 auto;
+    padding: 18px 18px 96px;
+  }
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    position: sticky; top: 0; z-index: 5;
+    margin: -18px -18px 22px;
+    padding: 20px 18px 16px;
+    display: flex; align-items: center; gap: 10px;
+    background: linear-gradient(180deg, rgba(250,247,242,.95) 70%, rgba(250,247,242,0));
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+  }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  /* Logo voice. Larger now that the topbar carries less furniture (no
+     brand-mark, no profile pill, no "+ add profile" button). The Salary
+     accent stays in sienna italic for the same visual signature. */
+  .brand-name{
+    font-family: var(--serif); font-weight: 500;
+    font-size: clamp(24px, 5vw, 30px);
+    letter-spacing: -.025em; line-height: 1;
+    color: var(--ink);
+  }
+  .brand-name em{
+    font-style: italic; font-weight: 500; color: var(--sienna);
+  }
+  .topbar .spacer{ flex:1 }
+  .app-version{
+    display: block; text-align: center;
+    margin-top: 18px;
+    font-family: var(--sans); font-weight: 500;
+    color: var(--ink-faint); font-size: 11px;
+    letter-spacing: .04em;
+  }
+
+  .icon-btn{
+    width: 40px; height: 40px; border-radius: 11px;
+    display: grid; place-items: center;
+    background: var(--card); border: 1px solid var(--line);
+    color: var(--ink-soft);
+    box-shadow: var(--shadow-rest);
+    transition: transform .12s ease, background .15s, border-color .15s, color .15s;
+  }
+  .icon-btn:hover{ background: var(--card-elev); color: var(--sienna); border-color: var(--line); }
+  .icon-btn:active{ transform: scale(.96) }
+
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position: relative; overflow: hidden;
+    background: var(--card-elev);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: 26px 24px 22px;
+    box-shadow: var(--shadow-warm);
+  }
+  .hero::before{
+    content:""; position:absolute; top:-80px; right:-60px;
+    width: 220px; height: 220px;
+    background: radial-gradient(closest-side, var(--sienna-soft), transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after{
+    /* hand-drawn underline accent */
+    content:""; position:absolute; left: 24px; top: 64px;
+    width: 56px; height: 6px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='8' viewBox='0 0 80 8'%3E%3Cpath d='M2 5 Q 12 1 22 4 T 44 4 T 66 4 T 78 4' fill='none' stroke='%23C96442' stroke-width='1.8' stroke-linecap='round' opacity='.55'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    pointer-events: none;
+  }
+  .hero-greeting{
+    font-family: var(--serif); font-style: italic;
+    font-size: 16px; color: var(--ink-soft);
+    letter-spacing: -.005em;
+    display:flex; gap: 8px; align-items: baseline;
+  }
+  .hero-greeting .salute{
+    font-family: var(--hand); font-size: 22px; color: var(--sienna);
+    line-height: 1; transform: translateY(2px);
+  }
+  .hero-tagline{
+    font-family: var(--serif); font-style: italic;
+    font-size: 13px; color: var(--ink-faint);
+    margin-top: 10px;
+    letter-spacing: -.005em;
+    max-width: 52ch;
+    line-height: 1.4;
+  }
+  .hero-tagline::before{ content: "\201C"; margin-right: 2px; }
+  .hero-tagline::after{ content: "\201D"; margin-left: 2px; }
+  .hero-amount{
+    font-family: var(--serif);
+    font-size: clamp(40px, 11vw, 56px);
+    font-weight: 600; letter-spacing: -.025em; line-height: 1.02;
+    margin-top: 14px;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+  .hero-amount.ok{ color: var(--sage); }
+  .hero-amount.danger{ color: var(--terracotta); }
+  .hero-amount .cents{
+    font-size: .55em; font-weight: 500;
+    color: var(--ink-muted); letter-spacing: -.01em;
+  }
+  .hero-sub{
+    font-family: var(--serif); font-style: italic;
+    font-size: 14.5px; color: var(--ink-soft);
+    margin-top: 6px; line-height: 1.5;
+    max-width: 52ch;
+  }
+  .hero-stats{
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--line);
+  }
+  /* Flex column with the value pushed to the bottom: keeps all three values
+     visually aligned on the same baseline even when labels wrap to 2 lines. */
+  .hero-stat{ display: flex; flex-direction: column; }
+  .hero-stat .k{
+    font-size: 11px; color: var(--ink-muted);
+    text-transform: uppercase; letter-spacing: .08em; font-weight: 600;
+    line-height: 1.3;
+  }
+  .hero-stat .v{
+    font-family: var(--serif);
+    font-size: 18px; font-weight: 500;
+    margin-top: auto;
+    padding-top: 4px;
+    letter-spacing: -.012em;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+  .hero-stat.ok .v{ color: var(--sage) }
+  .hero-stat.danger .v{ color: var(--terracotta) }
+
+  /* ---------- Section header ---------- */
+  .section-head{
+    display: flex; align-items: center; justify-content: space-between;
+    margin: 30px 4px 14px;
+  }
+  .section-title{
+    font-family: var(--serif); font-style: italic;
+    font-size: 22px; font-weight: 500;
+    letter-spacing: -.015em; color: var(--ink);
+  }
+  .year-picker{
+    display: flex; align-items: center; gap: 2px;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius-pill); padding: 3px;
+    box-shadow: var(--shadow-rest);
+  }
+  .year-picker button{
+    width: 30px; height: 30px; border-radius: 50%;
+    color: var(--ink-muted);
+    transition: color .12s, background .12s;
+  }
+  .year-picker button:hover{ color: var(--sienna); background: var(--sienna-soft) }
+  .year-picker .y{
+    padding: 0 10px; font-family: var(--serif);
+    font-weight: 500; font-size: 15px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- Legend ---------- */
+  .legend{
+    display: flex; gap: 14px; flex-wrap: wrap;
+    font-size: 11.5px; color: var(--ink-muted);
+    letter-spacing: .01em;
+    margin: -4px 4px 12px;
+  }
+  .legend .dot{
+    display: inline-block; width: 8px; height: 8px;
+    border-radius: 50%; margin-right: 5px; vertical-align: middle;
+  }
+  .legend .dot.ok{ background: var(--sage) }
+  .legend .dot.miss{ background: var(--terracotta) }
+  .legend .dot.na{ background: var(--ink-faint) }
+
+  /* ---------- Month cards ---------- */
+  .months{ display: flex; flex-direction: column; gap: 12px; }
+  .month{
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: var(--shadow-rest);
+    transition: box-shadow .2s, border-color .2s;
+  }
+  .month:hover{ box-shadow: var(--shadow-soft); }
+  .month.current{
+    border-color: var(--sienna);
+    box-shadow: 0 0 0 3px var(--sienna-soft), var(--shadow-soft);
+  }
+  .month-head{
+    display: flex; align-items: center; gap: 12px;
+    padding: 16px 18px;
+    cursor: pointer; user-select: none;
+  }
+  .month-name{
+    flex: 1;
+    font-family: var(--serif); font-style: italic;
+    font-size: 18px; font-weight: 500;
+    letter-spacing: -.01em; color: var(--ink);
+    text-transform: lowercase;
+  }
+  .month.current .month-name::after{
+    content: "oggi"; margin-left: 8px;
+    font-family: var(--hand); font-style: normal; font-weight: 600;
+    color: var(--sienna); font-size: 16px;
+    transform: translateY(-2px); display: inline-block;
+  }
+  .month-status{
+    display:flex; align-items: center; gap: 6px;
+    font-size: 11.5px; font-weight: 600;
+    padding: 4px 10px; border-radius: var(--radius-pill);
+    background: var(--paper-tint); color: var(--ink-muted);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: .01em;
+    border: 1px solid transparent;
+  }
+  .month-status.ok{ background: var(--sage-tint); color: var(--sage); }
+  .month-status.warn{ background: var(--gold-tint); color: var(--gold); border-color: var(--gold-soft); }
+  .month-status.danger{ background: var(--terracotta-tint); color: var(--terracotta); border-color: var(--terracotta-soft); }
+  .month-status.future{ background: transparent; color: var(--ink-faint); border-color: var(--line); }
+  .month-chevron{
+    width: 22px; height: 22px; display: grid; place-items: center;
+    color: var(--ink-faint); transition: transform .25s ease;
+  }
+  .month.open .month-chevron{ transform: rotate(180deg) }
+  .month-body{
+    border-top: 1px dashed var(--line);
+    padding: 6px 8px 10px;
+    display: none;
+  }
+  .month.open .month-body{ display: block }
+
+  /* ---------- Component row ----------
+     Layout: icon | info (name+detail) | amount | tri-state.
+     On narrow viewports the amount drops below the info to give the name
+     full width and avoid mid-row truncation. */
+  .comp{
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-areas: "icon info amount tri";
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 4px;
+    padding: 12px 12px;
+    border-radius: 12px;
+  }
+  .comp + .comp{ border-top: 1px dashed var(--line-soft); }
+
+  .comp-icon{
+    grid-area: icon;
+    width: 38px; height: 38px; flex-shrink: 0;
+    border-radius: 11px;
+    display: grid; place-items: center; font-size: 18px;
+    background: var(--paper-tint);
+    border: 1px solid var(--line-soft);
+  }
+  .comp-info{ grid-area: info; min-width: 0; }
+  .comp-name{
+    font-weight: 600; font-size: 14.5px;
+    letter-spacing: -.005em; color: var(--ink);
+    line-height: 1.25;
+  }
+  .comp-detail{
+    font-size: 12.5px; color: var(--ink-muted);
+    margin-top: 3px;
+    line-height: 1.35;
+  }
+  .comp-detail input{
+    background: transparent; border: none;
+    font: inherit; color: var(--ink);
+    /* Inline width is set per-input from JS based on value/placeholder so
+       the field hugs its content. Modern browsers also honor `field-sizing`
+       which auto-grows as the user types. Fallback to ~5ch otherwise. */
+    width: 5ch;
+    field-sizing: content;
+    min-width: 3ch;
+    max-width: 14ch;
+    padding: 1px 2px;
+    border-bottom: 1px dashed var(--line);
+    text-align: left;
+    font-variant-numeric: tabular-nums;
+  }
+  .comp-detail input:focus{ outline: none; border-bottom-color: var(--sienna) }
+  .comp-amount{
+    grid-area: amount;
+    text-align: right;
+    font-family: var(--serif); font-weight: 500;
+    font-size: 15px; letter-spacing: -.01em;
+    font-variant-numeric: tabular-nums;
+    min-width: 0; color: var(--ink);
+    white-space: nowrap;
+  }
+  .comp-amount:empty{ display: none; }
+  .comp-amount.dim{ color: var(--ink-faint); font-weight: 400 }
+  .comp-amount.ok{ color: var(--sage) }
+  .comp-amount.danger{ color: var(--terracotta) }
+  .tri{ grid-area: tri; }
+
+  /* Mobile: drop the amount under the info on narrow viewports so the
+     row stops trying to cram four columns into ~360 px. */
+  @media (max-width: 480px){
+    .comp{
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas:
+        "icon info  tri"
+        "icon amount tri";
+    }
+    .comp-amount{
+      text-align: left;
+      font-size: 14px;
+      padding-top: 2px;
+    }
+    .comp-amount:empty{ display: none; }
+  }
+
+  /* Tri-state */
+  .tri{
+    display: flex; align-items: center;
+    background: var(--paper-tint);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-pill); padding: 2px;
+    flex-shrink: 0;
+  }
+  .tri button{
+    width: 32px; height: 28px; border-radius: var(--radius-pill);
+    display: grid; place-items: center;
+    color: var(--ink-faint);
+    transition: all .15s; font-weight: 600; font-size: 12px;
+  }
+  .tri button:hover{ color: var(--ink) }
+  .tri button.on[data-state="received"]{
+    background: var(--sage); color: #FFF;
+    box-shadow: 0 1px 0 rgba(0,0,0,.05);
+  }
+  .tri button.on[data-state="missing"]{
+    background: var(--terracotta); color: #FFF;
+    box-shadow: 0 1px 0 rgba(0,0,0,.05);
+  }
+  .tri button.on[data-state="not_expected"]{
+    background: var(--ink-faint); color: #FFF;
+  }
+
+  /* ---------- Pages & Tab bar ---------- */
+  .pages{ position: relative; }
+  .page{ display: none; }
+  .page.active{ display: block; }
+
+  /* Floating pill tabbar at bottom-center, iOS-style. */
+  .tabbar{
+    position: fixed;
+    left: 50%;
+    bottom: max(16px, env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    z-index: 25;
+    display: flex;
+    gap: 4px;
+    padding: 6px;
+    background: var(--card-elev);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-warm);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .tabbar .tab{
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 18px;
+    border-radius: var(--radius-pill);
+    background: transparent;
+    color: var(--ink-muted);
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 14px;
+    transition: background .15s, color .15s;
+    cursor: pointer;
+    user-select: none;
+  }
+  .tabbar .tab .tab-icon{
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1;
+  }
+  .tabbar .tab.active{
+    background: var(--sienna-soft);
+    color: var(--sienna-deep);
+  }
+  .tabbar .tab:hover:not(.active){ color: var(--ink); }
+  /* Hide the floating tabbar whenever a sheet / modal / confirm overlay is open. */
+  body.modal-open .tabbar,
+  body.overlay-open .tabbar{ display: none; }
+  /* Leave room above the tab bar so content doesn't get hidden behind it. */
+  .app{ padding-bottom: 90px; }
+
+  /* ---------- Workday selector ---------- */
+  .workday-row{ display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+  .workday-row label{
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 6px 10px;
+    border-radius: var(--radius-pill);
+    background: var(--paper-tint);
+    border: 1px solid var(--line);
+    cursor: pointer;
+    user-select: none;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .workday-row label:has(input:checked){
+    background: var(--sienna-soft);
+    border-color: var(--sienna);
+    color: var(--sienna-deep);
+    font-weight: 600;
+  }
+  .workday-row input{ accent-color: var(--sienna); }
+
+  /* ---------- Ore page ----------
+     Hero reuses the .hero / .hero-greeting / .hero-amount / .hero-sub /
+     .hero-stats classes from the stipendio side for visual consistency. */
+  .ore-list{ display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+  .ore-card{
+    display: flex; align-items: center; gap: 14px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: 14px 16px;
+    box-shadow: var(--shadow-rest);
+    cursor: pointer;
+    transition: transform .1s;
+  }
+  .ore-card:hover{ transform: translateY(-1px); }
+  .ore-card .date{
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink);
+    min-width: 96px;
+  }
+  .ore-card .times{
+    flex: 1;
+    color: var(--ink-soft);
+    font-size: 13.5px;
+  }
+  .ore-card .times .nota{
+    color: var(--ink-muted);
+    font-size: 12.5px;
+    margin-top: 3px;
+    font-style: italic;
+  }
+  .ore-card .hours{
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--sienna);
+    font-variant-numeric: tabular-nums;
+  }
+  .ore-empty{
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+  .ore-add-fab{
+    position: sticky;
+    bottom: 100px;
+    margin: 18px auto 0;
+    display: block;
+  }
+
+  /* Granularity switcher */
+  .ore-switcher{
+    display: flex;
+    gap: 4px;
+    background: var(--card-elev);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    padding: 4px;
+    margin: 16px 0 12px;
+    box-shadow: var(--shadow-rest);
+  }
+  .ore-switcher button{
+    flex: 1;
+    padding: 8px 4px;
+    border-radius: var(--radius-pill);
+    font-family: var(--sans);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    background: transparent;
+    transition: background .14s, color .14s;
+    cursor: pointer;
+  }
+  .ore-switcher button:hover:not(.active){ color: var(--ink); }
+  .ore-switcher button.active{ background: var(--sienna-soft); color: var(--sienna-deep); }
+
+  /* The Ore page reuses .section-head and .year-picker from the stipendio
+     side so the two pages share visual language. */
+
+  /* Mesi view — grid of 12 month cards */
+  .ore-month-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 6px;
+  }
+  @media (min-width: 640px){
+    .ore-month-grid{ grid-template-columns: repeat(4, 1fr); }
+  }
+  .ore-month-card{
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: 14px;
+    cursor: pointer;
+    box-shadow: var(--shadow-rest);
+    transition: transform .1s, border-color .14s;
+  }
+  .ore-month-card:hover{ transform: translateY(-2px); border-color: var(--sienna-soft); }
+  .ore-month-card .omc-name{
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .ore-month-card .omc-row{
+    display: flex; align-items: baseline; gap: 6px;
+    margin-top: 4px;
+  }
+  .ore-month-card .omc-num{
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .ore-month-card .omc-lab{
+    font-size: 10.5px;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    font-weight: 600;
+  }
+  .ore-month-card .omc-row.straord .omc-num{ color: var(--sienna); }
+  .ore-month-card .omc-row.straord .omc-lab{ color: var(--sienna); }
+  .ore-month-card .omc-amt{
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--sienna-deep);
+    font-weight: 500;
+    margin-top: 8px;
+    padding-top: 6px;
+    border-top: 1px dashed var(--line-soft);
+    font-variant-numeric: tabular-nums;
+  }
+  .ore-month-card:not(.has-data){ opacity: .55; }
+
+  /* Calendar drill-down summary card (with manual override input) */
+  .ore-month-summary{
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: 6px 18px;
+    margin: 14px 0 0;
+    box-shadow: var(--shadow-rest);
+  }
+  .oms-row{
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line-soft);
+  }
+  .oms-row:last-child{ border-bottom: none; }
+  .oms-row.total{
+    margin-top: 2px;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+    border-bottom: none;
+  }
+  .oms-label{ color: var(--ink-soft); font-size: 13.5px; }
+  .oms-label small{ color: var(--ink-faint); font-size: 11px; margin-left: 4px; }
+  .oms-value{
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .oms-value.sienna{ color: var(--sienna); font-weight: 500; font-size: 18px; }
+  #oms-override{
+    width: 90px;
+    text-align: right;
+    background: var(--paper-tint);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-soft);
+    padding: 6px 10px;
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  #oms-override:focus{ outline: none; border-color: var(--sienna); }
+
+  /* Settimane view */
+  .ore-week-list, .ore-year-list{ display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+  .ore-week-row, .ore-year-row{
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: 14px 16px;
+    cursor: pointer;
+    box-shadow: var(--shadow-rest);
+    transition: transform .1s;
+  }
+  .ore-week-row:hover, .ore-year-row:hover{ transform: translateY(-1px); border-color: var(--sienna-soft); }
+  .owr-label, .oyr-label{
+    font-family: var(--serif); font-style: italic;
+    font-size: 16px; color: var(--ink);
+    min-width: 110px;
+  }
+  .owr-stats, .oyr-stats{
+    display: flex; gap: 18px; flex-wrap: wrap;
+    font-size: 12.5px;
+    text-align: right;
+  }
+  .owr-stats .k, .oyr-stats .k{
+    display: block;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    font-size: 10.5px;
+    font-weight: 600;
+  }
+  .owr-stats .v, .oyr-stats .v{
+    display: block;
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .owr-stats .v.sienna, .oyr-stats .v.sienna{ color: var(--sienna); }
+
+  /* Day-view summary line below the calendar */
+  .ore-day-summary{
+    text-align: center;
+    margin-top: 12px;
+    color: var(--ink-soft);
+    font-size: 13.5px;
+  }
+  .ore-day-summary strong{ color: var(--sienna-deep); font-weight: 600; }
+
+  /* Giorni list (one row per day with events) */
+  .ore-day-list{ display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+  .ore-day-row{
+    display: flex; align-items: center; gap: 14px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: 12px 16px;
+    cursor: pointer;
+    box-shadow: var(--shadow-rest);
+    transition: transform .1s, border-color .14s;
+  }
+  .ore-day-row:hover{ transform: translateY(-1px); border-color: var(--sienna-soft); }
+  .odr-date{
+    font-family: var(--serif); font-style: italic;
+    font-size: 15px; color: var(--ink);
+    min-width: 180px; flex-shrink: 0;
+  }
+  .odr-mid{ flex: 1; min-width: 0; }
+  .odr-times{ font-size: 13px; color: var(--ink-soft); }
+  .odr-note{ font-size: 12px; color: var(--ink-muted); font-style: italic; margin-top: 2px; }
+  .odr-hours{
+    font-family: var(--serif); font-weight: 500;
+    font-size: 16px; color: var(--sienna);
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+
+  /* Back button */
+  .ore-back-btn{
+    display: inline-flex; align-items: center;
+    background: transparent;
+    color: var(--sienna);
+    font-family: var(--sans);
+    font-size: 13.5px; font-weight: 600;
+    padding: 6px 10px 6px 4px;
+    margin-bottom: 4px;
+    cursor: pointer;
+  }
+  .ore-back-btn:hover{ color: var(--sienna-deep); }
+
+  /* Day detail — week strip + selected day events */
+  .dd-week-strip{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: 8px;
+    margin: 6px 0 8px;
+    box-shadow: var(--shadow-rest);
+  }
+  .dws-day{
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    padding: 8px 0 6px;
+    border-radius: var(--radius-soft);
+    background: transparent;
+    color: var(--ink);
+    transition: background .12s, color .12s;
+    cursor: pointer;
+  }
+  .dws-day .dws-name{
+    font-size: 10px; font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--ink-muted);
+  }
+  .dws-day .dws-num{
+    font-family: var(--serif);
+    font-size: 17px; font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+  .dws-day.weekend{ background: var(--paper-tint); }
+  .dws-day.weekend .dws-name{ color: var(--ink-faint); }
+  .dws-day.has-events{ background: var(--sienna-soft); }
+  .dws-day.has-events .dws-name{ color: var(--sienna); }
+  .dws-day.has-events .dws-num{ color: var(--sienna-deep); }
+  .dws-day.selected{
+    background: var(--sienna);
+    color: #fff;
+  }
+  .dws-day.selected .dws-name,
+  .dws-day.selected .dws-num{ color: #fff; }
+
+  .dd-week-info{
+    text-align: center;
+    color: var(--ink-muted);
+    font-size: 11.5px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin: 8px 0 4px;
+  }
+  .dd-day-title{
+    font-family: var(--serif); font-style: italic;
+    font-size: 20px; color: var(--ink);
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .dd-events{ display: flex; flex-direction: column; gap: 10px; }
+  .dd-event{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4px 12px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: 14px 16px;
+    cursor: pointer;
+    box-shadow: var(--shadow-rest);
+    transition: transform .1s;
+  }
+  .dd-event:hover{ transform: translateY(-1px); }
+  .dd-event-times{ font-size: 14px; color: var(--ink); }
+  .dd-event-note{ grid-column: 1; font-size: 12.5px; color: var(--ink-muted); font-style: italic; }
+  .dd-event-hours{
+    grid-row: 1 / span 2;
+    grid-column: 2;
+    align-self: center;
+    font-family: var(--serif); font-weight: 500;
+    font-size: 16px; color: var(--sienna);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Calendar grid (compact, centered). Headers and day cells share one grid
+     container so the vertical rhythm between rows is consistent — using two
+     separate grids made the first row sit closer to the headers than to
+     subsequent rows. */
+  .ore-cal{
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: 12px;
+    margin: 6px auto 0;
+    max-width: 380px;
+    box-shadow: var(--shadow-rest);
+  }
+  .cal-table{
+    display: grid;
+    /* minmax(0,1fr) lets the tracks shrink below content min-size — without
+       it, aspect-ratio cells refuse to shrink and overflow the container. */
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 4px;
+  }
+  .cal-h{
+    text-align: center;
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--ink-muted);
+    letter-spacing: .06em;
+    padding: 2px 0 6px;
+    text-transform: uppercase;
+  }
+  .cal-h.weekend{ color: var(--ink-faint); }
+  .cal-c{
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--ink);
+    background: transparent;
+    cursor: pointer;
+    transition: background .12s, transform .08s;
+    user-select: none;
+  }
+  .cal-c:hover{ background: var(--paper-tint); transform: scale(1.06); }
+  .cal-c.weekend{ color: var(--ink-muted); background: var(--paper-tint); }
+  .cal-c.has-events{
+    background: var(--sienna);
+    color: #fff;
+    font-weight: 600;
+  }
+  .cal-c.has-events.weekend{ background: var(--terracotta); color: #fff; }
+  .cal-c.today{ outline: 2px solid var(--sienna); outline-offset: -2px; }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 12px 18px; border-radius: 12px;
+    font-family: var(--sans); font-weight: 600; font-size: 14.5px;
+    background: var(--sienna); color: #FFF;
+    box-shadow: 0 4px 10px rgba(201, 100, 66, .22), inset 0 1px 0 rgba(255,255,255,.16);
+    transition: transform .1s, box-shadow .15s, background .15s;
+  }
+  .btn:hover{ background: var(--sienna-deep); box-shadow: 0 6px 14px rgba(201, 100, 66, .26); }
+  .btn:active{ transform: scale(.98) }
+  .btn.secondary{
+    background: var(--card); color: var(--ink);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-rest);
+  }
+  .btn.secondary:hover{ background: var(--paper-tint); border-color: var(--ink-faint); }
+  .btn.danger{ background: var(--terracotta); }
+  .btn.danger:hover{ background: #A04539 }
+  .btn.full{ width: 100%; }
+  .btn.large{ padding: 14px 22px; font-size: 15px; }
+  .btn-row{ display: flex; gap: 10px; }
+  .btn-row > *{ flex: 1; }
+
+  /* ---------- Custom confirm modal ---------- */
+  .confirm-overlay{
+    position: fixed; inset: 0; z-index: 30; /* above scrim (20) and sheet (21) */
+    background: rgba(60, 45, 30, .45);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .confirm-overlay.show{ display: flex; }
+  .confirm-card{
+    background: var(--card-elev);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: 22px 22px 18px;
+    max-width: 420px; width: 100%;
+    box-shadow: var(--shadow-warm);
+    animation: confirm-pop .18s cubic-bezier(.2,.8,.2,1);
+  }
+  @keyframes confirm-pop{
+    from { transform: scale(.94); opacity: 0; }
+    to   { transform: scale(1);    opacity: 1; }
+  }
+  .confirm-title{
+    font-family: var(--serif); font-style: italic;
+    font-size: 19px; font-weight: 500;
+    letter-spacing: -.012em; color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .confirm-message{
+    font-size: 14.5px; color: var(--ink-soft);
+    line-height: 1.5; margin-bottom: 18px;
+    white-space: pre-line;
+  }
+  .confirm-actions{
+    display: flex; gap: 10px;
+    justify-content: flex-end;
+  }
+  .confirm-actions .btn{ min-width: 110px; }
+
+  /* ---------- Sheets / Modals ---------- */
+  .scrim{
+    position: fixed; inset: 0; z-index: 20;
+    background: rgba(60, 45, 30, .35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: none;
+  }
+  .scrim.show{ display: block }
+  .sheet{
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 21;
+    background: var(--card-elev);
+    border-top-left-radius: 22px; border-top-right-radius: 22px;
+    border-top: 1px solid var(--line);
+    max-height: 92dvh;
+    /* Flex column: head + handle pinned, body scrolls, foot pinned */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(100%);
+    /* visibility/pointer-events keep hidden sheets from intercepting clicks
+       on desktop where they sit centered with opacity:0 */
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform .28s cubic-bezier(.2,.8,.2,1), visibility 0s linear .28s;
+    box-shadow: 0 -10px 40px rgba(125, 105, 75, .18);
+  }
+  .sheet.show{
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+    transition: transform .28s cubic-bezier(.2,.8,.2,1), visibility 0s linear 0s;
+  }
+  @media (min-width: 640px){
+    .sheet{
+      max-width: 560px; margin: 0 auto;
+      bottom: auto; top: 50%;
+      transform: translate(0, -50%) scale(.96); opacity: 0;
+      border-radius: var(--radius-card);
+      border: 1px solid var(--line);
+      left: 18px; right: 18px;
+      max-height: min(86vh, 760px);
+      transition: transform .28s cubic-bezier(.2,.8,.2,1), opacity .28s, visibility 0s linear .28s;
+    }
+    .sheet.show{
+      transform: translate(0, -50%) scale(1); opacity: 1;
+      transition: transform .28s cubic-bezier(.2,.8,.2,1), opacity .28s, visibility 0s linear 0s;
+    }
+  }
+  body.modal-open{ overflow: hidden; }
+  .sheet-handle{
+    flex-shrink: 0;
+    width: 42px; height: 4px; border-radius: 2px;
+    background: var(--line); margin: 10px auto 4px;
+  }
+  .sheet-head{
+    flex-shrink: 0;
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 22px 16px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .sheet-title{
+    flex: 1;
+    font-family: var(--serif); font-style: italic;
+    font-size: 20px; font-weight: 500;
+    letter-spacing: -.012em; color: var(--ink);
+  }
+  .sheet-body{
+    /* The scrollable region. min-height: 0 is the magic for flex children to shrink. */
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 18px 22px;
+  }
+  .sheet-foot{
+    flex-shrink: 0;
+    padding: 12px 22px max(16px, env(safe-area-inset-bottom));
+    background: var(--card-elev);
+    border-top: 1px solid var(--line-soft);
+    box-shadow: 0 -6px 14px rgba(125, 105, 75, .04);
+  }
+
+  /* ---------- Forms ---------- */
+  .field{ display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  .field label{
+    font-size: 11.5px; color: var(--ink-muted);
+    font-weight: 600; letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .field .hint{
+    font-size: 12.5px; color: var(--ink-muted);
+    font-style: italic; line-height: 1.4;
+    margin-top: 2px;
+  }
+  .field input[type="text"],
+  .field input[type="number"],
+  .field select{
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 10px; padding: 11px 13px;
+    font-family: var(--sans); font-size: 15px;
+    width: 100%; color: var(--ink);
+    transition: border-color .15s, background .15s;
+  }
+  .field input:focus, .field select:focus{
+    outline: none; border-color: var(--sienna);
+    background: var(--card-elev);
+    box-shadow: 0 0 0 3px var(--sienna-soft);
+  }
+  .field-row{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  /* Visual separator for settings groups (Salary / Overtime / System). */
+  .settings-section-title{
+    font-family: var(--serif); font-style: italic;
+    font-size: 16px; font-weight: 500;
+    color: var(--sienna);
+    margin: 22px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed var(--line);
+    letter-spacing: -.005em;
+  }
+  .settings-section-title:first-child{ margin-top: 4px; }
+
+  /* ---------- Empty state (entire card is clickable) ---------- */
+  .empty{
+    text-align: center;
+    padding: 56px 24px 52px;
+    min-height: 360px;
+    background: var(--card-elev);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-warm);
+    position: relative; overflow: hidden;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .2s ease, border-color .2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .empty:hover{
+    transform: translateY(-1px);
+    border-color: var(--sienna);
+    box-shadow: 0 18px 50px rgba(155, 110, 75, .16), 0 1px 2px rgba(125, 105, 75, .04);
+  }
+  .empty:focus-visible{
+    outline: none; border-color: var(--sienna);
+    box-shadow: 0 0 0 4px var(--sienna-soft), var(--shadow-warm);
+  }
+  .empty:active{ transform: translateY(0); }
+  .empty-cta{
+    position: relative;
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-top: 22px;
+    padding: 12px 22px; border-radius: 12px;
+    font-family: var(--sans); font-weight: 600; font-size: 15px;
+    background: var(--sienna); color: #FFF;
+    box-shadow: 0 4px 10px rgba(201, 100, 66, .22), inset 0 1px 0 rgba(255,255,255,.16);
+    transition: background .15s, box-shadow .15s;
+    pointer-events: none;
+  }
+  .empty:hover .empty-cta{
+    background: var(--sienna-deep);
+    box-shadow: 0 6px 14px rgba(201, 100, 66, .28);
+  }
+  .empty::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(360px 200px at 20% 0%, var(--sienna-soft), transparent 70%),
+      radial-gradient(280px 200px at 100% 100%, var(--gold-tint), transparent 70%);
+    pointer-events: none;
+  }
+  .empty h2{
+    position: relative;
+    font-family: var(--serif); font-weight: 500; font-style: italic;
+    font-size: 28px; letter-spacing: -.02em;
+    color: var(--ink); margin-bottom: 6px;
+    line-height: 1.15;
+  }
+  .empty .empty-greet{
+    font-family: var(--hand); font-weight: 600;
+    color: var(--sienna); font-size: 22px;
+    display: inline-block; transform: translateY(-1px);
+    margin-right: 4px;
+  }
+  .empty p{
+    position: relative;
+    font-family: var(--serif); font-style: italic;
+    color: var(--ink-soft); font-size: 16px;
+    max-width: 38ch; margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ---------- Sync block ---------- */
+  .sync-block{
+    margin-top: 22px;
+    padding: 16px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-rest);
+  }
+  .sync-head{
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; margin-bottom: 10px;
+  }
+  .sync-title{
+    font-family: var(--serif); font-style: italic;
+    font-size: 17px; font-weight: 500;
+    letter-spacing: -.012em; color: var(--ink);
+  }
+  .sync-state-pill{
+    font-size: 11px; font-weight: 600;
+    padding: 4px 10px; border-radius: var(--radius-pill);
+    letter-spacing: .03em; text-transform: uppercase;
+    background: var(--paper-tint); color: var(--ink-muted);
+    border: 1px solid var(--line);
+  }
+  .sync-state-pill[data-status="idle"]{ background: var(--sage-tint); color: var(--sage); border-color: var(--sage-soft); }
+  .sync-state-pill[data-status="syncing"]{ background: var(--gold-tint); color: var(--gold); border-color: var(--gold-soft); }
+  .sync-state-pill[data-status="error"]{ background: var(--terracotta-tint); color: var(--terracotta); border-color: var(--terracotta-soft); }
+
+  .sync-info{
+    font-size: 12.5px; color: var(--ink-soft);
+    line-height: 1.5; margin-bottom: 12px;
+    font-style: italic; font-family: var(--serif);
+  }
+  .sync-info code{
+    font-family: var(--sans); font-style: normal;
+    background: var(--paper-tint); padding: 1px 6px;
+    border-radius: 4px; font-size: 11.5px;
+    color: var(--ink); border: 1px solid var(--line-soft);
+  }
+  .sync-error{
+    font-size: 12px; color: var(--terracotta);
+    background: var(--terracotta-tint);
+    padding: 8px 10px; border-radius: 8px;
+    border: 1px solid var(--terracotta-soft);
+    margin-bottom: 10px;
+  }
+
+  .sync-steps{
+    margin: 0 0 0 22px; padding: 0;
+    font-size: 13px; color: var(--ink-soft); line-height: 1.55;
+  }
+  .sync-steps li{ margin-bottom: 8px; }
+  .sync-steps a{ color: var(--sienna); font-weight: 600; }
+  .sync-steps code{
+    font-family: var(--sans);
+    background: var(--paper-tint); padding: 1px 6px;
+    border-radius: 4px; font-size: 12px;
+    color: var(--ink); border: 1px solid var(--line-soft);
+  }
+
+  /* Topbar sync indicator (replaces a regular icon-btn when shown) */
+  #sync-indicator{
+    font-size: 16px; line-height: 1;
+    transition: color .2s, background .2s;
+  }
+  #sync-indicator[data-status="idle"]{ color: var(--sage); }
+  #sync-indicator[data-status="syncing"]{ color: var(--gold); }
+  #sync-indicator[data-status="syncing"] .sync-icon{ animation: pulse 1.2s infinite ease-in-out; display:inline-block; }
+  #sync-indicator[data-status="error"]{ color: var(--terracotta); border-color: var(--terracotta-soft); }
+  @keyframes pulse{
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: .55; transform: scale(.92); }
+  }
+
+  /* ---------- Backup block ---------- */
+  .backup-block{
+    margin-top: 20px;
+    padding: 16px 16px 14px;
+    background: var(--paper-tint);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+  }
+  .backup-title{
+    font-family: var(--serif); font-style: italic;
+    font-size: 17px; font-weight: 500;
+    letter-spacing: -.012em; color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .backup-stats{
+    font-size: 12px; color: var(--ink-muted);
+    font-style: italic; margin-bottom: 4px;
+    min-height: 16px;
+  }
+  /* ---------- Help / details ---------- */
+  details summary{
+    cursor: pointer; padding: 10px 4px;
+    font-family: var(--serif); font-style: italic;
+    font-weight: 500; font-size: 15px;
+    color: var(--ink-soft); list-style: none;
+    display: flex; align-items: center; gap: 8px;
+  }
+  details summary::-webkit-details-marker{ display: none; }
+  details summary::before{
+    content:"›"; display:inline-block;
+    transition: transform .2s; color: var(--ink-faint);
+    font-size: 18px; line-height: 1;
+  }
+  details[open] summary::before{ transform: rotate(90deg); }
+
+  .help{
+    font-size: 13px; color: var(--ink-soft);
+    line-height: 1.6;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: 14px 16px; margin-top: 14px;
+    box-shadow: var(--shadow-rest);
+  }
+  .help strong{
+    font-family: var(--serif); font-style: italic;
+    font-weight: 600; color: var(--ink);
+  }
+  .help .pip-ok, .help .pip-miss, .help .pip-na{
+    display: inline-block; width: 8px; height: 8px;
+    border-radius: 50%; vertical-align: middle;
+  }
+  .help .pip-ok{ background: var(--sage) }
+  .help .pip-miss{ background: var(--terracotta) }
+  .help .pip-na{ background: var(--ink-faint) }
+
+  /* ---------- Toast ---------- */
+  .toast{
+    position: fixed; left: 50%; bottom: 28px;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--ink); color: var(--paper);
+    padding: 10px 16px; border-radius: var(--radius-pill);
+    font-size: 13px; font-weight: 500;
+    box-shadow: var(--shadow-warm);
+    opacity: 0; transition: all .25s; z-index: 50;
+    pointer-events: none;
+    font-family: var(--serif); font-style: italic;
+  }
+  .toast.show{ opacity: 1; transform: translateX(-50%) translateY(0) }
+
+  /* ---------- Recap card ---------- */
+  .recap{
+    margin-top: 8px; background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card); overflow: hidden;
+    box-shadow: var(--shadow-rest);
+  }
+  .recap .comp + .comp{ border-top: 1px dashed var(--line-soft); }
+
+  /* ---------- Footer signature ---------- */
+  .signature{
+    text-align: center;
+    margin-top: 36px;
+    font-family: var(--hand); font-weight: 500;
+    color: var(--ink-faint); font-size: 16px;
+    letter-spacing: .01em;
+  }
+  .signature::before, .signature::after{
+    content:"·"; margin: 0 10px; color: var(--ink-faint);
+  }
+</style>
+</head>
+<body>
+
+<div class="scrim" id="scrim"></div>
+
+<!-- Custom confirm modal (replaces native confirm() to avoid browser/extension quirks) -->
+<div class="confirm-overlay" id="confirm-overlay" role="dialog" aria-modal="true" aria-labelledby="confirm-message">
+  <div class="confirm-card">
+    <div class="confirm-title" id="confirm-title">Conferma</div>
+    <div class="confirm-message" id="confirm-message"></div>
+    <div class="confirm-actions">
+      <button class="btn secondary" id="confirm-cancel" type="button">Annulla</button>
+      <button class="btn" id="confirm-ok" type="button">Conferma</button>
+    </div>
+  </div>
+</div>
+
+<!-- Sync configure sheet -->
+<div class="sheet" id="sync-sheet" role="dialog" aria-labelledby="sync-title">
+  <div class="sheet-handle"></div>
+  <div class="sheet-head">
+    <div class="sheet-title" id="sync-title">Configura sync cloud</div>
+    <button class="icon-btn" data-close-sheet aria-label="Chiudi">✕</button>
+  </div>
+  <div class="sheet-body">
+    <div class="help" style="margin-bottom:14px">
+      Il sync usa un <strong>gist privato GitHub</strong> come deposito dei tuoi dati. Niente di ciò che inserisci qui esce dal tuo account GitHub.
+    </div>
+
+    <ol class="sync-steps">
+      <li>
+        Apri
+        <a href="https://github.com/settings/tokens/new?scopes=gist&amp;description=Where%20is%20my%20Salary" target="_blank" rel="noopener">questo link</a>
+        — è la pagina GitHub per creare un Personal Access Token classico, già pre-compilata con scope <code>gist</code> (l'unico necessario).
+      </li>
+      <li>Imposta una scadenza (suggerito: 1 anno) e premi <strong>Generate token</strong> in fondo.</li>
+      <li>Copia il token (inizia con <code>ghp_</code>) e incollalo qui sotto.</li>
+    </ol>
+
+    <div class="field" style="margin-top:14px">
+      <label>Personal Access Token</label>
+      <input type="password" id="sync-pat-input" placeholder="ghp_..." autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" />
+      <div class="hint">Il token viene salvato solo nel <code>localStorage</code> di questo dispositivo. Se vuoi disattivare il sync, basta premere "Disconnetti" (o revocare il token da GitHub).</div>
+    </div>
+
+    <button class="btn full large" id="btn-sync-connect" type="button">Collega questo dispositivo</button>
+
+    <div class="help" style="margin-top:14px; font-size:12.5px">
+      Se hai già usato il sync su un altro dispositivo, lo stesso token connetterà tutti automaticamente: l'app trova il gist esistente e tira giù i dati.
+    </div>
+  </div>
+</div>
+
+<!-- Settings sheet -->
+<div class="sheet" id="settings-sheet" role="dialog" aria-labelledby="settings-title">
+  <div class="sheet-handle"></div>
+  <div class="sheet-head">
+    <div class="sheet-title" id="settings-title">Le tue cifre</div>
+    <button class="icon-btn" data-close-sheet aria-label="Chiudi">✕</button>
+  </div>
+  <div class="sheet-body">
+    <div class="field">
+      <label>Come ti chiami</label>
+      <input type="text" id="set-name" placeholder="il tuo nome" />
+    </div>
+
+    <div class="settings-section-title">Salary</div>
+    <div class="field-row">
+      <div class="field">
+        <label>Stipendio mensile (€)</label>
+        <input type="number" id="set-salary" min="0" step="0.01" />
+      </div>
+      <div class="field">
+        <label>Mensilità annue</label>
+        <select id="set-mensilita">
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+        </select>
+        <div class="hint">13a a dicembre, 14a a giugno, 15a a luglio.</div>
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Welfare mensile (€)</label>
+        <input type="number" id="set-welfare" min="0" step="0.01" />
+      </div>
+      <div class="field">
+        <label>Ticket per giorno (€)</label>
+        <input type="number" id="set-ticket" min="0" step="0.01" />
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Fringe annuale (€)</label>
+        <input type="number" id="set-fringe" min="0" step="0.01" />
+      </div>
+      <div class="field">
+        <label>Mese del fringe</label>
+        <select id="set-fringe-month"></select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Bonus standard (€)</label>
+      <input type="number" id="set-bonus" min="0" step="0.01" />
+      <div class="hint">Si applica se segni un bonus come atteso senza specificarne l'importo.</div>
+    </div>
+
+    <div class="settings-section-title">Overtime</div>
+    <div class="field">
+      <label>Giorni lavorativi</label>
+      <div class="workday-row" id="set-workdays">
+        <label><input type="checkbox" value="1"><span>Lun</span></label>
+        <label><input type="checkbox" value="2"><span>Mar</span></label>
+        <label><input type="checkbox" value="3"><span>Mer</span></label>
+        <label><input type="checkbox" value="4"><span>Gio</span></label>
+        <label><input type="checkbox" value="5"><span>Ven</span></label>
+        <label><input type="checkbox" value="6"><span>Sab</span></label>
+        <label><input type="checkbox" value="7"><span>Dom</span></label>
+      </div>
+      <div class="hint">Ore fuori da questi giorni (es. weekend) sono 100% straordinario, senza forfait.</div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Ore contratto (h/settimana)</label>
+        <input type="number" id="set-contratto" min="0" step="0.5" />
+        <div class="hint">Le ore da contratto sono coperte dallo stipendio.</div>
+      </div>
+      <div class="field">
+        <label>Forfait straord. (h/settimana)</label>
+        <input type="number" id="set-forfait" min="0" step="0.5" />
+        <div class="hint">Ore in più oltre il contratto, comunque coperte dallo stipendio.</div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Tariffa straord. (€/h)</label>
+      <input type="number" id="set-tariffa" min="0" step="0.01" />
+      <div class="hint">Sopra le (contratto + forfait) ore settimanali contano come straordinari pagati a questa tariffa.</div>
+    </div>
+
+    <div class="settings-section-title">Sistema</div>
+    <div class="sync-block" id="sync-block">
+      <div class="sync-head">
+        <div class="sync-title">Sync tra dispositivi</div>
+        <div class="sync-state-pill" id="sync-state-pill" data-status="off">spento</div>
+      </div>
+      <div class="sync-body" id="sync-body"></div>
+    </div>
+
+    <div class="backup-block">
+      <div class="backup-title">Backup CSV</div>
+      <div class="backup-stats" id="backup-stats"></div>
+      <div class="btn-row" style="margin-top:10px">
+        <button class="btn secondary" id="btn-export" type="button">⬇ Scarica file</button>
+        <button class="btn secondary" id="btn-import-file" type="button">⬆ Carica file</button>
+      </div>
+      <input type="file" id="file-import" accept=".csv,text/csv" style="display:none" />
+      <div class="help" style="margin-top:12px; font-size:12.5px">
+        Scarica un CSV con tutti i profili e tutti gli anni. Caricalo per ripristinare un backup (sostituisce i dati attuali). Se usi il sync cloud (sopra), il backup CSV ti serve solo come misura extra.
+      </div>
+    </div>
+  </div>
+  <div class="sheet-foot">
+    <div class="btn-row">
+      <button class="btn danger" id="btn-delete-profile" type="button">Azzera dati</button>
+      <button class="btn" id="btn-save-settings" type="button">Salva</button>
+    </div>
+  </div>
+</div>
+
+<!-- New profile sheet -->
+<div class="sheet" id="new-profile-sheet" role="dialog" aria-labelledby="np-title">
+  <div class="sheet-handle"></div>
+  <div class="sheet-head">
+    <div class="sheet-title" id="np-title">Iniziamo da te</div>
+    <button class="icon-btn" data-close-sheet aria-label="Chiudi">✕</button>
+  </div>
+  <div class="sheet-body">
+    <div class="field">
+      <label>Come ti chiami</label>
+      <input type="text" id="np-name" placeholder="il tuo nome" />
+    </div>
+
+    <div class="settings-section-title">Salary</div>
+    <div class="field-row">
+      <div class="field">
+        <label>Stipendio mensile (€)</label>
+        <input type="number" id="np-salary" min="0" step="0.01" placeholder="0,00" />
+      </div>
+      <div class="field">
+        <label>Mensilità annue</label>
+        <select id="np-mensilita">
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+        </select>
+        <div class="hint">13a a dicembre, 14a a giugno, 15a a luglio.</div>
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Welfare mensile (€)</label>
+        <input type="number" id="np-welfare" min="0" step="0.01" value="400" />
+      </div>
+      <div class="field">
+        <label>Ticket per giorno (€)</label>
+        <input type="number" id="np-ticket" min="0" step="0.01" value="10" />
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Fringe annuale (€)</label>
+        <input type="number" id="np-fringe" min="0" step="0.01" value="1000" />
+      </div>
+      <div class="field">
+        <label>Mese del fringe</label>
+        <select id="np-fringe-month"></select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Bonus standard (€)</label>
+      <input type="number" id="np-bonus" min="0" step="0.01" value="0" />
+      <div class="hint">Si applica se segni un bonus come atteso senza specificarne l'importo.</div>
+    </div>
+
+    <div class="settings-section-title">Overtime</div>
+    <div class="field">
+      <label>Giorni lavorativi</label>
+      <div class="workday-row" id="np-workdays">
+        <label><input type="checkbox" value="1" checked><span>Lun</span></label>
+        <label><input type="checkbox" value="2" checked><span>Mar</span></label>
+        <label><input type="checkbox" value="3" checked><span>Mer</span></label>
+        <label><input type="checkbox" value="4" checked><span>Gio</span></label>
+        <label><input type="checkbox" value="5" checked><span>Ven</span></label>
+        <label><input type="checkbox" value="6"><span>Sab</span></label>
+        <label><input type="checkbox" value="7"><span>Dom</span></label>
+      </div>
+      <div class="hint">Ore fuori da questi giorni (es. weekend) sono 100% straordinario, senza forfait.</div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Ore contratto (h/settimana)</label>
+        <input type="number" id="np-contratto" min="0" step="0.5" value="40" />
+        <div class="hint">Coperte dallo stipendio.</div>
+      </div>
+      <div class="field">
+        <label>Forfait straord. (h/settimana)</label>
+        <input type="number" id="np-forfait" min="0" step="0.5" value="0" />
+        <div class="hint">Extra oltre il contratto, comunque coperte.</div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Tariffa straord. (€/h)</label>
+      <input type="number" id="np-tariffa" min="0" step="0.01" value="0" />
+      <div class="hint">Oltre (contratto + forfait) ore settimanali si pagano a questa tariffa.</div>
+    </div>
+
+    <button class="btn full large" id="btn-create-profile" style="margin-top:8px">Crea il mio profilo</button>
+    <div class="help" style="margin-top:12px">Tutti questi valori si possono cambiare in seguito dall'icona in alto.</div>
+  </div>
+</div>
+
+<!-- Overtime event form sheet (add/edit) -->
+<div class="sheet" id="ot-event-sheet" role="dialog" aria-labelledby="ot-event-title">
+  <div class="sheet-handle"></div>
+  <div class="sheet-head">
+    <div class="sheet-title" id="ot-event-title">Nuovo evento</div>
+    <button class="icon-btn" data-close-sheet aria-label="Chiudi">✕</button>
+  </div>
+  <div class="sheet-body">
+    <div class="field">
+      <label>Data</label>
+      <input type="date" id="ot-data" />
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Ora inizio</label>
+        <input type="time" id="ot-inizio" />
+      </div>
+      <div class="field">
+        <label>Ora fine</label>
+        <input type="time" id="ot-fine" />
+      </div>
+    </div>
+    <div class="field">
+      <label>Pausa (HH:MM, opzionale)</label>
+      <input type="time" id="ot-pausa" />
+    </div>
+    <div class="field">
+      <label>Nota (opzionale)</label>
+      <input type="text" id="ot-nota" placeholder="es. trasferta Milano" maxlength="120" />
+    </div>
+    <div id="ot-hours-preview" class="help" style="margin-top:8px"></div>
+  </div>
+  <div class="sheet-foot">
+    <div class="btn-row">
+      <button class="btn danger" id="btn-ot-delete" type="button" style="display:none">Elimina</button>
+      <button class="btn" id="btn-ot-save" type="button">Salva evento</button>
+    </div>
+  </div>
+</div>
+
+<div class="app">
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-name">
+        Where is my <em>Salary</em>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <button class="icon-btn sync-pill" id="sync-indicator" data-status="off" aria-label="Stato sync cloud" title="Sync cloud" type="button" style="display:none">
+      <span class="sync-icon">☁</span>
+    </button>
+    <button class="icon-btn" id="btn-settings" aria-label="Impostazioni" title="Impostazioni">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1A2 2 0 1 1 4.3 16.9l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1A2 2 0 1 1 7.1 4.3l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1A2 2 0 1 1 19.7 7l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+    </button>
+  </div>
+
+  <div class="pages">
+    <section class="page active" id="page-stipendio" data-page="stipendio">
+      <main id="main"></main>
+    </section>
+    <section class="page" id="page-ore" data-page="ore">
+      <main id="main-ore"></main>
+    </section>
+  </div>
+
+  <div class="app-version"><span id="version-tag">v2.0</span></div>
+</div>
+
+<nav class="tabbar" id="tabbar" aria-label="Sezioni">
+  <button class="tab active" type="button" data-tab="stipendio" aria-label="Salary">
+    <span class="tab-label">Salary</span>
+  </button>
+  <button class="tab" type="button" data-tab="ore" aria-label="Overtime">
+    <span class="tab-label">Overtime</span>
+  </button>
+</nav>
+
+<input type="file" id="ore-file-import" accept=".csv,text/csv" style="display:none" />
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================ *
+ *  Stipendio Tracker — single-file web app
+ *  Storage key: "stipendio.v1"
+ * ============================================================ */
+
+const VERSION = "3.0.1";
+
+const STORAGE_KEY = "stipendio.v1";
+const SYNC_KEY = "stipendio.sync.v1";
+const GIST_FILENAME = "where-is-my-salary-data.json";
+const MONTHS_IT = ["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"];
+
+const COMPONENTS = [
+  { key:"salary",   label:"Stipendio",      icon:"💼", expectedDefault:true,  hasAmount:false, hasDays:false },
+  // Extra mensilità — they show up only in the dedicated month when the
+  // profile's `mensilita` setting reaches the threshold. Default state is
+  // "missing" so they count as expected in the right month and remain
+  // invisible otherwise.
+  { key:"salary13", label:"Tredicesima",    icon:"🎄", expectedDefault:true,  hasAmount:false, hasDays:false, extraSalary:13 },
+  { key:"salary14", label:"Quattordicesima",icon:"🌞", expectedDefault:true,  hasAmount:false, hasDays:false, extraSalary:14 },
+  { key:"salary15", label:"Quindicesima",   icon:"✨", expectedDefault:true,  hasAmount:false, hasDays:false, extraSalary:15 },
+  { key:"welfare",  label:"Welfare",        icon:"🌿", expectedDefault:true,  hasAmount:false, hasDays:false },
+  { key:"ticket",   label:"Buoni pasto",    icon:"🍱", expectedDefault:true,  hasAmount:false, hasDays:true  },
+  { key:"fringe",   label:"Fringe benefit", icon:"🎁", expectedDefault:false, hasAmount:false, hasDays:false },
+  { key:"bonus",    label:"Bonus",          icon:"⭐", expectedDefault:false, hasAmount:true,  hasDays:false },
+  { key:"refund",   label:"Rimborso spese", icon:"🧾", expectedDefault:false, hasAmount:true,  hasDays:false },
+  { key:"overtime", label:"Straordinari",   icon:"🕐", expectedDefault:false, hasAmount:false, hasDays:false },
+];
+
+// Fixed default months for extra salary payments (13a, 14a, 15a).
+// Keyed by mensilità index (13/14/15) → m0+1 (1=Jan..12=Dec).
+const EXTRA_SALARY_DEFAULT_MONTHS = { 13: 12, 14: 6, 15: 7 };
+
+// True when an extra-salary component is paid in the given calendar month
+// for the profile's chosen mensilità count. Used both to filter the month
+// card render and to compute correct yearly totals.
+function extraSalaryApplies(comp, settings, m0){
+  if(!comp.extraSalary) return true;
+  const need = comp.extraSalary;
+  const has = Number(settings.mensilita) || 12;
+  if(has < need) return false;
+  const month = EXTRA_SALARY_DEFAULT_MONTHS[need];
+  return month && (m0 + 1) === month;
+}
+
+/* ----- Italian holidays for working-day count ----- */
+function easterSunday(year){
+  const a = year % 19, b = Math.floor(year/100), c = year % 100;
+  const d = Math.floor(b/4), e = b%4;
+  const f = Math.floor((b+8)/25), g = Math.floor((b-f+1)/3);
+  const h = (19*a + b - d - g + 15) % 30;
+  const i = Math.floor(c/4), k = c%4;
+  const l = (32 + 2*e + 2*i - h - k) % 7;
+  const m = Math.floor((a + 11*h + 22*l) / 451);
+  const month = Math.floor((h + l - 7*m + 114) / 31);
+  const day = ((h + l - 7*m + 114) % 31) + 1;
+  return new Date(year, month-1, day);
+}
+function italianHolidays(year){
+  const list = [[0,1],[0,6],[3,25],[4,1],[5,2],[7,15],[10,1],[11,8],[11,25],[11,26]]
+    .map(([m,d]) => new Date(year, m, d));
+  const e = easterSunday(year);
+  const p = new Date(e); p.setDate(e.getDate()+1);
+  list.push(p);
+  return list;
+}
+function workingDaysInMonth(year, m0){
+  const h = italianHolidays(year).filter(d => d.getMonth() === m0).map(d => d.getDate());
+  const last = new Date(year, m0+1, 0).getDate();
+  let n = 0;
+  for(let d=1; d<=last; d++){
+    const dow = new Date(year, m0, d).getDay();
+    if(dow === 0 || dow === 6) continue;
+    if(h.includes(d)) continue;
+    n++;
+  }
+  return n;
+}
+
+/* ----- Overtime helpers -----
+ * Events are stored as { id, data:"YYYY-MM-DD", inizio:"HH:MM", fine:"HH:MM",
+ * pausa:"HH:MM"|"", nota:"" }. Cross-midnight events are disallowed (model:
+ * one record per work-day; if you work across midnight, log two events).
+ */
+function parseHHMM(s){
+  if(s == null || s === "") return null;
+  const m = /^(\d{1,2}):(\d{2})$/.exec(String(s).trim());
+  if(!m) return null;
+  const h = Number(m[1]), mm = Number(m[2]);
+  if(h < 0 || h > 23 || mm < 0 || mm > 59) return null;
+  return h * 60 + mm;
+}
+function eventHours(e){
+  const start = parseHHMM(e.inizio), end = parseHHMM(e.fine);
+  if(start == null || end == null) return 0;
+  const pause = parseHHMM(e.pausa) || 0;
+  let mins = end - start - pause;
+  return mins > 0 ? mins / 60 : 0;
+}
+// ISO week (Monday-based). Returns [isoYear, isoWeek].
+function isoWeek(dateStr){
+  const [y, m, d] = dateStr.split("-").map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  const day = (dt.getUTCDay() + 6) % 7;
+  dt.setUTCDate(dt.getUTCDate() - day + 3);
+  const firstThu = new Date(Date.UTC(dt.getUTCFullYear(), 0, 4));
+  const firstDay = (firstThu.getUTCDay() + 6) % 7;
+  firstThu.setUTCDate(firstThu.getUTCDate() - firstDay + 3);
+  return [dt.getUTCFullYear(), 1 + Math.round((dt - firstThu) / (7 * 86400000))];
+}
+function eventsInMonth(events, year, m0){
+  return (events || []).filter(e => {
+    const p = (e.data || "").split("-");
+    return Number(p[0]) === Number(year) && Number(p[1]) === m0 + 1;
+  });
+}
+function eventsInYear(events, year){
+  return (events || []).filter(e => Number((e.data || "").split("-")[0]) === Number(year));
+}
+function grossHoursForMonth(events, year, m0){
+  return eventsInMonth(events, year, m0).reduce((s, e) => s + eventHours(e), 0);
+}
+function isoDayOfWeek(dateStr){
+  // Returns 1..7 (Monday..Sunday).
+  const [y, m, d] = dateStr.split("-").map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  return ((dt.getUTCDay() + 6) % 7) + 1;
+}
+function isWorkday(dateStr, workdays){
+  return (workdays || [1,2,3,4,5]).includes(isoDayOfWeek(dateStr));
+}
+function paidHoursForMonth(events, year, m0, forfaitWeek, workdays, contractWeek){
+  // Threshold = contract hours + forfait hours per week. Workday hours below
+  // the threshold are absorbed by salary; only hours above count as paid
+  // overtime. Non-workday hours (weekend/holidays per user settings) are 100%
+  // paid (no absorption).
+  const inMonth = eventsInMonth(events, year, m0);
+  if(inMonth.length === 0) return 0;
+  const wd = (workdays && workdays.length) ? workdays : [1,2,3,4,5];
+  const workByWeek = {};
+  let nonWorkHours = 0;
+  for(const e of inMonth){
+    const h = eventHours(e);
+    if(isWorkday(e.data, wd)){
+      const [iy, iw] = isoWeek(e.data);
+      const k = iy + "-" + iw;
+      workByWeek[k] = (workByWeek[k] || 0) + h;
+    } else {
+      nonWorkHours += h;
+    }
+  }
+  const threshold = (Number(contractWeek) || 0) + (Number(forfaitWeek) || 0);
+  let paid = nonWorkHours;
+  for(const k in workByWeek) paid += Math.max(0, workByWeek[k] - threshold);
+  return paid;
+}
+function genEventId(){ return "ev_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 6); }
+
+/* ----- Storage ----- */
+function loadStore(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(raw) return JSON.parse(raw);
+  }catch(e){ console.warn("Storage parse error", e); }
+  return { profiles: {}, activeProfile: null, currentYear: new Date().getFullYear() };
+}
+function saveStore(){
+  store._lastModified = Date.now();
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+  // If cloud sync is configured, queue a debounced push.
+  if(typeof schedulePush === "function") schedulePush();
+}
+let store = loadStore();
+
+// Session-only UI state — survives re-renders but not page reloads.
+// Tracks which month accordion is open (one at a time).
+let openMonthIdx = null;
+
+function defaultSettings(){
+  return {
+    salary: 0, welfare: 400, fringe: 1000, ticketPerDay: 10, fringeMonth: 12, defaultBonus: 0,
+    // Number of yearly salary payments. Standard Italian CCNL: 12, 13, 14 (or 15).
+    // Extra months (13a/14a/15a) are paid in fixed default months — see
+    // EXTRA_SALARY_DEFAULT_MONTHS (declared next to COMPONENTS).
+    mensilita: 12,
+    // Weekly contract hours. Together with `forfaitOreSett` they define the
+    // weekly threshold: hours worked in workdays below (contract + forfait) are
+    // covered by the base salary; only hours above count as paid overtime.
+    oreContrattoSett: 40,
+    // Forfait — extra weekly hours absorbed by salary on top of the contract.
+    forfaitOreSett: 0,
+    tariffaOraStraord: 0,
+    // ISO weekday numbers that count as workdays. 1=Mon..7=Sun. Non-workday hours
+    // are 100% paid (no absorption).
+    workdays: [1,2,3,4,5],
+  };
+}
+
+function defaultMonth(){
+  const m = {};
+  for(const c of COMPONENTS){
+    m[c.key] = { state: c.expectedDefault ? "missing" : "not_expected" };
+    if(c.hasDays) m[c.key].days = null;
+    if(c.hasAmount) m[c.key].amount = 0;
+    // Salary and extra mensilità (13a/14a/15a) carry an optional per-month
+    // amount override. `null` is the sentinel for "fall back to the salary
+    // base" — distinct from `0` which would mean "explicitly zero".
+    if(c.key === "salary" || c.extraSalary) m[c.key].amount = null;
+  }
+  // overtime cell carries an optional per-month hours-to-pay override (null = use auto-calc).
+  m.overtime.hoursOverride = null;
+  return m;
+}
+function ensureProfile(id){
+  const p = store.profiles[id];
+  if(!p) return null;
+  p.years = p.years || {};
+  // Migration: ensure new fields exist on older profiles.
+  if(!Array.isArray(p.overtime)) p.overtime = [];
+  if(p.settings){
+    if(p.settings.forfaitOreSett == null) p.settings.forfaitOreSett = 0;
+    if(p.settings.tariffaOraStraord == null) p.settings.tariffaOraStraord = 0;
+    if(p.settings.oreContrattoSett == null) p.settings.oreContrattoSett = 40;
+    if(p.settings.mensilita == null) p.settings.mensilita = 12;
+    if(!Array.isArray(p.settings.workdays) || p.settings.workdays.length === 0){
+      p.settings.workdays = [1,2,3,4,5];
+    }
+  }
+  return p;
+}
+function ensureYear(profile, year){
+  profile.years[year] = profile.years[year] || {};
+  for(let m=1; m<=12; m++){
+    const md = profile.years[year][m];
+    if(!md){ profile.years[year][m] = defaultMonth(); continue; }
+    // Backfill cells for components added after this month was stored.
+    if(!md.overtime) md.overtime = { state: "not_expected", hoursOverride: null };
+    if(!md.salary13) md.salary13 = { state: "missing", amount: null };
+    else if(md.salary13.amount === undefined) md.salary13.amount = null;
+    if(!md.salary14) md.salary14 = { state: "missing", amount: null };
+    else if(md.salary14.amount === undefined) md.salary14.amount = null;
+    if(!md.salary15) md.salary15 = { state: "missing", amount: null };
+    else if(md.salary15.amount === undefined) md.salary15.amount = null;
+  }
+  return profile.years[year];
+}
+function activeProfile(){
+  return store.activeProfile ? ensureProfile(store.activeProfile) : null;
+}
+
+/* ----- Money formatting ----- */
+const fmtEUR = new Intl.NumberFormat("it-IT", { style:"currency", currency:"EUR" });
+function eur(n){ return fmtEUR.format(Number(n) || 0); }
+
+// Inline width sized to value/placeholder. Returns a `style="width: Nch"`
+// fragment so the input hugs its content without truncating long numbers
+// or leaving a fixed gap before the trailing label / unit. Browsers that
+// support `field-sizing: content` (set in CSS) override this on user input.
+function inputWidthStyle(value, placeholder, min = 4){
+  const len = Math.max(String(value ?? "").length, String(placeholder ?? "").length, min);
+  return `style="width: ${len + 0.5}ch"`;
+}
+
+/* ----- Calculation ----- */
+function expectedAmountFor(profile, year, m0, ckey){
+  const s = profile.settings;
+  const monthData = ensureYear(profile, year)[m0+1];
+  const c = monthData[ckey];
+  switch(ckey){
+    case "salary": return (c && c.amount != null) ? Number(c.amount) : (s.salary || 0);
+    case "salary13":
+    case "salary14":
+    case "salary15": {
+      const comp = COMPONENTS.find(co => co.key === ckey);
+      if(!comp || !extraSalaryApplies(comp, s, m0)) return 0;
+      // Per-month override wins over everything. Fallback chain: cell.amount
+      // → monthly salary override → settings.salary.
+      const cell = monthData[ckey];
+      if(cell && cell.amount != null) return Number(cell.amount);
+      return monthData.salary.amount != null ? Number(monthData.salary.amount) : (s.salary || 0);
+    }
+    case "welfare": return s.welfare || 0;
+    case "fringe": return (m0+1) === Number(s.fringeMonth) ? (s.fringe || 0) : 0;
+    case "ticket": {
+      const days = (c.days != null && c.days !== "") ? Number(c.days) : workingDaysInMonth(year, m0);
+      return (s.ticketPerDay || 0) * days;
+    }
+    case "bonus": return Number(c.amount || 0) || (s.defaultBonus || 0);
+    case "refund": return Number(c.amount || 0);
+    case "overtime": {
+      const ov = monthData.overtime || {};
+      const auto = paidHoursForMonth(profile.overtime || [], year, m0, s.forfaitOreSett, s.workdays, s.oreContrattoSett);
+      const paid = ov.hoursOverride != null ? Number(ov.hoursOverride) : auto;
+      return paid * (Number(s.tariffaOraStraord) || 0);
+    }
+  }
+  return 0;
+}
+
+function computeYearTotals(profile, year){
+  const data = ensureYear(profile, year);
+  let expected = 0, received = 0, missing = 0;
+  const today = new Date();
+  const isThisYear = today.getFullYear() === Number(year);
+  const cm = today.getMonth();
+
+  const perComponent = {};
+  for(const c of COMPONENTS){ perComponent[c.key] = { expected:0, received:0, missing:0 }; }
+
+  for(let m0=0; m0<12; m0++){
+    const month = data[m0+1];
+    for(const c of COMPONENTS){
+      const cell = month[c.key];
+      const exp = expectedAmountFor(profile, year, m0, c.key);
+      const isPastOrCurrent = !isThisYear || m0 <= cm || (Number(year) < today.getFullYear());
+
+      if(cell.state === "received"){
+        received += exp; expected += exp;
+        perComponent[c.key].received += exp; perComponent[c.key].expected += exp;
+      } else if(cell.state === "missing"){
+        expected += exp; perComponent[c.key].expected += exp;
+        if(isPastOrCurrent){ missing += exp; perComponent[c.key].missing += exp; }
+      }
+    }
+  }
+  return { expected, received, missing, perComponent };
+}
+
+function monthStatus(profile, year, m0){
+  const data = ensureYear(profile, year)[m0+1];
+  const today = new Date();
+  const isThisYear = today.getFullYear() === Number(year);
+  const isPast = (Number(year) < today.getFullYear()) || (isThisYear && m0 < today.getMonth());
+  const isCurrent = isThisYear && m0 === today.getMonth();
+  const isFuture = !isPast && !isCurrent;
+
+  let expected = 0, received = 0, missingPast = 0;
+  for(const c of COMPONENTS){
+    const cell = data[c.key];
+    const exp = expectedAmountFor(profile, year, m0, c.key);
+    if(cell.state === "received"){ received += exp; expected += exp; }
+    else if(cell.state === "missing"){ expected += exp; if(isPast || isCurrent) missingPast += exp; }
+  }
+  let label, cls;
+  if(expected === 0){ label = "non spettava"; cls = ""; }
+  else if(received >= expected - 0.01){ label = "tutto incassato"; cls = "ok"; }
+  else if(received > 0 && missingPast > 0){ label = `manca ${eur(missingPast)}`; cls = "warn"; }
+  else if(missingPast > 0){ label = `da ricevere ${eur(missingPast)}`; cls = "danger"; }
+  else if(isFuture){ label = "in arrivo"; cls = "future"; }
+  else { label = "in attesa"; cls = "warn"; }
+  return { label, cls, expected, received, missingPast, isPast, isCurrent, isFuture };
+}
+
+/* ============================================================ *
+ *  RENDER
+ * ============================================================ */
+const $ = sel => document.querySelector(sel);
+const $$ = sel => Array.from(document.querySelectorAll(sel));
+
+// Current tab — "stipendio" or "ore".
+let currentTab = "stipendio";
+// Ironic one-liners shown under the hero sub line. Chosen once per page load
+// (refresh for a new one). Two pools — one per tab — so the tone fits.
+const TAGLINES_ORE = [
+  "Le ore non si recuperano. I soldi sì.",
+  "Lavorate tanto. Conta tu, che il datore conta diverso.",
+  "Il tempo è denaro. Soprattutto quando non te lo pagano.",
+  "Anche questo weekend, eh. Bravo. Strano.",
+  "Le 17:30 sono un'invenzione del CCNL.",
+  "Ore in eccesso, stipendio in difetto.",
+  "Hai fatto gli straordinari. Adesso fai anche il sindacato.",
+  "Contati le ore, prima che lo faccia qualcun altro.",
+  "Le ore extra non scaldano la cena.",
+  "Non stai esagerando. Sta esagerando la busta paga.",
+  "Domani esci alle 18. Promesso. Forse.",
+  "Più ore fai, meno tempo ti resta per chiederti perché.",
+  "Un'ora in più qui è un'ora in meno altrove. Pace, almeno con i numeri.",
+  "Se conti i minuti, sei un professionista.",
+  "Lo stipendio si paga a fine mese. Le ore si pagano a memoria — la tua.",
+];
+const TAGLINES_STIPENDIO = [
+  "Il 27 non è una data. È una promessa.",
+  "Lo stipendio è arrivato? Bene. Ricontrolla.",
+  "Non è quanto guadagni. È quanto ti dovrebbero pagare.",
+  "La pazienza è una virtù. L'IBAN no.",
+  "Conta i giorni. Poi i mancati.",
+  "Il padrone ha la memoria corta. Tu, per fortuna, hai questa app.",
+  "Aspettare lo stipendio è l'unica cosa che si fa con costanza.",
+  "Hai diritto di sognare. E di un ticket da {ticket}.",
+  "Più aspetti, più sembra una questione di principio. È matematica.",
+  "Lavori per vivere. Vivere per lavorare era un'altra cosa.",
+  "Ogni euro mancante è una storia da raccontare a qualcuno.",
+  "Buona busta paga è metà del lavoro. L'altra metà è ricordarsela.",
+  "I conti si fanno alla fine. Anche se l'app li fa al 27.",
+  "Non è poco. È quello che c'è. È diverso.",
+  "Il welfare non è facoltativo. Il fringe sì, ma anche meno.",
+];
+let _oreTagline = null;
+let _stipTagline = null;
+// Format the ticket value the way it appears in a sentence — drop trailing
+// zero cents so "10 euro" reads natural and "8,50 euro" keeps its decimals.
+function ticketPhrase(n){
+  const v = Number(n) || 0;
+  const body = v === Math.floor(v) ? String(v) : v.toFixed(2).replace(".", ",");
+  return `${body} euro`;
+}
+// Replace `{ticket}` (and any future placeholders) with values from the
+// active profile's settings. Kept in a separate helper so taglines stay
+// declarative in their array and we can grow placeholders without touching
+// the picker logic.
+function interpolateTagline(text){
+  if(!text || text.indexOf("{") === -1) return text;
+  const p = activeProfile();
+  const ticket = p ? p.settings.ticketPerDay : 0;
+  return text.replace(/\{ticket\}/g, ticketPhrase(ticket));
+}
+function pickOreTagline(){
+  if(_oreTagline == null) _oreTagline = TAGLINES_ORE[Math.floor(Math.random() * TAGLINES_ORE.length)];
+  return interpolateTagline(_oreTagline);
+}
+function pickStipTagline(){
+  if(_stipTagline == null) _stipTagline = TAGLINES_STIPENDIO[Math.floor(Math.random() * TAGLINES_STIPENDIO.length)];
+  return interpolateTagline(_stipTagline);
+}
+
+// Ore page state. Top-level views = giorni/settimane/mesi/anni.
+// Sub-views = calendar (after clicking a month/week) and daydetail (after clicking a day).
+let oreView = "mesi";
+let oreMonthIdx = new Date().getMonth();
+let oreYear = new Date().getFullYear();
+let oreSelectedDate = null; // YYYY-MM-DD for daydetail view
+let oreDayDetailFrom = "giorni"; // tracks parent view so the back button is correct
+
+function render(){
+  renderTopBar();
+  renderMain();
+  renderPageOre();
+}
+
+function switchTab(name){
+  if(name !== "stipendio" && name !== "ore") return;
+  currentTab = name;
+  $$(".page").forEach(p => p.classList.toggle("active", p.dataset.page === name));
+  $$(".tabbar .tab").forEach(t => t.classList.toggle("active", t.dataset.tab === name));
+}
+
+const hStr = h => (Number(h) || 0).toFixed(1).replace(".", ",") + " h";
+
+function renderPageOre(){
+  const main = $("#main-ore");
+  const p = activeProfile();
+  if(!p){
+    main.innerHTML = `<div class="ore-empty">Crea prima un profilo per registrare le ore.</div>`;
+    return;
+  }
+  const events = p.overtime || [];
+  // KPIs based on TODAY (live status, not the picker selection).
+  const today = new Date();
+  const todayStr = today.toISOString().slice(0, 10);
+  const [thisWeekYear, thisWeekNum] = isoWeek(todayStr);
+  const weekHours = events.reduce((s, e) => {
+    if(!e.data) return s;
+    const [iy, iw] = isoWeek(e.data);
+    return (iy === thisWeekYear && iw === thisWeekNum) ? s + eventHours(e) : s;
+  }, 0);
+  const thisMonthHours = grossHoursForMonth(events, today.getFullYear(), today.getMonth());
+  const thisYearHours = eventsInYear(events, today.getFullYear()).reduce((s, e) => s + eventHours(e), 0);
+
+  let body, activeTab;
+  switch(oreView){
+    case "anni":       body = renderOreYearView(p);     activeTab = "anni"; break;
+    case "settimane":  body = renderOreWeekView(p);     activeTab = "settimane"; break;
+    case "giorni":     body = renderOreDayList(p);      activeTab = "giorni"; break;
+    case "calendar":   body = renderOreCalendarView(p); activeTab = "mesi"; break;
+    case "daydetail":  body = renderOreDayDetail(p);    activeTab = "giorni"; break;
+    case "mesi":
+    default:           body = renderOreMonthView(p);    activeTab = "mesi"; break;
+  }
+
+  // Hero metric: total overtime owed in the current year (past+current months
+  // with state "missing"). In euro when a tariffa is set, otherwise in hours.
+  const tariffa = Number(p.settings.tariffaOraStraord) || 0;
+  const curYear = today.getFullYear();
+  const curM = today.getMonth();
+  let owedHours = 0;
+  for(let m0 = 0; m0 <= curM; m0++){
+    const md = ensureYear(p, curYear)[m0 + 1];
+    if(!md.overtime || md.overtime.state !== "missing") continue;
+    const auto = paidHoursForMonth(events, curYear, m0, p.settings.forfaitOreSett, p.settings.workdays, p.settings.oreContrattoSett);
+    const paid = md.overtime.hoursOverride != null ? Number(md.overtime.hoursOverride) : auto;
+    owedHours += paid;
+  }
+  const owedAmount = owedHours * tariffa;
+  const isMoney = tariffa > 0;
+  const hasEvents = events.length > 0;
+
+  let heroCls = "", heroSub, amountHtml;
+  if(isMoney){
+    const split = splitEur(owedAmount);
+    amountHtml = `${split.currency} ${split.intPart}<span class="cents">,${split.fracPart}</span>`;
+  } else {
+    const intPart = Math.floor(owedHours);
+    const fracPart = String(Math.round((owedHours - intPart) * 10)).padStart(1, "0");
+    amountHtml = `${intPart}<span class="cents">,${fracPart} h</span>`;
+  }
+  if((isMoney ? owedAmount : owedHours) > 0){
+    heroCls = "danger";
+    heroSub = `Straordinari maturati entro ${MONTHS_IT[curM].toLowerCase()} ${curYear}, ancora da incassare.`;
+  } else if(hasEvents){
+    heroCls = "ok";
+    heroSub = "Tutti gli straordinari segnati come ricevuti. Tutto in ordine.";
+  } else {
+    heroSub = "Aggiungi i tuoi straordinari — appariranno qui.";
+  }
+
+  const greet = (() => {
+    const h = today.getHours();
+    if(h < 6) return "buona notte";
+    if(h < 12) return "buongiorno";
+    if(h < 19) return "buon pomeriggio";
+    return "buonasera";
+  })();
+
+  main.innerHTML = `
+    <div class="hero">
+      <div class="hero-greeting">
+        <span class="salute">${greet},</span>
+        <span>${escapeHtml(p.name)}.</span>
+      </div>
+      <div class="hero-amount ${heroCls}">${amountHtml}</div>
+      <div class="hero-sub">${heroSub}</div>
+      <div class="hero-tagline">${escapeHtml(pickOreTagline())}</div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="k">Settimana corrente</div>
+          <div class="v">${hStr(weekHours)}</div>
+        </div>
+        <div class="hero-stat">
+          <div class="k">${MONTHS_IT[curM]} ${curYear}</div>
+          <div class="v">${hStr(thisMonthHours)}</div>
+        </div>
+        <div class="hero-stat">
+          <div class="k">${curYear} totale</div>
+          <div class="v">${hStr(thisYearHours)}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ore-switcher">
+      <button data-view="giorni" class="${activeTab==='giorni'?'active':''}">Giorni</button>
+      <button data-view="settimane" class="${activeTab==='settimane'?'active':''}">Settimane</button>
+      <button data-view="mesi" class="${activeTab==='mesi'?'active':''}">Mesi</button>
+      <button data-view="anni" class="${activeTab==='anni'?'active':''}">Anni</button>
+    </div>
+
+    ${body}
+
+    <button class="btn full large ore-add-fab" id="btn-ot-add" type="button">+ Aggiungi evento</button>
+  `;
+
+  wireOrePage();
+}
+
+function renderOreYearView(p){
+  const events = p.overtime || [];
+  const tariffa = Number(p.settings.tariffaOraStraord) || 0;
+  const byYear = {};
+  for(const e of events){
+    const y = Number((e.data || "").split("-")[0]);
+    if(!y) continue;
+    (byYear[y] = byYear[y] || { y, hours: 0, paid: 0 });
+    byYear[y].hours += eventHours(e);
+  }
+  for(const y in byYear){
+    let yp = 0;
+    for(let m0 = 0; m0 < 12; m0++){
+      yp += paidHoursForMonth(events, Number(y), m0, p.settings.forfaitOreSett, p.settings.workdays, p.settings.oreContrattoSett);
+    }
+    byYear[y].paid = yp;
+  }
+  const years = Object.values(byYear).sort((a, b) => b.y - a.y);
+  if(years.length === 0) return `<div class="ore-empty">Nessun anno con eventi registrati.</div>`;
+  return `<div class="ore-year-list">${years.map(yy => `
+    <div class="ore-year-row" data-y="${yy.y}">
+      <div class="oyr-label">${yy.y}</div>
+      <div class="oyr-stats">
+        <div><span class="k">Lavorate</span> <span class="v">${hStr(yy.hours)}</span></div>
+        <div><span class="k">Da pagare</span> <span class="v">${hStr(yy.paid)}</span></div>
+        ${tariffa > 0 ? `<div><span class="k">Importo</span> <span class="v sienna">${eur(yy.paid * tariffa)}</span></div>` : ""}
+      </div>
+    </div>
+  `).join("")}</div>`;
+}
+
+function renderOreMonthView(p){
+  const events = p.overtime || [];
+  const tariffa = Number(p.settings.tariffaOraStraord) || 0;
+  const cards = MONTHS_IT.map((name, m0) => {
+    const gross = grossHoursForMonth(events, oreYear, m0);
+    const paid = paidHoursForMonth(events, oreYear, m0, p.settings.forfaitOreSett, p.settings.workdays, p.settings.oreContrattoSett);
+    const has = gross > 0;
+    return `<div class="ore-month-card${has ? " has-data" : ""}" data-m0="${m0}">
+      <div class="omc-name">${name}</div>
+      <div class="omc-row">
+        <span class="omc-num">${hStr(gross)}</span>
+        <span class="omc-lab">lavorate</span>
+      </div>
+      <div class="omc-row straord">
+        <span class="omc-num">${hStr(paid)}</span>
+        <span class="omc-lab">straordinari</span>
+      </div>
+      ${has && tariffa > 0 ? `<div class="omc-amt">${eur(paid * tariffa)}</div>` : ""}
+    </div>`;
+  }).join("");
+  return `
+    <div class="section-head">
+      <div class="section-title">Mesi</div>
+      <div class="year-picker">
+        <button data-action="year-prev" aria-label="Anno precedente">‹</button>
+        <span class="y">${oreYear}</span>
+        <button data-action="year-next" aria-label="Anno successivo">›</button>
+      </div>
+    </div>
+    <div class="ore-month-grid">${cards}</div>
+  `;
+}
+
+function renderOreWeekView(p){
+  const events = p.overtime || [];
+  const tariffa = Number(p.settings.tariffaOraStraord) || 0;
+  const threshold = (Number(p.settings.oreContrattoSett) || 0) + (Number(p.settings.forfaitOreSett) || 0);
+  const wd = p.settings.workdays || [1,2,3,4,5];
+  const byWeek = {};
+  for(const e of events){
+    if(!e.data) continue;
+    const [iy, iw] = isoWeek(e.data);
+    if(iy !== oreYear) continue;
+    const k = iw;
+    if(!byWeek[k]) byWeek[k] = { iw, workH: 0, weekendH: 0, count: 0 };
+    const h = eventHours(e);
+    if(isWorkday(e.data, wd)) byWeek[k].workH += h;
+    else byWeek[k].weekendH += h;
+    byWeek[k].count++;
+  }
+  const weeks = Object.values(byWeek).sort((a, b) => a.iw - b.iw);
+  const head = `<div class="section-head">
+    <div class="section-title">Settimane</div>
+    <div class="year-picker">
+      <button data-action="year-prev" aria-label="Anno precedente">‹</button>
+      <span class="y">${oreYear}</span>
+      <button data-action="year-next" aria-label="Anno successivo">›</button>
+    </div>
+  </div>`;
+  if(weeks.length === 0){
+    return head + `<div class="ore-empty">Nessuna settimana con eventi in ${oreYear}.</div>`;
+  }
+  const rows = weeks.map(w => {
+    const gross = w.workH + w.weekendH;
+    const paid = Math.max(0, w.workH - threshold) + w.weekendH;
+    return `<div class="ore-week-row" data-iw="${w.iw}">
+      <div class="owr-label">Settimana ${w.iw}</div>
+      <div class="owr-stats">
+        <div><span class="k">Lavorate</span> <span class="v">${hStr(gross)}</span></div>
+        <div><span class="k">Da pagare</span> <span class="v">${hStr(paid)}</span></div>
+        ${tariffa > 0 ? `<div><span class="k">Importo</span> <span class="v sienna">${eur(paid * tariffa)}</span></div>` : ""}
+      </div>
+    </div>`;
+  }).join("");
+  return head + `<div class="ore-week-list">${rows}</div>`;
+}
+
+// Calendar sub-view (entered from a Mese or Settimana row click).
+function renderOreCalendarView(p){
+  const events = p.overtime || [];
+  const gross = grossHoursForMonth(events, oreYear, oreMonthIdx);
+  const autoPaid = paidHoursForMonth(events, oreYear, oreMonthIdx, p.settings.forfaitOreSett, p.settings.workdays, p.settings.oreContrattoSett);
+  const tariffa = Number(p.settings.tariffaOraStraord) || 0;
+  const md = ensureYear(p, oreYear)[oreMonthIdx + 1];
+  const override = md.overtime.hoursOverride;
+  const finalPaid = override != null ? Number(override) : autoPaid;
+  const importo = finalPaid * tariffa;
+  return `
+    <button class="ore-back-btn" data-action="back-mesi" type="button">‹ Mesi</button>
+    <div class="section-head">
+      <div class="section-title">${MONTHS_IT[oreMonthIdx]} ${oreYear}</div>
+      <div class="year-picker">
+        <button data-action="month-prev" aria-label="Mese precedente">‹</button>
+        <span class="y">${MONTHS_IT[oreMonthIdx].slice(0,3)}</span>
+        <button data-action="month-next" aria-label="Mese successivo">›</button>
+      </div>
+    </div>
+    ${renderCalendar(oreYear, oreMonthIdx, events, p.settings.workdays)}
+    <div class="ore-month-summary">
+      <div class="oms-row">
+        <div class="oms-label">Ore lavorate</div>
+        <div class="oms-value">${hStr(gross)}</div>
+      </div>
+      <div class="oms-row">
+        <div class="oms-label">Straordinari calcolati</div>
+        <div class="oms-value">${hStr(autoPaid)}</div>
+      </div>
+      <div class="oms-row">
+        <div class="oms-label">Ore da pagare <small>(override)</small></div>
+        <input type="number" id="oms-override" min="0" max="744" step="0.5" value="${override != null ? override : ""}" placeholder="${autoPaid.toFixed(1).replace('.',',')}" />
+      </div>
+      ${tariffa > 0 ? `
+      <div class="oms-row total">
+        <div class="oms-label">Importo</div>
+        <div class="oms-value sienna">${eur(importo)}</div>
+      </div>` : ""}
+    </div>
+  `;
+}
+
+// Top-level Giorni view: chronological list of all days that have events.
+function renderOreDayList(p){
+  const events = (p.overtime || []).slice()
+    .sort((a, b) => (b.data || "").localeCompare(a.data || ""));
+  if(events.length === 0){
+    return `<div class="ore-empty">Nessun giorno con eventi.<br/>Tocca "+ Aggiungi evento" per inserirne uno.</div>`;
+  }
+  // Group by date (multiple events same day get listed together)
+  const byDate = {};
+  for(const e of events){ (byDate[e.data] = byDate[e.data] || []).push(e); }
+  const dates = Object.keys(byDate).sort((a, b) => b.localeCompare(a));
+  return `<div class="ore-day-list">${dates.map(d => {
+    const evs = byDate[d];
+    const totalH = evs.reduce((s, e) => s + eventHours(e), 0);
+    const times = evs.map(e => `${escapeHtml(e.inizio)}–${escapeHtml(e.fine)}`).join(" · ");
+    const note = evs.map(e => e.nota).filter(Boolean).join(" / ");
+    return `<div class="ore-day-row" data-date="${escapeHtml(d)}">
+      <div class="odr-date">${formatItalianDateLong(d)}</div>
+      <div class="odr-mid">
+        <div class="odr-times">${times}</div>
+        ${note ? `<div class="odr-note">${escapeHtml(note)}</div>` : ""}
+      </div>
+      <div class="odr-hours">${hStr(totalH)}</div>
+    </div>`;
+  }).join("")}</div>`;
+}
+
+// Day-detail sub-view: week strip on top, events for the selected day below.
+function renderOreDayDetail(p){
+  const date = oreSelectedDate;
+  if(!date){
+    oreView = "giorni";
+    return renderOreDayList(p);
+  }
+  const events = (p.overtime || []).filter(e => e.data === date);
+  const [iy, iw] = isoWeek(date);
+
+  // Build the 7-day Mon→Sun strip around the selected date.
+  const [y, m, d] = date.split("-").map(Number);
+  const sel = new Date(y, m - 1, d);
+  const dow = (sel.getDay() + 6) % 7; // Mon = 0
+  const monday = new Date(sel);
+  monday.setDate(sel.getDate() - dow);
+  const names = ["L","M","M","G","V","S","D"];
+  const wd = p.settings.workdays || [1,2,3,4,5];
+  const eventDates = new Set((p.overtime || []).map(e => e.data));
+
+  const strip = [];
+  for(let i = 0; i < 7; i++){
+    const dt = new Date(monday);
+    dt.setDate(monday.getDate() + i);
+    const ds = `${dt.getFullYear()}-${String(dt.getMonth()+1).padStart(2,"0")}-${String(dt.getDate()).padStart(2,"0")}`;
+    const isWeekend = !wd.includes(i + 1);
+    const hasEv = eventDates.has(ds);
+    const isSel = ds === date;
+    strip.push(`<button class="dws-day${isSel ? " selected" : ""}${isWeekend ? " weekend" : ""}${hasEv ? " has-events" : ""}" data-date="${ds}" type="button">
+      <span class="dws-name">${names[i]}</span>
+      <span class="dws-num">${dt.getDate()}</span>
+    </button>`);
+  }
+
+  const dayDate = formatItalianDateLong(date);
+  let eventsHtml;
+  if(events.length === 0){
+    eventsHtml = `<div class="ore-empty">Nessun evento registrato.</div>
+      <button class="btn full" id="dd-add" type="button" style="margin-top:10px">+ Aggiungi evento qui</button>`;
+  } else {
+    eventsHtml = events.map(e => `
+      <div class="dd-event" data-id="${escapeHtml(e.id)}">
+        <div class="dd-event-times">${escapeHtml(e.inizio)} → ${escapeHtml(e.fine)}${e.pausa ? ` · pausa ${escapeHtml(e.pausa)}` : ""}</div>
+        ${e.nota ? `<div class="dd-event-note">${escapeHtml(e.nota)}</div>` : ""}
+        <div class="dd-event-hours">${hStr(eventHours(e))}</div>
+      </div>`).join("") + `<button class="btn secondary full" id="dd-add" type="button" style="margin-top:12px">+ Aggiungi un altro evento</button>`;
+  }
+
+  return `
+    <button class="ore-back-btn" data-action="back-giorni" type="button">‹ Giorni</button>
+    <div class="dd-week-strip">${strip.join("")}</div>
+    <div class="dd-week-info">Settimana ${iw}</div>
+    <div class="dd-day-title">${dayDate}</div>
+    <div class="dd-events">${eventsHtml}</div>
+  `;
+}
+
+function formatItalianDateLong(yyyymmdd){
+  if(!yyyymmdd) return "";
+  const [y, m, d] = yyyymmdd.split("-").map(Number);
+  if(!y || !m || !d) return yyyymmdd;
+  const dt = new Date(y, m-1, d);
+  const dayNames = ["domenica","lunedì","martedì","mercoledì","giovedì","venerdì","sabato"];
+  return `${dayNames[dt.getDay()]} ${d} ${MONTHS_IT[m-1].toLowerCase()} ${y}`;
+}
+
+function wireOrePage(){
+  // Granularity switcher → always jumps to top-level view of that tab.
+  $$(".ore-switcher button").forEach(btn => {
+    btn.onclick = () => { oreView = btn.dataset.view; renderPageOre(); };
+  });
+  // Period picker (year/month).
+  // Scope to #main-ore so we don't clobber the stipendio's own year-picker.
+  $$("#main-ore .year-picker button[data-action]").forEach(btn => {
+    const a = btn.dataset.action;
+    btn.onclick = () => {
+      if(a === "year-prev") oreYear--;
+      else if(a === "year-next") oreYear++;
+      else if(a === "month-prev"){ oreMonthIdx--; if(oreMonthIdx < 0){ oreMonthIdx = 11; oreYear--; } }
+      else if(a === "month-next"){ oreMonthIdx++; if(oreMonthIdx > 11){ oreMonthIdx = 0; oreYear++; } }
+      renderPageOre();
+    };
+  });
+  // Drill-downs.
+  $$(".ore-year-row").forEach(r => {
+    r.onclick = () => { oreYear = Number(r.dataset.y); oreView = "mesi"; renderPageOre(); };
+  });
+  $$(".ore-month-card").forEach(c => {
+    c.onclick = () => { oreMonthIdx = Number(c.dataset.m0); oreView = "calendar"; renderPageOre(); };
+  });
+  $$(".ore-week-row").forEach(r => {
+    r.onclick = () => {
+      const iw = Number(r.dataset.iw);
+      const d = isoWeekToDate(oreYear, iw);
+      if(d){ oreYear = d.getFullYear(); oreMonthIdx = d.getMonth(); oreView = "calendar"; renderPageOre(); }
+    };
+  });
+  // Click a day row (Giorni list) → daydetail.
+  $$(".ore-day-row").forEach(r => {
+    r.onclick = () => {
+      oreSelectedDate = r.dataset.date;
+      oreDayDetailFrom = "giorni";
+      oreView = "daydetail";
+      renderPageOre();
+    };
+  });
+  // Click a calendar cell → daydetail.
+  $$(".ore-cal .cal-c").forEach(cell => {
+    cell.onclick = () => {
+      const date = cell.dataset.date;
+      if(!date) return;
+      oreSelectedDate = date;
+      oreDayDetailFrom = "calendar";
+      oreView = "daydetail";
+      renderPageOre();
+    };
+  });
+  // Day-detail week strip — switches selected date.
+  $$(".dd-week-strip .dws-day").forEach(b => {
+    b.onclick = () => { oreSelectedDate = b.dataset.date; renderPageOre(); };
+  });
+  // Day-detail event click → open edit form.
+  $$(".dd-event").forEach(ev => {
+    ev.onclick = () => openOvertimeForm(ev.dataset.id);
+  });
+  // Calendar summary override input.
+  const omsOv = $("#oms-override");
+  if(omsOv) omsOv.onchange = () => {
+    const p = activeProfile();
+    if(!p) return;
+    const md = ensureYear(p, oreYear)[oreMonthIdx + 1];
+    const v = omsOv.value === "" ? null : Math.min(744, Math.max(0, Number(omsOv.value) || 0));
+    md.overtime.hoursOverride = v;
+    saveStore();
+    renderPageOre();
+  };
+  // Day-detail "add event for this day" button.
+  const ddAdd = $("#dd-add");
+  if(ddAdd) ddAdd.onclick = () => {
+    openOvertimeForm(null);
+    setTimeout(() => { const inp = $("#ot-data"); if(inp && oreSelectedDate) inp.value = oreSelectedDate; }, 30);
+  };
+  // Back buttons.
+  $$(".ore-back-btn").forEach(b => {
+    b.onclick = () => {
+      const a = b.dataset.action;
+      if(a === "back-mesi"){ oreView = "mesi"; renderPageOre(); }
+      else if(a === "back-giorni"){
+        oreView = oreDayDetailFrom === "calendar" ? "calendar" : "giorni";
+        renderPageOre();
+      }
+    };
+  });
+  const addBtn = $("#btn-ot-add");
+  if(addBtn) addBtn.onclick = () => openOvertimeForm(null);
+
+}
+
+// Static handler for the ore file picker (input lives outside the rebuilt
+// page, so wire it once at startup).
+$("#ore-file-import").onchange = (e) => {
+  const file = e.target.files && e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = async () => {
+    try {
+      const events = parseCsvOre(reader.result);
+      await applyOreImport(events, `dal file "${file.name}"`);
+    } catch(err){
+      showAlert("Il file non è un CSV ore valido.\n\n" + err.message);
+    }
+  };
+  reader.onerror = () => showAlert("Impossibile leggere il file.");
+  reader.readAsText(file, "UTF-8");
+  e.target.value = "";
+};
+
+function isoWeekToDate(year, week){
+  // Returns a JS Date set to the Thursday of the given ISO week (in local time).
+  const jan4 = new Date(Date.UTC(year, 0, 4));
+  const dow = (jan4.getUTCDay() + 6) % 7; // Mon = 0
+  const mondayOfWeek1 = new Date(jan4);
+  mondayOfWeek1.setUTCDate(jan4.getUTCDate() - dow);
+  const thursday = new Date(mondayOfWeek1);
+  thursday.setUTCDate(mondayOfWeek1.getUTCDate() + (week - 1) * 7 + 3);
+  return new Date(thursday.getUTCFullYear(), thursday.getUTCMonth(), thursday.getUTCDate());
+}
+
+function renderCalendar(year, m0, events, workdays){
+  const wd = (workdays && workdays.length) ? workdays : [1,2,3,4,5];
+  const firstDay = new Date(year, m0, 1);
+  const lastDate = new Date(year, m0 + 1, 0).getDate();
+  const startOffset = (firstDay.getDay() + 6) % 7; // 0 = Mon
+  const mm = String(m0 + 1).padStart(2, "0");
+  const todayStr = new Date().toISOString().slice(0, 10);
+
+  const eventDates = new Set();
+  for(const e of (events || [])){
+    if(e.data && e.data.startsWith(`${year}-${mm}-`)) eventDates.add(e.data);
+  }
+
+  const headers = ["Lun","Mar","Mer","Gio","Ven","Sab","Dom"];
+  const headerRow = headers.map((h, i) =>
+    `<div class="cal-h${i >= 5 ? " weekend" : ""}">${h}</div>`).join("");
+
+  // Place the first day with grid-column-start so empty pre-month cells
+  // aren't needed at all. Empty `aspect-ratio: 1` placeholders were breaking
+  // the first row's height by collapsing to 0 height in some browsers.
+  let cells = "";
+  for(let d = 1; d <= lastDate; d++){
+    const dd = String(d).padStart(2, "0");
+    const dateStr = `${year}-${mm}-${dd}`;
+    const dow = isoDayOfWeek(dateStr);
+    const isWork = wd.includes(dow);
+    const cls = ["cal-c"];
+    if(!isWork) cls.push("weekend");
+    if(eventDates.has(dateStr)) cls.push("has-events");
+    if(dateStr === todayStr) cls.push("today");
+    const style = (d === 1 && startOffset > 0) ? ` style="grid-column-start: ${startOffset + 1}"` : "";
+    cells += `<div class="${cls.join(" ")}" data-date="${dateStr}"${style}>${d}</div>`;
+  }
+
+  return `<div class="ore-cal">
+    <div class="cal-table">${headerRow}${cells}</div>
+  </div>`;
+}
+
+function formatItalianDate(yyyymmdd){
+  if(!yyyymmdd) return "";
+  const [y, m, d] = yyyymmdd.split("-").map(Number);
+  if(!y || !m || !d) return yyyymmdd;
+  return `${d} ${MONTHS_IT[m-1].slice(0,3).toLowerCase()} ${y}`;
+}
+
+/* ----- Overtime event form ----- */
+let editingEventId = null;
+function openOvertimeForm(eventId){
+  const p = activeProfile();
+  if(!p) return;
+  editingEventId = eventId;
+  $("#ot-event-title").textContent = eventId ? "Modifica evento" : "Nuovo evento";
+  $("#btn-ot-delete").style.display = eventId ? "" : "none";
+  if(eventId){
+    const ev = (p.overtime || []).find(e => e.id === eventId);
+    if(!ev){ editingEventId = null; return; }
+    $("#ot-data").value = ev.data || "";
+    $("#ot-inizio").value = ev.inizio || "";
+    $("#ot-fine").value = ev.fine || "";
+    $("#ot-pausa").value = ev.pausa || "";
+    $("#ot-nota").value = ev.nota || "";
+  } else {
+    $("#ot-data").value = new Date().toISOString().slice(0, 10);
+    $("#ot-inizio").value = "";
+    $("#ot-fine").value = "";
+    $("#ot-pausa").value = "";
+    $("#ot-nota").value = "";
+  }
+  updateOvertimePreview();
+  openSheet("ot-event-sheet");
+}
+function updateOvertimePreview(){
+  const e = { inizio: $("#ot-inizio").value, fine: $("#ot-fine").value, pausa: $("#ot-pausa").value };
+  const h = eventHours(e);
+  $("#ot-hours-preview").textContent = h > 0 ? `Durata: ${h.toFixed(2).replace(".", ",")} h` : "Inserisci ora inizio e fine per vedere la durata.";
+}
+["ot-inizio","ot-fine","ot-pausa"].forEach(id => {
+  $("#" + id).oninput = updateOvertimePreview;
+});
+$("#btn-ot-save").onclick = () => {
+  const p = activeProfile();
+  if(!p) return;
+  const data = $("#ot-data").value;
+  const inizio = $("#ot-inizio").value;
+  const fine = $("#ot-fine").value;
+  if(!data){ showAlert("Manca la data"); $("#ot-data").focus(); return; }
+  if(!inizio || !fine){ showAlert("Inserisci ora di inizio e fine"); return; }
+  const startM = parseHHMM(inizio), endM = parseHHMM(fine);
+  if(startM == null || endM == null){ showAlert("Orari non validi"); return; }
+  if(endM <= startM){ showAlert("L'ora di fine deve essere dopo l'ora di inizio.\n\nGli eventi a cavallo della mezzanotte non sono supportati: registra due eventi separati."); return; }
+  if(!Array.isArray(p.overtime)) p.overtime = [];
+  if(editingEventId){
+    const ev = p.overtime.find(e => e.id === editingEventId);
+    if(ev){
+      ev.data = data; ev.inizio = inizio; ev.fine = fine;
+      ev.pausa = $("#ot-pausa").value || "";
+      ev.nota = ($("#ot-nota").value || "").trim();
+    }
+  } else {
+    p.overtime.push({
+      id: genEventId(),
+      data, inizio, fine,
+      pausa: $("#ot-pausa").value || "",
+      nota: ($("#ot-nota").value || "").trim(),
+    });
+  }
+  editingEventId = null;
+  saveStore();
+  closeSheets();
+  render();
+  toast("Evento salvato");
+};
+$("#btn-ot-delete").onclick = async () => {
+  if(!editingEventId) return;
+  const ok = await showConfirm("Eliminare questo evento?", { okLabel: "Elimina", danger: true });
+  if(!ok) return;
+  const p = activeProfile();
+  if(p && Array.isArray(p.overtime)){
+    p.overtime = p.overtime.filter(e => e.id !== editingEventId);
+  }
+  editingEventId = null;
+  saveStore();
+  closeSheets();
+  render();
+  toast("Evento eliminato");
+};
+
+// Tab bar wiring.
+$$(".tabbar .tab").forEach(btn => {
+  btn.onclick = () => switchTab(btn.dataset.tab);
+});
+
+// Click outside the open month card → close it.
+// Preserve clicks inside months, sheets, modals, topbar, tabbar, year picker.
+document.addEventListener("click", (e) => {
+  if(currentTab !== "stipendio") return;
+  if(openMonthIdx == null) return;
+  if(!e.target || !e.target.closest) return;
+  if(e.target.closest(".month, .sheet, .confirm-overlay, .scrim, .topbar, .tabbar, .year-picker")) return;
+  if($$(".sheet.show").length > 0) return;
+  openMonthIdx = null;
+  render();
+});
+
+function renderTopBar(){
+  // Ensure the (single) profile pointer is valid even if older multi-profile
+  // data still lives in localStorage. We keep the first profile and ignore
+  // any others; UI for switching/adding has been removed.
+  const ids = Object.keys(store.profiles || {});
+  if(ids.length === 0) return;
+  if(!store.activeProfile || !store.profiles[store.activeProfile]){
+    store.activeProfile = ids[0];
+    saveStore();
+  }
+}
+
+/* Utility — split eur formatted string into integer and cents parts */
+function splitEur(amount){
+  const parts = fmtEUR.formatToParts(Number(amount) || 0);
+  let intPart = "", fracPart = "", currency = "";
+  let inFrac = false;
+  for(const p of parts){
+    if(p.type === "currency") currency = p.value;
+    else if(p.type === "decimal") inFrac = true;
+    else if(p.type === "fraction") fracPart = p.value;
+    else if(!inFrac && (p.type === "integer" || p.type === "group")) intPart += p.value;
+    else if(p.type === "minusSign") intPart = p.value + intPart;
+  }
+  return { currency, intPart, fracPart };
+}
+
+function renderMain(){
+  const main = $("#main");
+  const p = activeProfile();
+  if(!p){
+    // The whole card is a click target — no fragile button to fight with.
+    main.innerHTML = `
+      <div class="empty" id="empty-card" role="button" tabindex="0" aria-label="Crea il mio profilo">
+        <h2><span class="empty-greet">Ciao,</span><br/>iniziamo a contare.</h2>
+        <p>Tocca qui (o premi Invio) per inserire le tue cifre. Da subito vedrai cosa hai ricevuto e cosa ancora ti spetta.</p>
+        <span class="empty-cta">+ Crea il mio profilo</span>
+      </div>
+    `;
+    // Wire it every way possible. Any one of these is enough.
+    const card = $("#empty-card");
+    if(card){
+      card.onclick = openNewProfile;
+      card.addEventListener("click", openNewProfile);
+      card.addEventListener("keydown", (e) => {
+        if(e.key === "Enter" || e.key === " "){ e.preventDefault(); openNewProfile(); }
+      });
+    }
+    return;
+  }
+
+  const year = store.currentYear;
+  const totals = computeYearTotals(p, year);
+  const today = new Date();
+  const isCurrentYear = today.getFullYear() === Number(year);
+
+  const heroAmount = totals.missing;
+  const heroClass = heroAmount > 0 ? "danger" : (totals.received > 0 ? "ok" : "");
+  const split = splitEur(heroAmount);
+
+  let heroSub;
+  if(heroAmount > 0){
+    heroSub = `Importo che ti spettava entro ${isCurrentYear ? MONTHS_IT[today.getMonth()].toLowerCase() : "fine anno"} ${year}, ma che non è ancora arrivato.`;
+  } else if(totals.received > 0){
+    heroSub = "Tutto in ordine. Hai ricevuto fino all'ultimo centesimo che ti spettava.";
+  } else {
+    heroSub = "Configura le tue cifre dalle impostazioni e poi marca i mesi qui sotto.";
+  }
+
+  const greet = (() => {
+    const h = today.getHours();
+    if(h < 6) return "buona notte";
+    if(h < 12) return "buongiorno";
+    if(h < 19) return "buon pomeriggio";
+    return "buonasera";
+  })();
+
+  const html = `
+    <div class="hero">
+      <div class="hero-greeting">
+        <span class="salute">${greet},</span>
+        <span>${escapeHtml(p.name)}.</span>
+      </div>
+      <div class="hero-amount ${heroClass}">${split.currency} ${split.intPart}<span class="cents">,${split.fracPart}</span></div>
+      <div class="hero-sub">${heroSub}</div>
+      <div class="hero-tagline">${escapeHtml(pickStipTagline())}</div>
+      <div class="hero-stats">
+        <div class="hero-stat ok">
+          <div class="k">Incassato</div>
+          <div class="v">${eur(totals.received)}</div>
+        </div>
+        <div class="hero-stat">
+          <div class="k">Atteso ${year}</div>
+          <div class="v">${eur(totals.expected)}</div>
+        </div>
+        <div class="hero-stat ${totals.missing > 0 ? 'danger' : 'ok'}">
+          <div class="k">Mancante</div>
+          <div class="v">${eur(totals.missing)}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head">
+      <div class="section-title">L'anno</div>
+      <div class="year-picker">
+        <button id="y-prev" aria-label="Anno precedente">‹</button>
+        <span class="y">${year}</span>
+        <button id="y-next" aria-label="Anno successivo">›</button>
+      </div>
+    </div>
+
+    <div class="legend">
+      <span><span class="dot ok"></span>ricevuto</span>
+      <span><span class="dot miss"></span>da ricevere</span>
+      <span><span class="dot na"></span>non spetta</span>
+    </div>
+
+    <div class="months">
+      ${[...Array(12)].map((_,m0) => renderMonthCard(p, year, m0)).join("")}
+    </div>
+
+    <details style="margin-top:22px">
+      <summary>Riepilogo per voce — ${year}</summary>
+      <div class="recap">
+        ${COMPONENTS.map(c => {
+          const t = totals.perComponent[c.key];
+          const cls = t.missing > 0 ? 'danger' : (t.received > 0 ? 'ok' : 'dim');
+          return `<div class="comp">
+            <div class="comp-icon">${c.icon}</div>
+            <div class="comp-info">
+              <div class="comp-name">${c.label}</div>
+              <div class="comp-detail">Ricevuto ${eur(t.received)} di ${eur(t.expected)}</div>
+            </div>
+            <div class="comp-amount ${cls}">${eur(t.missing)}</div>
+          </div>`;
+        }).join("")}
+      </div>
+    </details>
+
+    <div class="help">
+      <strong>Come funziona.</strong> Per ogni voce premi
+      <span class="pip-ok"></span> se l'hai ricevuta,
+      <span class="pip-miss"></span> se ti spettava ma non è ancora arrivata,
+      <span class="pip-na"></span> se quel mese non ti spetta.
+      I buoni pasto si calcolano in automatico sui giorni lavorativi italiani —
+      tocca il numero per sovrascriverlo (ferie, malattia, smart working).
+      Per bonus e rimborsi inserisci l'importo previsto del mese.
+    </div>
+
+    <div class="signature">contato a mano</div>
+  `;
+
+  main.innerHTML = html;
+
+  /* ----- Event wiring ----- */
+  $("#y-prev").onclick = () => { store.currentYear--; saveStore(); render(); };
+  $("#y-next").onclick = () => { store.currentYear++; saveStore(); render(); };
+
+  $$(".month-head").forEach(el => {
+    el.onclick = () => {
+      const m0 = Number(el.parentElement.dataset.m0);
+      // Accordion-style: clicking the open month closes it; clicking another switches.
+      openMonthIdx = (openMonthIdx === m0) ? null : m0;
+      render();
+    };
+  });
+  $$(".tri button").forEach(btn => {
+    btn.onclick = (e) => {
+      e.stopPropagation();
+      const m0 = Number(btn.closest("[data-m0]").dataset.m0);
+      const ckey = btn.closest("[data-ckey]").dataset.ckey;
+      const newState = btn.dataset.state;
+      const profile = activeProfile();
+      const data = ensureYear(profile, store.currentYear)[m0+1];
+      data[ckey].state = newState;
+      saveStore();
+      render();
+    };
+  });
+  $$(".days-input").forEach(inp => {
+    inp.onclick = e => e.stopPropagation();
+    inp.onchange = () => {
+      const m0 = Number(inp.closest("[data-m0]").dataset.m0);
+      const profile = activeProfile();
+      const data = ensureYear(profile, store.currentYear)[m0+1];
+      const v = inp.value === "" ? null : Math.max(0, Math.min(31, Number(inp.value)));
+      data.ticket.days = v;
+      saveStore();
+      render();
+    };
+  });
+  $$(".amount-input").forEach(inp => {
+    inp.onclick = e => e.stopPropagation();
+    inp.onchange = () => {
+      const m0 = Number(inp.closest("[data-m0]").dataset.m0);
+      const ckey = inp.dataset.ckey;
+      const profile = activeProfile();
+      const data = ensureYear(profile, store.currentYear)[m0+1];
+      // Salary and 13a/14a/15a use `null` as sentinel ("inherit from base").
+      // Bonus/refund use `0` ("explicitly nothing").
+      const isSalaryLike = ckey === "salary" || ckey === "salary13" || ckey === "salary14" || ckey === "salary15";
+      if(inp.value === ""){
+        data[ckey].amount = isSalaryLike ? null : 0;
+      } else {
+        data[ckey].amount = Math.min(1_000_000, Math.max(0, Number(inp.value) || 0));
+      }
+      saveStore();
+      render();
+    };
+  });
+  $$(".overtime-hours-input").forEach(inp => {
+    inp.onclick = e => e.stopPropagation();
+    inp.onchange = () => {
+      const m0 = Number(inp.closest("[data-m0]").dataset.m0);
+      const profile = activeProfile();
+      const data = ensureYear(profile, store.currentYear)[m0+1];
+      data.overtime.hoursOverride = inp.value === "" ? null : Math.min(744, Math.max(0, Number(inp.value) || 0));
+      saveStore();
+      render();
+    };
+  });
+}
+
+function renderMonthCard(profile, year, m0){
+  const data = ensureYear(profile, year)[m0+1];
+  const status = monthStatus(profile, year, m0);
+  const today = new Date();
+  const isCurrent = today.getFullYear() === Number(year) && today.getMonth() === m0;
+
+  // Extra-salary voices (13a/14a/15a) only show up in their dedicated month
+  // and only when the profile's mensilità count enables them.
+  const visibleComponents = COMPONENTS.filter(c => extraSalaryApplies(c, profile.settings, m0));
+
+  const compRows = visibleComponents.map(c => {
+    const cell = data[c.key];
+    const exp = expectedAmountFor(profile, year, m0, c.key);
+    const tri = ["received","missing","not_expected"].map(s => {
+      const sel = cell.state === s ? "on" : "";
+      const sym = s === "received" ? "✓" : s === "missing" ? "!" : "—";
+      const aria = s === "received" ? "Ricevuto" : s === "missing" ? "Mancante" : "Non spettato";
+      return `<button class="${sel}" data-state="${s}" aria-label="${aria}">${sym}</button>`;
+    }).join("");
+
+    let detail = "";
+    if(c.key === "fringe"){
+      const isFringeMonth = (m0+1) === Number(profile.settings.fringeMonth);
+      detail = isFringeMonth ? `${eur(profile.settings.fringe)}` : `pagato a ${(MONTHS_IT[Number(profile.settings.fringeMonth)-1] || "Dicembre").toLowerCase()}`;
+    } else if(c.key === "ticket"){
+      const auto = workingDaysInMonth(year, m0);
+      const days = (cell.days != null && cell.days !== "") ? cell.days : auto;
+      const w = inputWidthStyle(days, auto, 3);
+      detail = `${eur(profile.settings.ticketPerDay)} × <input type="number" class="days-input" min="0" max="31" value="${days}" placeholder="${auto}" ${w} /> giorni`;
+    } else if(c.key === "bonus" || c.key === "refund"){
+      const w = inputWidthStyle(cell.amount || "", "0,00", 4);
+      detail = `<input type="number" class="amount-input" data-ckey="${c.key}" min="0" step="0.01" value="${cell.amount || ""}" placeholder="0,00" ${w} /> €`;
+    } else if(c.key === "salary"){
+      // Editable per-month override. Empty = use settings.salary as default.
+      const defaultStr = (profile.settings.salary || 0).toFixed(2).replace(".", ",");
+      const val = cell.amount != null ? cell.amount : "";
+      const w = inputWidthStyle(val, defaultStr, 4);
+      detail = `<input type="number" class="amount-input" data-ckey="salary" min="0" step="0.01" value="${val}" placeholder="${defaultStr}" ${w} /> €`;
+    }
+    else if(c.extraSalary){
+      // 13a/14a/15a — editable per-month override. Empty input falls back to
+      // the salary base for this month (monthly override or settings.salary).
+      const fallback = data.salary.amount != null ? Number(data.salary.amount) : (profile.settings.salary || 0);
+      const defaultStr = fallback.toFixed(2).replace(".", ",");
+      const val = cell.amount != null ? cell.amount : "";
+      const w = inputWidthStyle(val, defaultStr, 4);
+      detail = `<input type="number" class="amount-input" data-ckey="${c.key}" min="0" step="0.01" value="${val}" placeholder="${defaultStr}" ${w} /> €`;
+    }
+    else if(c.key === "welfare"){ detail = `${eur(profile.settings.welfare)}`; }
+    else if(c.key === "overtime"){
+      const gross = grossHoursForMonth(profile.overtime || [], year, m0);
+      const autoPaid = paidHoursForMonth(profile.overtime || [], year, m0, profile.settings.forfaitOreSett, profile.settings.workdays, profile.settings.oreContrattoSett);
+      const overrideVal = cell.hoursOverride != null ? cell.hoursOverride : "";
+      const tariffaStr = (profile.settings.tariffaOraStraord || 0).toFixed(2).replace(".", ",");
+      const grossStr = gross.toFixed(1).replace(".", ",");
+      const autoStr = autoPaid.toFixed(1).replace(".", ",");
+      const w = inputWidthStyle(overrideVal, autoStr, 3);
+      detail = `${grossStr}h lavorate · <input type="number" class="overtime-hours-input" min="0" max="744" step="0.25" value="${overrideVal}" placeholder="${autoStr}" ${w} /> h × ${tariffaStr}€`;
+    }
+
+    let amountClass = "dim";
+    if(cell.state === "received") amountClass = "ok";
+    else if(cell.state === "missing" && (status.isPast || status.isCurrent)) amountClass = "danger";
+
+    // When the voice is not expected for this month, leave the amount blank
+    // (no "—" placeholder) — keeps the row clean and reduces visual noise on
+    // mobile where space is tight.
+    let amountStr;
+    if(cell.state === "not_expected") amountStr = "";
+    else amountStr = eur(exp);
+
+    return `
+      <div class="comp" data-ckey="${c.key}">
+        <div class="comp-icon">${c.icon}</div>
+        <div class="comp-info">
+          <div class="comp-name">${c.label}</div>
+          <div class="comp-detail">${detail}</div>
+        </div>
+        <div class="comp-amount ${amountClass}">${amountStr}</div>
+        <div class="tri" role="group" aria-label="Stato ${c.label}">${tri}</div>
+      </div>
+    `;
+  }).join("");
+
+  const isOpen = (m0 === openMonthIdx);
+  return `
+    <div class="month ${isCurrent ? 'current' : ''} ${isOpen ? 'open' : ''}" data-m0="${m0}">
+      <div class="month-head">
+        <div class="month-name">${MONTHS_IT[m0]}</div>
+        <div class="month-status ${status.cls}">${status.label}</div>
+        <div class="month-chevron">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </div>
+      <div class="month-body">${compRows}</div>
+    </div>
+  `;
+}
+
+/* ============================================================ *
+ *  Sheets
+ * ============================================================ */
+function openSheet(id){
+  // Close any other sheet first — equal z-index + DOM order would otherwise
+  // leave the newly opened sheet stacked behind a still-visible one.
+  $$(".sheet").forEach(s => { if(s.id !== id) s.classList.remove("show"); });
+  $("#scrim").classList.add("show");
+  $("#" + id).classList.add("show");
+  document.body.classList.add("modal-open");
+}
+function closeSheets(){
+  $("#scrim").classList.remove("show");
+  $$(".sheet").forEach(s => s.classList.remove("show"));
+  document.body.classList.remove("modal-open");
+}
+$("#scrim").onclick = closeSheets;
+$$("[data-close-sheet]").forEach(b => b.onclick = closeSheets);
+
+// Wheel over a focused number input would change its value instead of scrolling
+// the sheet body. Blur the input so the wheel scrolls the parent scroll container.
+document.addEventListener("wheel", () => {
+  const a = document.activeElement;
+  if(a && a.tagName === "INPUT" && a.type === "number") a.blur();
+}, { passive: true });
+
+function openNewProfile(){
+  try {
+    const set = (id, v) => { const el = $("#" + id); if(el) el.value = v; };
+    set("np-name", "");
+    set("np-salary", "");
+    set("np-mensilita", "12");
+    set("np-welfare", 400);
+    set("np-ticket", 10);
+    set("np-fringe", 1000);
+    set("np-bonus", 0);
+    set("np-contratto", 40);
+    set("np-forfait", 0);
+    set("np-tariffa", 0);
+    const fm = $("#np-fringe-month");
+    if(fm) fm.innerHTML = MONTHS_IT.map((m,i) =>
+      `<option value="${i+1}" ${i+1===12?"selected":""}>${m}</option>`).join("");
+    // Reset workdays to Mon-Fri.
+    $$("#np-workdays input").forEach(inp => { inp.checked = [1,2,3,4,5].includes(Number(inp.value)); });
+    openSheet("new-profile-sheet");
+    setTimeout(() => { const x = $("#np-name"); if(x) x.focus(); }, 200);
+  } catch(err){ console.error("openNewProfile failed:", err); showAlert("Errore: " + err.message); }
+}
+window.openNewProfile = openNewProfile; // global so inline onclick can reach it
+
+// Document-level event delegation — final safety net for the "Create profile"
+// empty-state card. This ensures the click handler survives any innerHTML
+// re-renders that might detach the direct onclick bound in renderMain().
+document.addEventListener("click", (e) => {
+  if(!e.target || !e.target.closest) return;
+  const trigger = e.target.closest("#empty-card, #btn-empty-create, [data-action='new-profile']");
+  if(trigger){
+    e.preventDefault();
+    openNewProfile();
+  }
+}, false);
+$("#btn-create-profile").onclick = () => {
+  const name = $("#np-name").value.trim();
+  if(!name){ toast("Manca il nome"); $("#np-name").focus(); return; }
+  const id = (name.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]/g,"") || "user")
+             + "-" + Math.random().toString(36).slice(2,6);
+  const num = (id, fallback) => {
+    const v = Number($("#" + id).value);
+    return Number.isFinite(v) ? v : fallback;
+  };
+  const clamp = (v, max) => Math.min(max, Math.max(0, Number(v) || 0));
+  const chosenWd = $$("#np-workdays input:checked").map(i => Number(i.value)).sort();
+  store.profiles[id] = {
+    name,
+    settings: {
+      ...defaultSettings(),
+      salary: clamp(num("np-salary", 0), 100_000),
+      welfare: clamp(num("np-welfare", 400), 100_000),
+      fringe: clamp(num("np-fringe", 1000), 100_000),
+      ticketPerDay: clamp(num("np-ticket", 10), 1_000),
+      defaultBonus: clamp(num("np-bonus", 0), 1_000_000),
+      mensilita: Math.min(15, Math.max(12, Number($("#np-mensilita").value) || 12)),
+      fringeMonth: Math.min(12, Math.max(1, Number($("#np-fringe-month").value) || 12)),
+      oreContrattoSett: clamp(num("np-contratto", 40), 168),
+      forfaitOreSett: clamp(num("np-forfait", 0), 100),
+      tariffaOraStraord: clamp(num("np-tariffa", 0), 1_000),
+      workdays: chosenWd.length ? chosenWd : [1,2,3,4,5],
+    },
+    years: {},
+    overtime: [],
+  };
+  store.activeProfile = id;
+  saveStore();
+  closeSheets();
+  // Open current month by default for the new profile
+  const today = new Date();
+  if(today.getFullYear() === Number(store.currentYear)){
+    openMonthIdx = today.getMonth();
+  }
+  render();
+  toast("Profilo creato");
+};
+
+/* Settings */
+$("#btn-settings").onclick = () => {
+  const p = activeProfile();
+  if(!p){ openNewProfile(); return; }
+  $("#set-name").value = p.name;
+  $("#set-salary").value = p.settings.salary;
+  $("#set-welfare").value = p.settings.welfare;
+  $("#set-fringe").value = p.settings.fringe;
+  $("#set-ticket").value = p.settings.ticketPerDay;
+  $("#set-bonus").value = p.settings.defaultBonus || 0;
+  $("#set-mensilita").value = String(Math.min(15, Math.max(12, Number(p.settings.mensilita) || 12)));
+  $("#set-contratto").value = p.settings.oreContrattoSett != null ? p.settings.oreContrattoSett : 40;
+  $("#set-forfait").value = p.settings.forfaitOreSett != null ? p.settings.forfaitOreSett : 0;
+  $("#set-tariffa").value = p.settings.tariffaOraStraord || 0;
+  const wd = Array.isArray(p.settings.workdays) ? p.settings.workdays : [1,2,3,4,5];
+  $$("#set-workdays input").forEach(inp => { inp.checked = wd.includes(Number(inp.value)); });
+  $("#set-fringe-month").innerHTML = MONTHS_IT.map((m,i) =>
+    `<option value="${i+1}" ${i+1===Number(p.settings.fringeMonth)?"selected":""}>${m}</option>`).join("");
+  refreshBackupStats();
+  refreshSyncSection();
+  openSheet("settings-sheet");
+};
+$("#btn-save-settings").onclick = () => {
+  const p = activeProfile();
+  if(!p) return;
+  const clamp = (v, max) => Math.min(max, Math.max(0, Number(v) || 0));
+  p.name = $("#set-name").value.trim() || p.name;
+  p.settings.salary = clamp($("#set-salary").value, 100_000);
+  p.settings.welfare = clamp($("#set-welfare").value, 100_000);
+  p.settings.fringe = clamp($("#set-fringe").value, 100_000);
+  p.settings.ticketPerDay = clamp($("#set-ticket").value, 1_000);
+  p.settings.defaultBonus = clamp($("#set-bonus").value, 1_000_000);
+  p.settings.mensilita = Math.min(15, Math.max(12, Number($("#set-mensilita").value) || 12));
+  p.settings.oreContrattoSett = clamp($("#set-contratto").value, 168);
+  p.settings.forfaitOreSett = clamp($("#set-forfait").value, 100);
+  p.settings.tariffaOraStraord = clamp($("#set-tariffa").value, 1_000);
+  const chosen = $$("#set-workdays input:checked").map(i => Number(i.value)).sort();
+  p.settings.workdays = chosen.length ? chosen : [1,2,3,4,5];
+  p.settings.fringeMonth = Math.min(12, Math.max(1, Number($("#set-fringe-month").value) || 12));
+  saveStore();
+  closeSheets();
+  render();
+  toast("Impostazioni salvate");
+};
+$("#btn-delete-profile").onclick = async () => {
+  const p = activeProfile();
+  if(!p) return;
+  const ok = await showConfirm(
+    `Verranno cancellati tutti i mesi, le impostazioni e gli straordinari. Questa azione non è reversibile.`,
+    { title: "Azzerare i dati?", okLabel: "Azzera", danger: true }
+  );
+  if(!ok) return;
+  store.profiles = {};
+  store.activeProfile = null;
+  saveStore();
+  closeSheets();
+  render();
+  toast("Dati azzerati");
+};
+
+/* ============================================================ *
+ *  Backup & sync — file + clipboard, with iOS Safari fallback
+ * ============================================================ */
+
+function backupStatsText(){
+  const nProfiles = Object.keys(store.profiles || {}).length;
+  const stamp = new Date().toLocaleDateString("it-IT", { day:"numeric", month:"short", year:"numeric" });
+  return `${nProfiles} profil${nProfiles === 1 ? "o" : "i"} · aggiornato al ${stamp}`;
+}
+
+function refreshBackupStats(){
+  const el = $("#backup-stats");
+  if(el) el.textContent = backupStatsText();
+}
+
+/* ============================================================ *
+ *  CSV backup — sectioned format, Italian conventions
+ *
+ *  Format (UTF-8 with BOM, separator ";", decimal ","):
+ *
+ *    # SETTINGS
+ *    profilo;stipendio;welfare;fringe;mese_fringe;ticket_giorno;bonus_default
+ *    Massimo;2800,00;400,00;1000,00;12;10,00;0,00
+ *
+ *    # MESI
+ *    profilo;anno;mese;stipendio;welfare;ticket_stato;ticket_giorni;fringe;bonus_stato;bonus_importo;rimborso_stato;rimborso_importo
+ *    Massimo;2026;1;ricevuto;ricevuto;ricevuto;;non_atteso;non_atteso;0,00;non_atteso;0,00
+ *
+ *  States in CSV: ricevuto / mancante / non_atteso (mapped to/from
+ *  received / missing / not_expected internally).
+ * ============================================================ */
+
+const STATE_TO_IT = { received: "ricevuto", missing: "mancante", not_expected: "non_atteso" };
+const STATE_FROM_IT = { ricevuto: "received", mancante: "missing", non_atteso: "not_expected" };
+const CSV_SEP = ";";
+const SETTINGS_COLS = ["profilo","stipendio","welfare","fringe","mese_fringe","ticket_giorno","bonus_default","forfait_settimana","tariffa_ora","giorni_lavorativi","contratto_settimana","mensilita"];
+const MONTH_COLS = ["profilo","anno","mese","stipendio_stato","stipendio_importo","welfare","ticket_stato","ticket_giorni","fringe","bonus_stato","bonus_importo","rimborso_stato","rimborso_importo","straord_stato","straord_ore_pagare","salary13_stato","salary14_stato","salary15_stato","salary13_importo","salary14_importo","salary15_importo"];
+const STRAORD_COLS = ["profilo","data","inizio","fine","pausa","nota"];
+
+function fmtNum(n){
+  // Italian decimal, two digits, no thousands separator (avoids extra quoting)
+  return (Number(n) || 0).toFixed(2).replace(".", ",");
+}
+function parseNum(s){
+  if(s == null) return 0;
+  const t = String(s).trim().replace(/\./g, "").replace(",", ".");
+  if(t === "") return 0;
+  const n = Number(t);
+  if(!Number.isFinite(n)) throw new Error(`Numero non valido: "${s}"`);
+  return n;
+}
+function csvEscape(v){
+  if(v == null) return "";
+  const s = String(v);
+  if(s.includes(CSV_SEP) || s.includes('"') || s.includes("\n") || s.includes("\r")){
+    return '"' + s.replace(/"/g, '""') + '"';
+  }
+  return s;
+}
+function csvRow(values){ return values.map(csvEscape).join(CSV_SEP); }
+
+// Tokenize one CSV line into fields, handling quoted values with escaped quotes.
+function parseCsvLine(line){
+  const out = [];
+  let cur = "", inQuotes = false, i = 0;
+  while(i < line.length){
+    const c = line[i];
+    if(inQuotes){
+      if(c === '"' && line[i+1] === '"'){ cur += '"'; i += 2; continue; }
+      if(c === '"'){ inQuotes = false; i++; continue; }
+      cur += c; i++;
+    } else {
+      if(c === '"' && cur === ""){ inQuotes = true; i++; continue; }
+      if(c === CSV_SEP){ out.push(cur); cur = ""; i++; continue; }
+      cur += c; i++;
+    }
+  }
+  out.push(cur);
+  return out;
+}
+
+function buildCsv(storeIn){
+  const lines = [];
+  lines.push("# SETTINGS");
+  lines.push(SETTINGS_COLS.join(CSV_SEP));
+  for(const [, p] of Object.entries(storeIn.profiles || {})){
+    const s = p.settings || {};
+    const wd = (Array.isArray(s.workdays) && s.workdays.length) ? s.workdays.join(",") : "1,2,3,4,5";
+    lines.push(csvRow([
+      p.name, fmtNum(s.salary), fmtNum(s.welfare), fmtNum(s.fringe),
+      s.fringeMonth || 12, fmtNum(s.ticketPerDay), fmtNum(s.defaultBonus),
+      fmtNum(s.forfaitOreSett), fmtNum(s.tariffaOraStraord), wd,
+      fmtNum(s.oreContrattoSett != null ? s.oreContrattoSett : 40),
+      Math.min(15, Math.max(12, Number(s.mensilita) || 12)),
+    ]));
+  }
+  lines.push("");
+  lines.push("# MESI");
+  lines.push(MONTH_COLS.join(CSV_SEP));
+  for(const [, p] of Object.entries(storeIn.profiles || {})){
+    const years = p.years || {};
+    const yearKeys = Object.keys(years).map(Number).sort((a,b) => a - b);
+    for(const y of yearKeys){
+      for(let m = 1; m <= 12; m++){
+        const md = years[y] && years[y][m];
+        if(!md) continue;
+        // Skip "all default" months to keep file small
+        const allDefault = COMPONENTS.every(c => {
+          const cell = md[c.key];
+          if(!cell) return true;
+          const defState = c.expectedDefault ? "missing" : "not_expected";
+          if(cell.state !== defState) return false;
+          if(c.hasDays && cell.days != null) return false;
+          if(c.hasAmount && cell.amount) return false;
+          if(c.key === "salary" && cell.amount != null) return false;
+          if(c.extraSalary && cell.amount != null) return false;
+          if(c.key === "overtime" && cell.hoursOverride != null) return false;
+          return true;
+        });
+        if(allDefault) continue;
+        lines.push(csvRow([
+          p.name, y, m,
+          STATE_TO_IT[md.salary?.state] || "",
+          md.salary?.amount != null ? fmtNum(md.salary.amount) : "",
+          STATE_TO_IT[md.welfare?.state] || "",
+          STATE_TO_IT[md.ticket?.state] || "",
+          md.ticket?.days != null ? md.ticket.days : "",
+          STATE_TO_IT[md.fringe?.state] || "",
+          STATE_TO_IT[md.bonus?.state] || "",
+          fmtNum(md.bonus?.amount),
+          STATE_TO_IT[md.refund?.state] || "",
+          fmtNum(md.refund?.amount),
+          STATE_TO_IT[md.overtime?.state] || "",
+          md.overtime?.hoursOverride != null ? fmtNum(md.overtime.hoursOverride) : "",
+          STATE_TO_IT[md.salary13?.state] || "",
+          STATE_TO_IT[md.salary14?.state] || "",
+          STATE_TO_IT[md.salary15?.state] || "",
+          md.salary13?.amount != null ? fmtNum(md.salary13.amount) : "",
+          md.salary14?.amount != null ? fmtNum(md.salary14.amount) : "",
+          md.salary15?.amount != null ? fmtNum(md.salary15.amount) : "",
+        ]));
+      }
+    }
+  }
+  lines.push("");
+  lines.push("# STRAORDINARI");
+  lines.push(STRAORD_COLS.join(CSV_SEP));
+  for(const [, p] of Object.entries(storeIn.profiles || {})){
+    const events = (p.overtime || []).slice().sort((a, b) => (a.data || "").localeCompare(b.data || ""));
+    for(const e of events){
+      lines.push(csvRow([p.name, e.data || "", e.inizio || "", e.fine || "", e.pausa || "", e.nota || ""]));
+    }
+  }
+  return "﻿" + lines.join("\r\n") + "\r\n";
+}
+
+// Strict parse. Throws on any malformed row.
+function parseCsv(text){
+  if(text.charCodeAt(0) === 0xFEFF) text = text.slice(1);
+  const raw = text.split(/\r?\n/);
+  // Drop trailing blank lines
+  while(raw.length && raw[raw.length-1].trim() === "") raw.pop();
+
+  let section = null;
+  let header = null;
+  const settingsByName = {};
+  const monthsByName = {};
+  const overtimeByName = {};
+
+  for(let lineNo = 0; lineNo < raw.length; lineNo++){
+    const line = raw[lineNo];
+    const trimmed = line.trim();
+    if(trimmed === ""){ header = null; continue; }
+    if(trimmed.startsWith("#")){
+      const tag = trimmed.replace(/^#\s*/, "").toUpperCase();
+      if(tag === "SETTINGS"){ section = "settings"; header = null; continue; }
+      if(tag === "MESI"){ section = "months"; header = null; continue; }
+      if(tag === "STRAORDINARI"){ section = "overtime"; header = null; continue; }
+      throw new Error(`Sezione sconosciuta a riga ${lineNo+1}: "${trimmed}"`);
+    }
+    if(!section) throw new Error(`Dato fuori sezione a riga ${lineNo+1}`);
+    const fields = parseCsvLine(line);
+    if(!header){
+      header = fields.map(s => s.trim());
+      const expected = section === "settings" ? SETTINGS_COLS
+                     : section === "months"  ? MONTH_COLS
+                     : STRAORD_COLS;
+      // Backward-compatible: SETTINGS accepts older exports that are missing
+      // newer trailing columns (contratto_settimana, mensilita). The header
+      // must be a prefix of the current SETTINGS_COLS.
+      const isPrefix = header.length <= expected.length
+        && header.every((h,i) => h === expected[i]);
+      if(!isPrefix){
+        throw new Error(`Intestazione sezione ${section.toUpperCase()} non corretta a riga ${lineNo+1}.\nAttesa: ${expected.join(CSV_SEP)}\nTrovata: ${header.join(CSV_SEP)}`);
+      }
+      continue;
+    }
+    if(fields.length !== header.length){
+      throw new Error(`Numero colonne errato a riga ${lineNo+1}: ${fields.length} invece di ${header.length}`);
+    }
+    const row = Object.fromEntries(header.map((h,i) => [h, fields[i]]));
+    if(section === "settings"){
+      const name = (row.profilo || "").trim();
+      if(!name) throw new Error(`Profilo senza nome in sezione SETTINGS a riga ${lineNo+1}`);
+      const wdRaw = (row.giorni_lavorativi || "1,2,3,4,5").split(",")
+        .map(s => Number(s.trim()))
+        .filter(n => Number.isInteger(n) && n >= 1 && n <= 7);
+      const contratto = (row.contratto_settimana || "").trim();
+      const mensilita = Math.min(15, Math.max(12, Number(row.mensilita) || 12));
+      settingsByName[name] = {
+        salary: parseNum(row.stipendio),
+        welfare: parseNum(row.welfare),
+        fringe: parseNum(row.fringe),
+        fringeMonth: Math.min(12, Math.max(1, Number(row.mese_fringe) || 12)),
+        ticketPerDay: parseNum(row.ticket_giorno),
+        defaultBonus: parseNum(row.bonus_default),
+        forfaitOreSett: parseNum(row.forfait_settimana),
+        tariffaOraStraord: parseNum(row.tariffa_ora),
+        workdays: wdRaw.length ? Array.from(new Set(wdRaw)).sort() : [1,2,3,4,5],
+        oreContrattoSett: contratto === "" ? 40 : parseNum(contratto),
+        mensilita,
+      };
+    } else if(section === "months"){
+      const name = (row.profilo || "").trim();
+      if(!name) throw new Error(`Profilo senza nome in sezione MESI a riga ${lineNo+1}`);
+      const year = Number(row.anno);
+      const month = Number(row.mese);
+      if(!Number.isInteger(year) || year < 1900 || year > 3000) throw new Error(`Anno non valido a riga ${lineNo+1}: "${row.anno}"`);
+      if(!Number.isInteger(month) || month < 1 || month > 12) throw new Error(`Mese non valido a riga ${lineNo+1}: "${row.mese}"`);
+      const m = defaultMonth();
+      const setState = (key, raw) => {
+        const v = (raw || "").trim();
+        if(v === "") return;
+        if(!(v in STATE_FROM_IT)) throw new Error(`Stato "${v}" non valido a riga ${lineNo+1} (colonna ${key}). Usa ricevuto / mancante / non_atteso.`);
+        m[key].state = STATE_FROM_IT[v];
+      };
+      setState("salary", row.stipendio_stato);
+      setState("welfare", row.welfare);
+      setState("ticket", row.ticket_stato);
+      setState("fringe", row.fringe);
+      setState("bonus", row.bonus_stato);
+      setState("refund", row.rimborso_stato);
+      setState("overtime", row.straord_stato);
+      setState("salary13", row.salary13_stato);
+      setState("salary14", row.salary14_stato);
+      setState("salary15", row.salary15_stato);
+      const s13a = (row.salary13_importo || "").trim();
+      if(s13a !== "") m.salary13.amount = parseNum(s13a);
+      const s14a = (row.salary14_importo || "").trim();
+      if(s14a !== "") m.salary14.amount = parseNum(s14a);
+      const s15a = (row.salary15_importo || "").trim();
+      if(s15a !== "") m.salary15.amount = parseNum(s15a);
+      const days = (row.ticket_giorni || "").trim();
+      m.ticket.days = days === "" ? null : Math.min(31, Math.max(0, Number(days) || 0));
+      const sa = (row.stipendio_importo || "").trim();
+      if(sa !== "") m.salary.amount = parseNum(sa);
+      m.bonus.amount = parseNum(row.bonus_importo);
+      m.refund.amount = parseNum(row.rimborso_importo);
+      const ovh = (row.straord_ore_pagare || "").trim();
+      m.overtime.hoursOverride = ovh === "" ? null : Math.min(744, Math.max(0, parseNum(ovh)));
+      (monthsByName[name] = monthsByName[name] || {});
+      (monthsByName[name][year] = monthsByName[name][year] || {});
+      monthsByName[name][year][month] = m;
+    } else if(section === "overtime"){
+      const name = (row.profilo || "").trim();
+      if(!name) throw new Error(`Profilo senza nome in sezione STRAORDINARI a riga ${lineNo+1}`);
+      const data = (row.data || "").trim();
+      if(!/^\d{4}-\d{2}-\d{2}$/.test(data)) throw new Error(`Data non valida a riga ${lineNo+1}: "${data}" (formato YYYY-MM-DD)`);
+      const inizio = (row.inizio || "").trim();
+      const fine = (row.fine || "").trim();
+      if(parseHHMM(inizio) == null) throw new Error(`Ora inizio non valida a riga ${lineNo+1}: "${inizio}"`);
+      if(parseHHMM(fine) == null) throw new Error(`Ora fine non valida a riga ${lineNo+1}: "${fine}"`);
+      (overtimeByName[name] = overtimeByName[name] || []).push({
+        id: genEventId(),
+        data, inizio, fine,
+        pausa: (row.pausa || "").trim(),
+        nota: (row.nota || "").trim(),
+      });
+    }
+  }
+
+  // Build a fresh store from the CSV. Every profile in SETTINGS must exist.
+  const names = Object.keys(settingsByName);
+  if(names.length === 0) throw new Error("Il file non contiene profili nella sezione SETTINGS");
+  for(const name of Object.keys(monthsByName)){
+    if(!(name in settingsByName)) throw new Error(`Il profilo "${name}" ha righe in MESI ma manca in SETTINGS`);
+  }
+  for(const name of Object.keys(overtimeByName)){
+    if(!(name in settingsByName)) throw new Error(`Il profilo "${name}" ha righe in STRAORDINARI ma manca in SETTINGS`);
+  }
+  const profiles = {};
+  for(const name of names){
+    const id = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") + "-" + Math.random().toString(36).slice(2, 6);
+    profiles[id] = {
+      name,
+      settings: settingsByName[name],
+      years: monthsByName[name] || {},
+      overtime: overtimeByName[name] || [],
+    };
+  }
+  const firstId = Object.keys(profiles)[0];
+  return { profiles, activeProfile: firstId, currentYear: new Date().getFullYear() };
+}
+
+async function applyImportedData(parsed, sourceLabel){
+  if(!parsed || typeof parsed !== "object") throw new Error("Dati non leggibili");
+  if(!parsed.profiles || typeof parsed.profiles !== "object") throw new Error("Manca la sezione SETTINGS");
+  const incomingCount = Object.keys(parsed.profiles).length;
+  const ok = await showConfirm(
+    `Profili in arrivo: ${incomingCount}.\n\nI dati attuali nel browser saranno sostituiti. Se hai dubbi, fai prima un backup con "Scarica file".`,
+    { title: `Importare i dati ${sourceLabel}?`, okLabel: "Sostituisci", danger: true }
+  );
+  if(!ok) return false;
+  store = parsed;
+  if(!store.currentYear) store.currentYear = new Date().getFullYear();
+  saveStore();
+  closeSheets();
+  render();
+  toast(`Importati ${incomingCount} profil${incomingCount === 1 ? "o" : "i"}`);
+  return true;
+}
+
+/* ============================================================ *
+ *  Ore-only CSV — scoped to a single profile's overtime events.
+ *  Simpler format (no sections): header + rows.
+ * ============================================================ */
+const ORE_COLS = ["profilo","data","inizio","fine","pausa","nota"];
+
+function buildCsvOre(profileName, events){
+  const lines = [ORE_COLS.join(CSV_SEP)];
+  for(const e of (events || [])){
+    lines.push(csvRow([profileName, e.data || "", e.inizio || "", e.fine || "", e.pausa || "", e.nota || ""]));
+  }
+  return "﻿" + lines.join("\r\n") + "\r\n";
+}
+
+function parseCsvOre(text){
+  if(text.charCodeAt(0) === 0xFEFF) text = text.slice(1);
+  const raw = text.split(/\r?\n/);
+  while(raw.length && raw[raw.length-1].trim() === "") raw.pop();
+  if(raw.length === 0) throw new Error("Il file è vuoto.");
+  const header = parseCsvLine(raw[0]).map(s => s.trim());
+  if(header.length !== ORE_COLS.length || header.some((h,i) => h !== ORE_COLS[i])){
+    throw new Error(`Intestazione non corretta.\nAttesa: ${ORE_COLS.join(CSV_SEP)}\nTrovata: ${header.join(CSV_SEP)}`);
+  }
+  const events = [];
+  for(let i = 1; i < raw.length; i++){
+    const line = raw[i];
+    if(!line.trim()) continue;
+    const f = parseCsvLine(line);
+    if(f.length !== ORE_COLS.length) throw new Error(`Riga ${i+1}: ${f.length} colonne invece di ${ORE_COLS.length}`);
+    const data = f[1].trim();
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(data)) throw new Error(`Riga ${i+1}: data non valida "${data}"`);
+    const inizio = f[2].trim(), fine = f[3].trim();
+    if(parseHHMM(inizio) == null) throw new Error(`Riga ${i+1}: ora inizio "${inizio}" non valida`);
+    if(parseHHMM(fine) == null) throw new Error(`Riga ${i+1}: ora fine "${fine}" non valida`);
+    events.push({ id: genEventId(), data, inizio, fine, pausa: f[4].trim(), nota: f[5].trim() });
+  }
+  return events;
+}
+
+async function applyOreImport(events, sourceLabel){
+  const p = activeProfile();
+  if(!p){ showAlert("Crea prima un profilo."); return false; }
+  const existing = (p.overtime || []).length;
+  const ok = await showConfirm(
+    `Eventi in arrivo: ${events.length}.\nEventi attuali: ${existing}.\n\nGli straordinari del profilo "${p.name}" saranno sostituiti.`,
+    { title: `Importare ore ${sourceLabel}?`, okLabel: "Sostituisci", danger: true }
+  );
+  if(!ok) return false;
+  p.overtime = events;
+  saveStore();
+  render();
+  toast(`Importati ${events.length} eventi`);
+  return true;
+}
+
+/* --- Helpers per il download di un Blob CSV --- */
+function downloadCsv(filename, data){
+  const blob = new Blob([data], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.rel = "noopener";
+  document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 200);
+}
+
+/* --- Scarica file (CSV) — chiede prima cosa scaricare --- */
+$("#btn-export").onclick = async () => {
+  const choice = await showChoice("Scarica backup", "Quale CSV vuoi scaricare?", [
+    { key: "stipendio", label: "Stipendio (completo)" },
+    { key: "ore", label: "Solo ore lavorate", secondary: true },
+  ]);
+  if(!choice) return;
+  try {
+    if(choice === "stipendio"){
+      const data = buildCsv(store);
+      downloadCsv(`where-is-my-salary-${new Date().toISOString().slice(0,10)}.csv`, data);
+      toast("File scaricato — controlla la cartella Download");
+    } else {
+      const p = activeProfile();
+      if(!p){ showAlert("Crea prima un profilo."); return; }
+      const events = p.overtime || [];
+      if(events.length === 0){ showAlert("Nessun evento da esportare."); return; }
+      const safe = p.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "profilo";
+      downloadCsv(`ore-${safe}-${new Date().toISOString().slice(0,10)}.csv`, buildCsvOre(p.name, events));
+      toast("Ore scaricate");
+    }
+  } catch(err){
+    console.error(err);
+    showAlert("Impossibile scaricare il file: " + err.message);
+  }
+};
+
+/* --- Carica file (CSV) — chiede prima che tipo di file caricherai --- */
+let _importMode = "stipendio"; // remembers user's choice between click and file-pick
+$("#btn-import-file").onclick = async () => {
+  const choice = await showChoice("Carica backup", "Che tipo di CSV stai caricando?", [
+    { key: "stipendio", label: "Stipendio (completo)" },
+    { key: "ore", label: "Solo ore lavorate", secondary: true },
+  ]);
+  if(!choice) return;
+  _importMode = choice;
+  if(choice === "ore") $("#ore-file-import").click();
+  else $("#file-import").click();
+};
+
+$("#file-import").onchange = (e) => {
+  const file = e.target.files && e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = async () => {
+    try {
+      const parsed = parseCsv(reader.result);
+      await applyImportedData(parsed, `dal file "${file.name}"`);
+    } catch(err) {
+      showAlert("Il file non è un backup CSV valido.\n\n" + err.message);
+    }
+  };
+  reader.onerror = () => showAlert("Impossibile leggere il file.");
+  reader.readAsText(file, "UTF-8");
+  e.target.value = "";
+};
+
+/* Toast */
+let toastTimer;
+function toast(msg){
+  const t = $("#toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), 1800);
+}
+
+/* Util */
+function escapeHtml(s){
+  return String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+}
+
+/* ============================================================ *
+ *  Custom confirm modal — replaces native confirm() so that
+ *  browsers / extensions can't swallow our dialogs.
+ *  Promise-based: const ok = await showConfirm("Sicuro?")
+ * ============================================================ */
+let _confirmResolver = null;
+function showConfirm(message, opts){
+  opts = opts || {};
+  const isAlert = !!opts.alert;
+  $("#confirm-title").textContent = opts.title || (isAlert ? "Attenzione" : "Conferma");
+  $("#confirm-message").textContent = message;
+  const okBtn = $("#confirm-ok");
+  const cancelBtn = $("#confirm-cancel");
+  okBtn.textContent = opts.okLabel || (isAlert ? "OK" : "Conferma");
+  cancelBtn.textContent = opts.cancelLabel || "Annulla";
+  cancelBtn.style.display = isAlert ? "none" : "";
+  okBtn.classList.toggle("danger", !!opts.danger);
+  $("#confirm-overlay").classList.add("show");
+  document.body.classList.add("overlay-open");
+  setTimeout(() => okBtn.focus(), 60);
+  return new Promise((resolve) => { _confirmResolver = resolve; });
+}
+function showAlert(message, opts){
+  return showConfirm(message, Object.assign({ alert: true }, opts || {}));
+}
+
+/* Promise-based two-option chooser. Reuses the confirm overlay, but swaps in
+ * a temporary action row with one button per choice. Returns the chosen key,
+ * or null on dismiss (Esc / overlay click). Restores the original buttons
+ * afterwards so showConfirm/showAlert keep working. */
+function showChoice(title, message, options){
+  $("#confirm-title").textContent = title || "Scegli";
+  $("#confirm-message").textContent = message || "";
+  const card = $("#confirm-overlay .confirm-card");
+  const origActions = card.querySelector(".confirm-actions");
+  origActions.style.display = "none";
+  const temp = document.createElement("div");
+  temp.className = "confirm-actions choice";
+  for(const opt of options){
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "btn" + (opt.secondary ? " secondary" : "");
+    b.textContent = opt.label;
+    b.dataset.choice = opt.key;
+    temp.appendChild(b);
+  }
+  card.appendChild(temp);
+  $("#confirm-overlay").classList.add("show");
+  document.body.classList.add("overlay-open");
+  return new Promise(resolve => {
+    const cleanup = (value) => {
+      $("#confirm-overlay").classList.remove("show");
+      document.body.classList.remove("overlay-open");
+      temp.remove();
+      origActions.style.display = "";
+      $("#confirm-overlay").removeEventListener("click", overlayDismiss);
+      document.removeEventListener("keydown", escDismiss);
+      resolve(value);
+    };
+    const overlayDismiss = (e) => { if(e.target.id === "confirm-overlay") cleanup(null); };
+    const escDismiss = (e) => { if(e.key === "Escape"){ e.preventDefault(); cleanup(null); } };
+    temp.querySelectorAll("button").forEach(b => {
+      b.onclick = () => cleanup(b.dataset.choice);
+    });
+    $("#confirm-overlay").addEventListener("click", overlayDismiss);
+    document.addEventListener("keydown", escDismiss);
+  });
+}
+function _confirmFinish(value){
+  $("#confirm-overlay").classList.remove("show");
+  document.body.classList.remove("overlay-open");
+  const r = _confirmResolver; _confirmResolver = null;
+  if(r) r(value);
+}
+$("#confirm-ok").onclick     = () => _confirmFinish(true);
+$("#confirm-cancel").onclick = () => _confirmFinish(false);
+$("#confirm-overlay").addEventListener("click", (e) => {
+  if(e.target.id === "confirm-overlay") _confirmFinish(false);
+});
+document.addEventListener("keydown", (e) => {
+  if(!$("#confirm-overlay").classList.contains("show")) return;
+  if(e.key === "Escape"){ e.preventDefault(); _confirmFinish(false); }
+  if(e.key === "Enter"){ e.preventDefault(); _confirmFinish(true); }
+});
+
+/* ============================================================ *
+ *  Cloud Sync — GitHub Gist as private storage
+ *
+ *  Strategy:
+ *  - User pastes a classic PAT with "gist" scope (one-time setup).
+ *  - On first connect, app finds (or creates) a private gist named
+ *    `where-is-my-salary-data.json` and uses it as the backing store.
+ *  - Every saveStore() schedules a debounced PATCH (~2s) to the gist.
+ *  - On bootstrap, app fetches the gist and replaces local data IF the
+ *    cloud copy has a more recent _lastModified timestamp.
+ *  - The PAT lives only in this device's localStorage. Revoke anytime
+ *    on github.com.
+ * ============================================================ */
+
+let syncState = (() => {
+  try { const r = localStorage.getItem(SYNC_KEY); return r ? JSON.parse(r) : null; }
+  catch(e){ return null; }
+})();
+function saveSyncState(){
+  if(syncState) localStorage.setItem(SYNC_KEY, JSON.stringify(syncState));
+  else          localStorage.removeItem(SYNC_KEY);
+}
+
+let syncStatus = "off";        // off | idle | syncing | error
+let pushTimer  = null;
+let isPushing  = false;
+
+function setSyncStatus(s, errMsg){
+  syncStatus = s;
+  // Topbar pill
+  const pill = $("#sync-indicator");
+  if(pill){
+    pill.dataset.status = s;
+    if(s === "off") pill.style.display = "none";
+    else            pill.style.display = "";
+    const icon = pill.querySelector(".sync-icon");
+    if(icon) icon.textContent = (s === "syncing") ? "⟳" : (s === "error") ? "⚠" : "☁";
+    pill.title = ({
+      off:     "Sync cloud spento",
+      idle:    "Sync attivo · ultimo: " + (syncState && syncState.lastSyncAt ? new Date(syncState.lastSyncAt).toLocaleTimeString("it-IT") : "—"),
+      syncing: "Sincronizzazione in corso…",
+      error:   "Errore sync: " + (errMsg || (syncState && syncState.lastError) || "sconosciuto"),
+    })[s];
+  }
+  // Settings sheet pill (if open)
+  const sp = $("#sync-state-pill");
+  if(sp){
+    sp.dataset.status = s;
+    sp.textContent = ({ off:"spento", idle:"attivo", syncing:"sync…", error:"errore" })[s] || s;
+  }
+  refreshSyncSection();
+}
+
+async function ghFetch(path, opts){
+  if(!syncState || !syncState.pat) throw new Error("Token non configurato");
+  const headers = Object.assign({
+    "Authorization": "Bearer " + syncState.pat,
+    "Accept":        "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2022-11-28",
+  }, (opts && opts.headers) || {});
+  const r = await fetch("https://api.github.com" + path, Object.assign({}, opts, { headers }));
+  if(r.status === 401) throw new Error("Token rifiutato (401). Controlla che abbia scope 'gist' e non sia scaduto.");
+  if(r.status === 403) throw new Error("Accesso negato (403). Probabilmente scope mancante.");
+  if(!r.ok){
+    let msg = "GitHub API " + r.status;
+    try { const j = await r.json(); if(j && j.message) msg += ": " + j.message; } catch(e){}
+    throw new Error(msg);
+  }
+  return r.json();
+}
+
+async function cloudConfigure(pat){
+  pat = (pat || "").trim();
+  if(!pat) throw new Error("Token vuoto.");
+  // Pre-set so ghFetch can use it
+  syncState = { pat };
+  setSyncStatus("syncing");
+  // Verify PAT
+  let user;
+  try { user = await ghFetch("/user"); }
+  catch(err){ syncState = null; saveSyncState(); setSyncStatus("off"); throw err; }
+  // Look for an existing gist
+  let gists;
+  try { gists = await ghFetch("/gists?per_page=100"); }
+  catch(err){ syncState = null; saveSyncState(); setSyncStatus("off"); throw err; }
+  let existing = (gists || []).find(g => g.files && g.files[GIST_FILENAME]);
+  let gist;
+  if(existing){
+    gist = existing;
+  } else {
+    // Create new private gist with current local data
+    try {
+      gist = await ghFetch("/gists", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          description: "Where is my Salary — sync data",
+          public: false,
+          files: { [GIST_FILENAME]: { content: JSON.stringify(store, null, 2) } }
+        })
+      });
+    } catch(err){ syncState = null; saveSyncState(); setSyncStatus("off"); throw err; }
+  }
+  syncState = {
+    pat,
+    gistId: gist.id,
+    user: user.login,
+    lastSyncAt: new Date().toISOString(),
+    lastError: null
+  };
+  saveSyncState();
+  setSyncStatus("idle");
+  // If gist already had data, pull it to merge into local
+  if(existing){
+    await cloudPull(true);
+  }
+  return syncState;
+}
+
+async function cloudPull(replaceLocal){
+  if(!syncState || !syncState.pat || !syncState.gistId) return;
+  setSyncStatus("syncing");
+  try {
+    const gist = await ghFetch("/gists/" + syncState.gistId);
+    const file = gist.files && gist.files[GIST_FILENAME];
+    if(!file || !file.content){ setSyncStatus("idle"); return; }
+    const remote = JSON.parse(file.content);
+    if(!remote || typeof remote !== "object" || !remote.profiles){
+      throw new Error("Il gist non contiene dati validi.");
+    }
+    const localT  = Number(store._lastModified)  || 0;
+    const remoteT = Number(remote._lastModified) || 0;
+    if(replaceLocal || remoteT > localT){
+      store = remote;
+      if(!store.currentYear) store.currentYear = new Date().getFullYear();
+      // Don't trigger a push here — that would be circular.
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+      render();
+      if(remoteT > localT) toast("Aggiornato dal cloud");
+    }
+    syncState.lastSyncAt = new Date().toISOString();
+    syncState.lastError = null;
+    saveSyncState();
+    setSyncStatus("idle");
+  } catch(err){
+    console.error("cloudPull:", err);
+    if(syncState){ syncState.lastError = err.message; saveSyncState(); }
+    setSyncStatus("error", err.message);
+  }
+}
+
+async function cloudPush(){
+  if(!syncState || !syncState.pat || !syncState.gistId) return;
+  if(isPushing) return;
+  isPushing = true;
+  setSyncStatus("syncing");
+  try {
+    await ghFetch("/gists/" + syncState.gistId, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        files: { [GIST_FILENAME]: { content: JSON.stringify(store, null, 2) } }
+      })
+    });
+    syncState.lastSyncAt = new Date().toISOString();
+    syncState.lastError = null;
+    saveSyncState();
+    setSyncStatus("idle");
+  } catch(err){
+    console.error("cloudPush:", err);
+    if(syncState){ syncState.lastError = err.message; saveSyncState(); }
+    setSyncStatus("error", err.message);
+  } finally {
+    isPushing = false;
+  }
+}
+
+function schedulePush(){
+  if(!syncState || !syncState.pat || !syncState.gistId) return;
+  setSyncStatus("syncing");
+  clearTimeout(pushTimer);
+  pushTimer = setTimeout(() => { cloudPush(); }, 1800);
+}
+
+async function cloudDisconnect(){
+  const ok = await showConfirm(
+    "I tuoi dati restano nel browser ma non saranno più aggiornati con il cloud. Il gist su GitHub non viene cancellato (puoi farlo manualmente dal sito GitHub).",
+    { title: "Scollegare il sync cloud?", okLabel: "Disconnetti" }
+  );
+  if(!ok) return;
+  syncState = null;
+  saveSyncState();
+  setSyncStatus("off");
+  toast("Sync disconnesso");
+}
+
+/* --- UI of the sync section, rendered into #sync-body --- */
+function refreshSyncSection(){
+  const body = $("#sync-body");
+  if(!body) return;
+  if(!syncState || !syncState.pat || !syncState.gistId){
+    body.innerHTML = `
+      <div class="sync-info">
+        I dati restano nel browser di questo dispositivo. Per averli identici anche sul telefono (e viceversa), collega un gist GitHub privato come deposito comune. <strong>Gratis</strong>, niente nuovi servizi: ti serve solo un Personal Access Token.
+      </div>
+      <button class="btn full" id="btn-sync-configure" type="button">Configura sync con GitHub</button>
+    `;
+    const b = $("#btn-sync-configure");
+    if(b) b.onclick = () => {
+      $("#sync-pat-input").value = "";
+      openSheet("sync-sheet");
+      setTimeout(() => $("#sync-pat-input").focus(), 200);
+    };
+    return;
+  }
+  const last = syncState.lastSyncAt ? new Date(syncState.lastSyncAt).toLocaleString("it-IT", { dateStyle:"medium", timeStyle:"short" }) : "mai";
+  const errBlock = syncState.lastError
+    ? `<div class="sync-error">⚠ ${escapeHtml(syncState.lastError)}</div>` : "";
+  body.innerHTML = `
+    ${errBlock}
+    <div class="sync-info">
+      Connesso come <code>${escapeHtml(syncState.user || "?")}</code> · gist <code>${escapeHtml((syncState.gistId || "").slice(0,8))}</code><br/>
+      Ultimo sync: <strong>${last}</strong>
+    </div>
+    <div class="btn-row">
+      <button class="btn secondary" id="btn-sync-now" type="button">↻ Sincronizza ora</button>
+      <button class="btn secondary" id="btn-sync-disconnect" type="button">Disconnetti</button>
+    </div>
+  `;
+  const sn = $("#btn-sync-now");
+  if(sn) sn.onclick = async () => {
+    sn.disabled = true;
+    try { await cloudPull(false); await cloudPush(); toast("Sincronizzato"); }
+    catch(e){ toast("Errore: " + e.message); }
+    finally { sn.disabled = false; refreshSyncSection(); }
+  };
+  const sd = $("#btn-sync-disconnect");
+  if(sd) sd.onclick = cloudDisconnect;
+}
+
+/* Wire the connect button inside the sync-sheet */
+$("#btn-sync-connect").onclick = async () => {
+  const btn = $("#btn-sync-connect");
+  const inp = $("#sync-pat-input");
+  const pat = (inp.value || "").trim();
+  if(!pat){ showAlert("Incolla prima il token"); inp.focus(); return; }
+  btn.disabled = true; btn.textContent = "Verifico…";
+  try {
+    await cloudConfigure(pat);
+    closeSheets();
+    toast("Sync attivato");
+  } catch(err){
+    showAlert("Non sono riuscito a collegarmi:\n" + err.message);
+  } finally {
+    btn.disabled = false; btn.textContent = "Collega questo dispositivo";
+  }
+};
+
+// Click on the topbar cloud pill: error → show error detail; otherwise force sync.
+$("#sync-indicator").onclick = async () => {
+  if(syncStatus === "off") return;
+  if(syncStatus === "error"){
+    const msg = (syncState && syncState.lastError) || "Errore sconosciuto";
+    showAlert(msg, { title: "Errore sync cloud" });
+    return;
+  }
+  if(syncStatus === "syncing") return;
+  try {
+    await cloudPull(false);
+    await cloudPush();
+    toast("Sincronizzato");
+  } catch(err){
+    toast("Errore: " + err.message);
+  }
+};
+
+/* ----- Bootstrap ----- */
+async function bootstrap(){
+  // Show the running version in the topbar — survives any HTML caching too.
+  const vt = document.getElementById("version-tag");
+  if(vt) vt.textContent = "v" + VERSION;
+
+  // Open the current month by default on first load (if viewing current year).
+  const today = new Date();
+  if(openMonthIdx === null && today.getFullYear() === Number(store.currentYear)){
+    openMonthIdx = today.getMonth();
+  }
+  render();
+  // First-time user: open the new-profile form automatically. Bypasses any
+  // potential click-handler issue on the welcome card entirely.
+  if(!activeProfile() && !(syncState && syncState.pat && syncState.gistId)){
+    setTimeout(openNewProfile, 250);
+  }
+  // If cloud sync is configured, initialize indicator and pull from cloud.
+  if(syncState && syncState.pat && syncState.gistId){
+    setSyncStatus("idle");
+    cloudPull(false);
+  } else {
+    setSyncStatus("off");
+  }
+}
+bootstrap();
+</script>
+</body>
+</html>
