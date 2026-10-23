@@ -1762,6 +1762,8 @@
   .toast{
     position: fixed; left: 50%; bottom: 28px;
     transform: translateX(-50%) translateY(20px);
+    /* Fixed at left 50%, the box would shrink to half the screen and wrap. */
+    width: max-content; max-width: calc(100vw - 32px);
     background: var(--ink); color: var(--paper);
     padding: 10px 16px; border-radius: var(--radius-pill);
     font-size: 13px; font-weight: 500;
@@ -2316,7 +2318,7 @@
  *  Storage key: "stipendio.v1"
  * ============================================================ */
 
-const VERSION = "3.9.0";
+const VERSION = "3.9.1";
 
 const STORAGE_KEY = "stipendio.v1";
 const SYNC_KEY = "stipendio.sync.v1";
@@ -2537,6 +2539,7 @@ const I18N = {
     err_bad_times: "Invalid times",
     err_event_end: "The end time must be after the start time.\n\nEntries across midnight aren't supported: log two separate entries.",
     toast_entry_saved: "Entry saved",
+    toast_entry_saved_hours: "Entry saved: {h} h worked",
     confirm_delete_entry: "Delete this entry?",
     toast_entry_deleted: "Entry deleted",
 
@@ -2995,6 +2998,7 @@ const I18N = {
     err_bad_times: "Orari non validi",
     err_event_end: "L'ora di fine deve essere dopo l'ora di inizio.\n\nGli eventi a cavallo della mezzanotte non sono supportati: registra due eventi separati.",
     toast_entry_saved: "Evento salvato",
+    toast_entry_saved_hours: "Evento salvato: {h} h lavorate",
     confirm_delete_entry: "Eliminare questo evento?",
     toast_entry_deleted: "Evento eliminato",
 
@@ -4729,7 +4733,11 @@ $("#btn-ot-save").onclick = () => {
   saveStore();
   closeSheets();
   render();
-  toast(t("toast_entry_saved"));
+  // Work days echo the hours just logged (same figure as the "Duration"
+  // preview); holiday and public holiday are a fixed day, nothing to echo.
+  toast(kind === "lavoro"
+    ? t("toast_entry_saved_hours", { h: fmtFixed(eventHours({ inizio, fine, pausa: pausaVal }), 2) })
+    : t("toast_entry_saved"));
 };
 $("#btn-ot-delete").onclick = async () => {
   if(!editingEventId) return;

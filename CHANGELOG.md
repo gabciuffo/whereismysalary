@@ -6,6 +6,19 @@ Entries are in reverse chronological order (newest first). Versions follow [SemV
 
 ---
 
+## [3.9.1] - 2026-10-23
+
+Saving a work entry now tells you how many hours you logged, not just that it was saved.
+
+### Hours in the save message
+
+* **Work entries**: the toast reads "Entry saved: 8.50 h worked" ("Evento salvato: 8,50 h lavorate"). The figure is the same as the "Duration" line in the form (start to end, minus the break), so it's a direct check of what was just entered, also when editing an existing entry.
+* **Holiday and public holiday**: unchanged, plain "Entry saved". They are a fixed day with no times, so there's nothing to check.
+* **One line on the phone**: the toast is fixed at `left: 50%`, so its box could only be half the screen wide and the longer text wrapped on two lines. It now takes the width of its text (`width: max-content`), up to the screen width minus 16 px per side.
+* **Where**: the save handler of `#btn-ot-save`, new key `toast_entry_saved_hours` in both dictionaries.
+
+---
+
 ## [3.9.0] - 2026-09-24
 
 Opening the Overtime tab on a working day with nothing logged for today now opens the new-entry form by itself, so the day's hours get entered before they're forgotten.
