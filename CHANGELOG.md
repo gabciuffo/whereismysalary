@@ -6,6 +6,40 @@ Entries are in reverse chronological order (newest first). Versions follow [SemV
 
 ---
 
+## [3.11.0] - 2026-10-24
+
+Work done on a day off can now be taken back as time off instead of being paid as overtime: an hours bank, filled by the weekends you work and emptied by a new day type, "Day in lieu" ("Recupero").
+
+### Why
+
+Before, the hours of a Saturday or Sunday always counted as overtime. Taking a weekday off in exchange and logging it as a holiday counted the same work twice: the day off and the overtime in euros. It also used up a holiday day that wasn't one. The workaround ("Don't count as overtime" on the Saturday, holiday on the weekday) gave the right totals but called the day a holiday and kept no balance.
+
+### Hours bank
+
+* **On a non-working day**, a work entry asks "Hours on a day off": **Overtime** (the default, as before) or **Time in lieu**. With Time in lieu the hours go into the bank, one hour for one hour, and stay out of the overtime, the hero and the Salary page. The choice only shows on days outside your working days; "Don't count as overtime" hides while Time in lieu is chosen, since those hours are already out.
+* **Day in lieu** is a fourth day type, next to Work, Holiday and Public holiday. Like a holiday it has no times, counts as 8 hours within the weekly threshold (your salary pays it anyway) and can only be logged on working days. It also takes 8 hours out of the bank.
+* **Balance**: banked hours minus 8 per day in lieu, over the whole history, across years. It goes below zero when a day in lieu comes before the hours that pay for it.
+* **Where you see it**: a card under the Overtime hero, "Hours bank · +8.0 h" ("Banca ore"), green when you have hours to take, red when you are in advance, with banked and used hours below. It only appears once you have banked a day or taken a day in lieu, so nothing changes for people who don't use it.
+
+### In the calendar and the views
+
+* **Days in lieu are green** (sage) in the month calendar, in the week strip and on the entry card, with a "day in lieu" badge.
+* **Banked work days keep the work color with a green ring**, so a weekend put into the bank reads apart from one paid as overtime. Their entry card carries an "hours bank" badge, and the Days list marks them too.
+* **Counts**: days in lieu in the Months, Weeks and Years views and in the month summary; banked hours ("Banked") in the Weeks and Years views and in the month summary. Worked hours include both, as with holidays.
+* **Form copy**: the preview reads "Duration: 8.50 h, into the hours bank" and the toast "Entry saved: 8.50 h into the hours bank".
+
+### Data
+
+* **Two new flags on overtime entries**: `comp` (day in lieu) and `bank` (hours into the bank). The store, the gist and the migrations need nothing else: older entries simply don't have them.
+* **CSV**: two columns at the end of `# STRAORDINARI` and of the hours-only export, `recupero` and `da_recuperare`, `0` or `1`. Files from older versions still import (the header is checked as a prefix), and an export imports back with the same flags. If a row sets more than one day type, public holiday wins, then holiday, then day in lieu; `da_recuperare` only counts on work rows.
+* **Where in the code**: `hoursBank`, `bankedHours` and `compDayCount` next to `ptoDayCount`; `paidHoursForMonth` skips `bank` entries like `notOvertime` ones and counts `comp` like `pto`; `bankChoiceApplies`, `bankChosen` and `setBankChoice` in the entry form.
+
+### Layout
+
+* **Four day types in one row**: the English pills take the width of their text and get a smaller type below 375 px, so they fit a 360 px phone; the Italian ones are four equal quarters. Checked at 375 and 360 px.
+
+---
+
 ## [3.10.0] - 2026-10-24
 
 The Salary page now shows the average monthly pay: what the whole year is worth per month, with the 13th/14th month pay, welfare, meal vouchers, fringe benefits and bonuses spread over the months. A reference figure to compare a payslip with, or to answer "how much do I actually make a month".

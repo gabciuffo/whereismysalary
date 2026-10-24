@@ -53,7 +53,7 @@ All tokens are declared in `:root` (see `index.html:27-78`). Every color has a r
 
 | Role               | Token                | Hex       | Use                                                |
 |--------------------|----------------------|-----------|----------------------------------------------------|
-| Green "ok"         | `--sage`             | `#6B8E5A` | "received" state, hero-stat ok                     |
+| Green "ok"         | `--sage`             | `#6B8E5A` | "received" state, hero-stat ok; the hours bank in Overtime: days in lieu, banked days, balance |
 | Red "missing"      | `--terracotta`       | `#B85449` | "missing" state, weekend days with entries in the calendar |
 | Gold "pending"     | `--gold`             | `#C29B3D` | "warn" state (something arrived, something didn't); public holidays in Overtime |
 | Blue "holiday"     | `--ocean`            | `#4F7CAC` | Holiday days in Overtime: calendar, week strip, entry card, counts, "Day type" selector |
@@ -200,6 +200,7 @@ A quieter card right under the Salary hero: what the year is worth per month.
 * **Second voice, not a second hero.** 30px against the hero's 40 to 56px, ink instead of sage or terracotta, no accent: the hero stays the figure that speaks.
 * **The rows have no tri-state pill**, so on the phone the amount keeps its column on the right instead of dropping under the name.
 * **The breakdown stays open across re-renders** through `avgBreakdownOpen`, in memory only, like `openMonthIdx`.
+* **The same card holds the hours bank** under the Overtime hero (`.avg.bank`, no breakdown): the balance in hours, sage when positive, terracotta when negative, ink at zero. It only appears once a banked day or a day in lieu exists.
 
 ### 5.2 Month card (Salary)
 
@@ -312,9 +313,11 @@ Cell states:
 * **`.has-events.weekend`**: terracotta (working at the weekend is another matter altogether).
 * **`.festivo`** (public holiday): full gold, white text. Wins over `.has-events`.
 * **`.pto`** (holiday): full ocean, white text. Wins over `.has-events`.
+* **`.comp`** (day in lieu): full sage, white text. Wins over `.has-events`.
+* **`.bank`** (work put into the hours bank): the usual work fill plus a 3px inset sage ring, so a banked weekend reads apart from one paid as overtime.
 * **`.today`**: 2px sienna outline.
 
-In the week strip of the day detail the same states use the `-tint` (gold-tint, ocean-tint) as background; `.selected` always wins.
+In the week strip of the day detail the same states use the `-tint` (gold-tint, ocean-tint, sage-tint) as background; `.selected` always wins.
 
 Header of the sub-views (month calendar, day detail): a single `.ore-subhead` row with the back button (`‹ Months`, `‹ Days`) on the left and the period's `.year-picker` on the right (`‹ September 2026 ›`, `‹ Week 39 ›`). No big title: the period lives in the picker, so the content starts right below. The label has `min-width: 9em` so that the left arrow doesn't shift while scrolling through months with names of different length.
 
@@ -361,7 +364,7 @@ A single pattern:
 
 `.workday-row` is the Monday to Sunday selector: one pill per day, sienna soft + sienna border when selected.
 
-`.kind-switch` is the pill selector for exclusive choices (day type in the entry form, yes/no in the wizard): real `radio` inputs; the active pill is card-elev with sienna-deep text, or takes the color of its type (ocean for Holiday, gold for Public holiday). The `.kind-switch.compact` variant (lower pills, 12.5px text, aligned right) is the language choice at the top of the wizard's first step; in the settings the same choice uses the regular `.kind-switch`. In English the day-type pills take the width of their text ("Public holiday" is long); in Italian they stay three equal thirds.
+`.kind-switch` is the pill selector for exclusive choices (day type in the entry form, yes/no in the wizard): real `radio` inputs; the active pill is card-elev with sienna-deep text, or takes the color of its type (ocean for Holiday, gold for Public holiday, sage for Day in lieu and for "Time in lieu" in the hours-bank choice). The `.kind-switch.compact` variant (lower pills, 12.5px text, aligned right) is the language choice at the top of the wizard's first step; in the settings the same choice uses the regular `.kind-switch`. In English the day-type pills take the width of their text ("Public holiday" is long), with a smaller type under 375px so the four of them fit a 360px phone; in Italian they stay four equal quarters.
 
 On touch screens (`pointer: coarse`) the inputs and selects of `.field` are 16px instead of 15px: below 16px, iOS Safari zooms in on the page when the field gets the caret, and doesn't zoom back out on its own.
 

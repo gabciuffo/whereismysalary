@@ -34,7 +34,8 @@ L'app ha due pagine principali, accessibili dalla tabbar in fondo allo schermo:
 ### Pagina **Overtime** — le ore extra non pagate
 
 - **Calendario per logging giornaliero** — apri il giorno, segni le ore lavorate (e quelle di weekend, contate sempre come straordinario). Nel dettaglio del giorno le frecce `‹ Settimana N ›` passano alla settimana prima o dopo. Da tastiera basta scrivere l'ora e premere Tab: i minuti diventano `00`.
-- **Tipo di giornata: Lavoro, Ferie, Festivo** — ferie e festivi si segnano senza orari e valgono una giornata da 8 ore. Nel calendario le ferie sono blu e i festivi oro; i giorni di ferie sono contati nelle viste Mesi, Settimane e Anni.
+- **Tipo di giornata: Lavoro, Ferie, Festivo, Recupero** — ferie, festivi e recuperi si segnano senza orari e valgono una giornata da 8 ore. Nel calendario le ferie sono blu, i festivi oro e i recuperi verdi; sono contati nelle viste Mesi, Settimane e Anni.
+- **Banca ore** — il lavoro in un giorno non lavorativo (un sabato, una domenica) può essere pagato come straordinario oppure andare nella banca ore ("Da recuperare"). Un giorno di Recupero in un giorno lavorativo toglie 8 ore dalla banca. Il saldo compare sotto l'hero ("Banca ore: +8,0 h") appena la usi; nel calendario i giorni messi in banca hanno un anello verde.
 - **Orario e pausa abituali** — ogni nuovo evento parte con l'orario che fai di solito (es. 9:00-18:00) e con la tua pausa (default 30 minuti), impostabili nel wizard e nelle impostazioni. Il giorno che sono diversi li modifichi nell'evento.
 - **Soglia automatica** — ore contratto (default 40h/sett.) + eventuale forfait CCNL. Tutto quello che eccede diventa straordinario non pagato.
 - **Hero box con metrica doppia** — importo in euro (se hai impostato una tariffa) accanto al totale ore non pagate. Mostra entrambe le risposte con un'occhiata.
@@ -136,6 +137,7 @@ Per ogni giorno loggato nel calendario:
 - Le **ore weekend** (giorni che hai marcato come non lavorativi) contano per intero come straordinario.
 - Le **ore feriali** contano come straordinario solo per la parte che eccede la soglia settimanale: `paid = max(0, oreFeriali - (oreContratto + forfait))`.
 - **Ferie e festivi** valgono 8 ore e contano verso la soglia settimanale come un giorno lavorato, perché lo stipendio li paga comunque. In una settimana con un giorno di ferie bastano quindi 32 ore lavorate per arrivare a 40: quelle oltre restano straordinario. Le ferie si possono segnare solo nei giorni lavorativi.
+- Con la **banca ore**, il lavoro in un giorno non lavorativo segnato "Da recuperare" non è straordinario: le sue ore vanno nella banca, un'ora per un'ora. Un giorno di **Recupero** conta come le ferie (8 ore verso la soglia settimanale, solo nei giorni lavorativi) e toglie 8 ore dalla banca. Saldo = ore in banca - 8 × giorni di recupero, su tutti gli anni; va sotto zero se prendi il giorno prima di aver lavorato le ore.
 - Una **settimana a cavallo di due mesi** (o di due anni) conta per intero. La soglia si riempie giorno per giorno, in ordine di data, e gli straordinari vanno nel mese dei giorni in cui la settimana la supera. Esempio: da lunedì 28/9 a venerdì 2/10, 10 ore al giorno. Settembre 0 h (30 h, ancora sotto soglia), ottobre 10 h, come nella vista Settimane. Un mese finito non cambia più quando inserisci le ore del mese dopo.
 
 L'importo in euro è `ore × tariffa straordinario`. Se la tariffa è 0, l'hero mostra solo le ore.
@@ -170,7 +172,7 @@ Tutta la logica vive in `index.html` (markup, stili, script in unico file). I fi
 | `paymentDateFor`, `isPaymentDue` | Determinano quando lo stipendio del mese N è "dovuto", in base a `payDay` e `payDayNextMonth`. |
 | `loadStore`, `saveStore`, `defaultSettings`, `defaultMonth`, `ensureProfile`, `ensureYear`, `activeProfile`, `runMigrations` | Persistenza e shape del dato in `localStorage`. Lo store ha forma `{ profiles: { id: { name, settings, years: { 2026: { 1: {...} } } } }, activeProfile, currentYear, _migrations }`. `runMigrations` gira a bootstrap e applica trasformazioni idempotenti taggate in `_migrations`. |
 | `expectedAmountFor`, `computeYearTotals`, `monthStatus`, `extraSalaryApplies`, `averageMonthlyPay` | Logica di calcolo "atteso vs ricevuto" per Salary, comprese 13ª/14ª/15ª, e stipendio medio mensile. |
-| `paidHoursForMonth` e correlati | Calcolo ore straordinario su base settimanale, con soglia `oreContratto + forfait`. Per le settimane a cavallo di mese conta anche i giorni della stessa settimana nel mese prima: vuole sempre l'elenco completo degli eventi, mai uno già filtrato per mese. |
+| `paidHoursForMonth`, `hoursBank` e correlati | Calcolo ore straordinario su base settimanale, con soglia `oreContratto + forfait`; `hoursBank` è il saldo della banca ore. Per le settimane a cavallo di mese conta anche i giorni della stessa settimana nel mese prima: vuole sempre l'elenco completo degli eventi, mai uno già filtrato per mese. |
 | `render`, `renderTopbar`, `renderMain`, `renderMonthCard`, `renderPageOre`, `renderOvertimeVisibility`, `switchTab` | Rendering delle due pagine. **L'app rifà l'intero `#main` con `innerHTML` ad ogni interazione** — semplice, funziona bene su questa scala, ma occhio se aggiungi input con focus persistente. |
 | `openSheet`, `closeSheets`, `openNewProfile` + handler `$("#btn-...")` | UI dei sheet (modali a fondo schermo) e bottoni. |
 | Backup CSV (`buildCsv`, `parseCsv`, `parseCsvLine`, `fmtNum`, `parseNum`, `csvEscape`, `applyImportedData`) | Export/import. Formato sezionato (`# SETTINGS` + `# MESI`), separatore `;`, decimale `,`, UTF-8 con BOM. Stati mappati da inglese a italiano via `STATE_TO_IT` / `STATE_FROM_IT`. Parser tollerante (header *prefisso*) per retro-compatibilità tra versioni. |
@@ -256,12 +258,14 @@ profilo;anno;mese;stipendio_stato;stipendio_importo;welfare;ticket_stato;ticket_
 Anna;2026;1;ricevuto;2100,00;ricevuto;ricevuto;22;non_atteso;non_atteso;0,00;non_atteso;0,00;mancante;;non_atteso;non_atteso;non_atteso;;;
 
 # STRAORDINARI
-profilo;data;inizio;fine;pausa;nota;non_straordinario;festivo;ferie
-Anna;2026-05-13;09:00;19:30;00:45;riunione clienti;0;0;0
-Anna;2026-08-10;;;;;0;0;1
+profilo;data;inizio;fine;pausa;nota;non_straordinario;festivo;ferie;recupero;da_recuperare
+Anna;2026-05-13;09:00;19:30;00:45;riunione clienti;0;0;0;0;0
+Anna;2026-08-10;;;;;0;0;1;0;0
+Anna;2026-10-17;09:00;17:00;00:30;;0;0;0;0;1
+Anna;2026-10-23;;;;;0;0;0;1;0
 ```
 
-Nella sezione `# STRAORDINARI` le colonne `non_straordinario`, `festivo` e `ferie` valgono `0` o `1`. Le righe festivo e ferie non hanno orari. `pausa_predefinita` è in minuti; `orario_inizio` e `orario_fine` sono nel formato `HH:MM` oppure vuoti.
+Nella sezione `# STRAORDINARI` le colonne `non_straordinario`, `festivo`, `ferie`, `recupero` e `da_recuperare` (ore nella banca ore) valgono `0` o `1`. Le righe festivo, ferie e recupero non hanno orari. `pausa_predefinita` è in minuti; `orario_inizio` e `orario_fine` sono nel formato `HH:MM` oppure vuoti.
 
 Stati ammessi: `ricevuto`, `mancante`, `non_atteso`. Mesi con tutti i valori a default vengono omessi dall'export per ridurre rumore.
 
@@ -274,9 +278,11 @@ Il parser è **tollerante**: header *prefisso* è accettato, quindi un CSV espor
 Al click di "Scarica file" l'app ti chiede se vuoi il CSV **Stipendio (completo)** o **Solo ore lavorate**. Il secondo è un export evento-per-evento del calendario Overtime, schema:
 
 ```
-profilo;data;inizio;fine;pausa;nota;non_straordinario;festivo;ferie
-Anna;2026-05-13;09:00;19:30;00:45;riunione clienti;0;0;0
-Anna;2026-08-10;;;;;0;0;1
+profilo;data;inizio;fine;pausa;nota;non_straordinario;festivo;ferie;recupero;da_recuperare
+Anna;2026-05-13;09:00;19:30;00:45;riunione clienti;0;0;0;0;0
+Anna;2026-08-10;;;;;0;0;1;0;0
+Anna;2026-10-17;09:00;17:00;00:30;;0;0;0;0;1
+Anna;2026-10-23;;;;;0;0;0;1;0
 ```
 
 Granularità giornaliera, separato dal CSV principale per non gonfiare l'export Stipendio nei casi d'uso "solo busta paga".

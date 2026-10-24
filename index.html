@@ -262,7 +262,8 @@
   .hero-stat.ok .v{ color: var(--sage) }
   .hero-stat.danger .v{ color: var(--terracotta) }
 
-  /* ---------- Average monthly pay (Salary page, under the hero) ---------- */
+  /* ---------- Average monthly pay (Salary page, under the hero) ----------
+     The same card holds the hours bank under the Overtime hero (.avg.bank). */
   .avg{
     margin-top: 14px;
     background: var(--card); border: 1px solid var(--line);
@@ -278,6 +279,8 @@
     font-variant-numeric: tabular-nums;
     color: var(--ink);
   }
+  .avg-amount.ok{ color: var(--sage); }
+  .avg-amount.danger{ color: var(--terracotta); }
   .avg-amount .cents{
     font-size: .55em; font-weight: 500;
     color: var(--ink-muted); letter-spacing: -.01em;
@@ -292,6 +295,7 @@
     font-size: 14px; color: var(--ink-soft);
     margin-top: 4px; line-height: 1.5;
   }
+  .avg.bank{ padding-bottom: 16px; }
   .avg details{ margin-top: 10px; border-top: 1px dashed var(--line); }
   /* No tri-state pill here, so the amount keeps its column on the right,
      also on the phone. */
@@ -816,6 +820,8 @@
   .ore-month-card .omc-row.straord .omc-lab{ color: var(--sienna); }
   .ore-month-card .omc-row.ferie .omc-num,
   .ore-month-card .omc-row.ferie .omc-lab{ color: var(--ocean); }
+  .ore-month-card .omc-row.comp .omc-num,
+  .ore-month-card .omc-row.comp .omc-lab{ color: var(--sage); }
   .ore-month-card .omc-amt{
     font-family: var(--serif);
     font-size: 14px;
@@ -860,6 +866,7 @@
   }
   .oms-value.sienna{ color: var(--sienna); font-weight: 500; font-size: 18px; }
   .oms-value.ocean{ color: var(--ocean); }
+  .oms-value.sage{ color: var(--sage); }
   #oms-override{
     width: 90px;
     text-align: right;
@@ -914,6 +921,7 @@
   }
   .owr-stats .v.sienna, .oyr-stats .v.sienna{ color: var(--sienna); }
   .owr-stats .v.ocean, .oyr-stats .v.ocean{ color: var(--ocean); }
+  .owr-stats .v.sage, .oyr-stats .v.sage{ color: var(--sage); }
 
   /* Day-view summary line below the calendar */
   .ore-day-summary{
@@ -948,6 +956,7 @@
   .odr-kind{ font-weight: 600; }
   .odr-kind.pto{ color: var(--ocean); }
   .odr-kind.festivo{ color: var(--gold); }
+  .odr-kind.comp{ color: var(--sage); }
   .odr-note{ font-size: 12px; color: var(--ink-muted); font-style: italic; margin-top: 2px; }
   .odr-hours{
     font-family: var(--serif); font-weight: 500;
@@ -1029,6 +1038,9 @@
   .dws-day.pto{ background: var(--ocean-tint); }
   .dws-day.pto .dws-name{ color: var(--ocean); }
   .dws-day.pto .dws-num{ color: var(--ocean); }
+  .dws-day.comp{ background: var(--sage-tint); }
+  .dws-day.comp .dws-name{ color: var(--sage); }
+  .dws-day.comp .dws-num{ color: var(--sage); }
   .dws-day.selected{
     background: var(--sienna);
     color: #fff;
@@ -1097,6 +1109,13 @@
     background: var(--ocean-tint); font-style: normal;
   }
   .dd-event.pto{ border-left: 3px solid var(--ocean); }
+  /* Recupero (day in lieu) and banked work: sage, the hours bank color.
+     Banked work keeps its plain card, only the badge says where the hours go. */
+  .dd-event-badge.comp{
+    color: var(--sage); border: 1px solid var(--sage-soft);
+    background: var(--sage-tint); font-style: normal;
+  }
+  .dd-event.comp{ border-left: 3px solid var(--sage); }
 
   /* Calendar grid (compact, centered). Headers and day cells share one grid
      container so the vertical rhythm between rows is consistent — using two
@@ -1158,6 +1177,12 @@
   /* Ferie (PTO) day: ocean fill, same specificity rules as festivo. */
   .cal-c.pto,
   .cal-c.pto.weekend{ background: var(--ocean); color: #fff; font-weight: 600; }
+  /* Recupero (day in lieu): sage fill, same specificity rules as festivo. */
+  .cal-c.comp,
+  .cal-c.comp.weekend{ background: var(--sage); color: #fff; font-weight: 600; }
+  /* Work put into the hours bank: the usual work fill with a sage ring, so a
+     banked weekend reads apart from one paid as overtime. */
+  .cal-c.bank{ box-shadow: inset 0 0 0 3px var(--sage); }
   .cal-c.today{ outline: 2px solid var(--sienna); outline-offset: -2px; }
 
   /* ---------- Buttons ---------- */
@@ -1497,7 +1522,7 @@
     flex: 1;
   }
 
-  /* Day-kind switch in the event form (Lavoro / Ferie / Festivo). Real
+  /* Day-kind switch in the event form (Lavoro / Ferie / Festivo / Recupero). Real
      radio inputs, so arrow keys and screen readers work natively; the
      visible pill is the sibling span. Each kind lights up in the color it
      has in the calendar. */
@@ -1537,13 +1562,20 @@
   }
   .kind-switch input[value="ferie"]:checked + span{ background: var(--ocean-tint); color: var(--ocean); }
   .kind-switch input[value="festivo"]:checked + span{ background: var(--gold-tint); color: var(--gold); }
+  .kind-switch input[value="recupero"]:checked + span,
+  .kind-switch input[value="bank"]:checked + span{ background: var(--sage-tint); color: var(--sage); }
   .kind-switch input:focus-visible + span{ outline: 2px solid var(--sienna); outline-offset: 1px; }
   .field .hint:empty{ display: none; }
   /* The English day types are longer ("Public holiday"): each pill takes the
-     width of its text instead of an equal third, so nothing wraps on a
-     narrow phone. The Italian labels keep the equal thirds. */
+     width of its text instead of an equal quarter, so nothing wraps on a
+     narrow phone. The Italian labels keep the equal quarters. */
   html[lang="en"] #ot-kind label{ flex: 1 1 auto; }
   html[lang="en"] #ot-kind span{ white-space: nowrap; }
+  /* Four English pills just fit a 375 px phone; on narrower ones (360 px
+     Android) they get a smaller type instead of overflowing. */
+  @media (max-width: 374px){
+    html[lang="en"] #ot-kind span{ font-size: 12.5px; padding-left: 2px; padding-right: 2px; }
+  }
   /* Language switch on the first wizard step: a small pill pair on the right,
      pulled up onto the "Step 1 of 8" line. */
   .wz-lang{ display: flex; justify-content: flex-end; margin: -32px 0 12px; }
@@ -2264,6 +2296,7 @@
         <label><input type="radio" name="ot-kind" value="lavoro" checked /><span data-i18n="kind_work">Work</span></label>
         <label><input type="radio" name="ot-kind" value="ferie" /><span data-i18n="kind_pto">Holiday</span></label>
         <label><input type="radio" name="ot-kind" value="festivo" /><span data-i18n="kind_holiday">Public holiday</span></label>
+        <label><input type="radio" name="ot-kind" value="recupero" /><span data-i18n="kind_comp">Day in lieu</span></label>
       </div>
       <div class="hint" id="ot-kind-hint"></div>
     </div>
@@ -2291,6 +2324,14 @@
           <button type="button" class="dp-btn" data-dp-act="inc" data-dp-target="m" aria-label="Increase minutes" data-i18n-attr="aria-label:inc_minutes">+</button>
         </div>
       </div>
+    </div>
+    <div class="field" id="ot-bank-field">
+      <label id="ot-bank-label" data-i18n="bank_field_label">Hours on a day off</label>
+      <div class="kind-switch" id="ot-bank" role="radiogroup" aria-labelledby="ot-bank-label">
+        <label><input type="radio" name="ot-bank" value="ot" checked /><span data-i18n="bank_opt_ot">Overtime</span></label>
+        <label><input type="radio" name="ot-bank" value="bank" /><span data-i18n="bank_opt_bank">Time in lieu</span></label>
+      </div>
+      <div class="hint" id="ot-bank-hint"></div>
     </div>
     <div class="field">
       <label data-i18n="note_optional">Note (optional)</label>
@@ -2362,7 +2403,7 @@
  *  Storage key: "stipendio.v1"
  * ============================================================ */
 
-const VERSION = "3.10.0";
+const VERSION = "3.11.0";
 
 const STORAGE_KEY = "stipendio.v1";
 const SYNC_KEY = "stipendio.sync.v1";
@@ -2556,6 +2597,17 @@ const I18N = {
     badge_holiday: "public holiday",
     badge_pto: "holiday",
     badge_not_ot: "not overtime",
+    dd_comp_day: "Day in lieu",
+    badge_comp: "day in lieu",
+    badge_bank: "hours bank",
+    k_comp: "Days in lieu",
+    k_banked: "Banked",
+    omc_comp_one: "day in lieu",
+    omc_comp_other: "days in lieu",
+    bank_title: "Hours bank",
+    bank_sub_pos: "Still to take as time off. {earned} banked, {used} used.",
+    bank_sub_neg: "Taken in advance: work them back on a day off. {earned} banked, {used} used.",
+    bank_sub_zero: "All even. {earned} banked, {used} used.",
     ore_import_invalid: "This file isn't a valid hours CSV.\n\n{msg}",
 
     // Overtime entry form
@@ -2566,6 +2618,12 @@ const I18N = {
     kind_work: "Work",
     kind_pto: "Holiday",
     kind_holiday: "Public holiday",
+    kind_comp: "Day in lieu",
+    bank_field_label: "Hours on a day off",
+    bank_opt_ot: "Overtime",
+    bank_opt_bank: "Time in lieu",
+    hint_bank_ot: "All paid as overtime: this isn't one of your working days.",
+    hint_bank_bank: "They go into the hours bank instead of overtime. You spend them with a Day in lieu ({h} h) on a working day.",
     start_time: "Start time",
     end_time: "End time",
     break_optional: "Break (optional)",
@@ -2583,15 +2641,21 @@ const I18N = {
     prev_holiday: "Public holiday: counts as {h} hours worked.",
     prev_pto_nonworkday: "This isn't one of your working days: holidays can only be logged on days you work.",
     prev_pto: "Holiday: counts as {h} hours.",
+    hint_comp: "No times: it counts as {h} hours within the weekly threshold, like a holiday, and takes {h} h from the hours bank. It's green in the calendar.",
+    prev_comp: "Day in lieu: counts as {h} hours, taken from the hours bank.",
+    prev_comp_nonworkday: "This isn't one of your working days: days in lieu can only be logged on days you work.",
     prev_duration: "Duration: {h} h",
+    prev_duration_bank: "Duration: {h} h, into the hours bank",
     prev_empty: "Enter start and end times to see the duration.",
     err_no_date: "The date is missing",
     err_pto_nonworkday: "{day} isn't one of your working days.\n\nHolidays can only be logged on days you work: you can change your working days in the settings, Overtime section.",
+    err_comp_nonworkday: "{day} isn't one of your working days.\n\nDays in lieu can only be logged on days you work: you can change your working days in the settings, Overtime section.",
     err_no_times: "Enter start and end times",
     err_bad_times: "Invalid times",
     err_event_end: "The end time must be after the start time.\n\nEntries across midnight aren't supported: log two separate entries.",
     toast_entry_saved: "Entry saved",
     toast_entry_saved_hours: "Entry saved: {h} h worked",
+    toast_entry_saved_bank: "Entry saved: {h} h into the hours bank",
     confirm_delete_entry: "Delete this entry?",
     toast_entry_deleted: "Entry deleted",
 
@@ -3010,7 +3074,7 @@ const I18N = {
     back_months: "‹ Mesi",
     back_days: "‹ Giorni",
     cal_hours_worked: "Ore lavorate",
-    cal_std_days_note: "(ferie e festivi a {h} h)",
+    cal_std_days_note: "(ferie, festivi e recuperi a {h} h)",
     cal_ot_calc: "Straordinari calcolati",
     cal_hours_to_pay_html: "Ore da pagare <small>(override)</small>",
     no_days_html: 'Nessun giorno con eventi.<br/>Tocca "+ Aggiungi evento" per inserirne uno.',
@@ -3023,6 +3087,17 @@ const I18N = {
     badge_holiday: "festivo",
     badge_pto: "ferie",
     badge_not_ot: "non strord.",
+    dd_comp_day: "Giornata di recupero",
+    badge_comp: "recupero",
+    badge_bank: "banca ore",
+    k_comp: "Recuperi",
+    k_banked: "In banca ore",
+    omc_comp_one: "giorno di recupero",
+    omc_comp_other: "giorni di recupero",
+    bank_title: "Banca ore",
+    bank_sub_pos: "Ancora da recuperare. {earned} accumulate, {used} usate.",
+    bank_sub_neg: "Recuperate in anticipo: da rilavorare in un giorno non lavorativo. {earned} accumulate, {used} usate.",
+    bank_sub_zero: "In pari. {earned} accumulate, {used} usate.",
     ore_import_invalid: "Il file non è un CSV ore valido.\n\n{msg}",
 
     // Overtime entry form
@@ -3033,6 +3108,12 @@ const I18N = {
     kind_work: "Lavoro",
     kind_pto: "Ferie",
     kind_holiday: "Festivo",
+    kind_comp: "Recupero",
+    bank_field_label: "Ore in un giorno non lavorativo",
+    bank_opt_ot: "Straordinario",
+    bank_opt_bank: "Da recuperare",
+    hint_bank_ot: "Tutte pagate come straordinario: non è uno dei tuoi giorni lavorativi.",
+    hint_bank_bank: "Vanno nella banca ore invece che negli straordinari. Le spendi con un giorno di Recupero ({h} h) in un giorno lavorativo.",
     start_time: "Ora inizio",
     end_time: "Ora fine",
     break_optional: "Pausa (opzionale)",
@@ -3050,15 +3131,21 @@ const I18N = {
     prev_holiday: "Giornata festiva: conta come {h} ore lavorate.",
     prev_pto_nonworkday: "Questo giorno non è tra i tuoi giorni lavorativi: le ferie si segnano solo nei giorni in cui lavori.",
     prev_pto: "Giornata di ferie: conta come {h} ore.",
+    hint_comp: "Niente orari: vale {h} ore dentro la soglia settimanale, come le ferie, e toglie {h} h dalla banca ore. Nel calendario è verde.",
+    prev_comp: "Giornata di recupero: conta come {h} ore, prese dalla banca ore.",
+    prev_comp_nonworkday: "Questo giorno non è tra i tuoi giorni lavorativi: i recuperi si segnano solo nei giorni in cui lavori.",
     prev_duration: "Durata: {h} h",
+    prev_duration_bank: "Durata: {h} h, nella banca ore",
     prev_empty: "Inserisci ora inizio e fine per vedere la durata.",
     err_no_date: "Manca la data",
     err_pto_nonworkday: "{day} non è tra i tuoi giorni lavorativi.\n\nLe ferie si segnano solo nei giorni in cui lavori: i giorni lavorativi si cambiano nelle impostazioni, sezione Overtime.",
+    err_comp_nonworkday: "{day} non è tra i tuoi giorni lavorativi.\n\nI recuperi si segnano solo nei giorni in cui lavori: i giorni lavorativi si cambiano nelle impostazioni, sezione Overtime.",
     err_no_times: "Inserisci ora di inizio e fine",
     err_bad_times: "Orari non validi",
     err_event_end: "L'ora di fine deve essere dopo l'ora di inizio.\n\nGli eventi a cavallo della mezzanotte non sono supportati: registra due eventi separati.",
     toast_entry_saved: "Evento salvato",
     toast_entry_saved_hours: "Evento salvato: {h} h lavorate",
+    toast_entry_saved_bank: "Evento salvato: {h} h nella banca ore",
     confirm_delete_entry: "Eliminare questo evento?",
     toast_entry_deleted: "Evento eliminato",
 
@@ -3460,7 +3547,8 @@ function workingDaysInMonth(year, m0){
 
 /* ----- Overtime helpers -----
  * Events are stored as { id, data:"YYYY-MM-DD", inizio:"HH:MM", fine:"HH:MM",
- * pausa:"HH:MM"|"", nota:"", notOvertime?:bool, holiday?:bool, pto?:bool }.
+ * pausa:"HH:MM"|"", nota:"", notOvertime?:bool, holiday?:bool, pto?:bool,
+ * comp?:bool, bank?:bool }.
  * Cross-midnight events are disallowed (model:
  * one record per work-day; if you work across midnight, log two events).
  *
@@ -3469,6 +3557,12 @@ function workingDaysInMonth(year, m0){
  * standard workday of STANDARD_DAY_HOURS hours, because the salary pays it
  * anyway. inizio/fine/pausa are stored empty for these, and the two flags are
  * mutually exclusive (the form offers them as one "tipo di giornata" choice).
+ *
+ * The hours bank (banca ore) adds two more flags. `bank` sits on a work event
+ * on a non-workday: its hours go into the bank instead of overtime. `comp`
+ * (recupero) is a third standard day, like `pto`: STANDARD_DAY_HOURS within
+ * the weekly threshold, taken out of the bank. `comp` is exclusive with
+ * `holiday` and `pto`; `bank` only exists on work events.
  */
 const STANDARD_DAY_HOURS = 8;
 // Default break pre-filled in new events, in minutes (settings.pausaDefaultMin).
@@ -3482,8 +3576,8 @@ function parseHHMM(s){
   return h * 60 + mm;
 }
 function eventHours(e){
-  // Festivo and ferie days are a fixed standard workday, no clock times.
-  if(e && (e.holiday || e.pto)) return STANDARD_DAY_HOURS;
+  // Festivo, ferie and recupero days are a fixed standard workday, no clock times.
+  if(e && (e.holiday || e.pto || e.comp)) return STANDARD_DAY_HOURS;
   const start = parseHHMM(e.inizio), end = parseHHMM(e.fine);
   if(start == null || end == null) return 0;
   const pause = parseHHMM(e.pausa) || 0;
@@ -3516,6 +3610,22 @@ function grossHoursForMonth(events, year, m0){
 // Distinct days marked as ferie (PTO) among the given events.
 function ptoDayCount(events){
   return new Set((events || []).filter(e => e.pto && e.data).map(e => e.data)).size;
+}
+// Distinct days marked as recupero (day in lieu) among the given events.
+function compDayCount(events){
+  return new Set((events || []).filter(e => e.comp && e.data).map(e => e.data)).size;
+}
+// Hours put into the bank (work on a non-workday marked "da recuperare").
+function bankedHours(events){
+  return (events || []).reduce((sum, e) => sum + (e.bank ? eventHours(e) : 0), 0);
+}
+// Hours bank over the profile's whole history, years included: hours banked
+// minus STANDARD_DAY_HOURS per recupero day. Negative when days in lieu were
+// taken before working the hours.
+function hoursBank(events){
+  const earned = bankedHours(events);
+  const used = (events || []).reduce((sum, e) => sum + (e.comp ? STANDARD_DAY_HOURS : 0), 0);
+  return { earned, used, balance: earned - used };
 }
 const giorniStr = n => tp("days", n);
 function isoDayOfWeek(dateStr){
@@ -3550,6 +3660,8 @@ function paidHoursForMonth(events, year, m0, forfaitWeek, workdays, contractWeek
   // decided those hours should not contribute to the overtime total, even
   // if they're on a weekend or push the week over the threshold. They still
   // exist in the calendar (gross hours), they just don't get paid out.
+  // Events flagged `bank` are skipped the same way: their hours go into the
+  // hours bank (see hoursBank) instead of overtime.
   //
   // Events flagged `holiday` (giorno festivo) or `pto` (ferie) are treated as
   // a normal worked day: they contribute a fixed STANDARD_DAY_HOURS (via
@@ -3558,6 +3670,7 @@ function paidHoursForMonth(events, year, m0, forfaitWeek, workdays, contractWeek
   // treatment that non-workdays get. Net effect of a ferie day: the week
   // needs 8 fewer worked hours before overtime starts, so extra hours done
   // on the other days of that week are not swallowed by the vacation day.
+  // Events flagged `comp` (recupero) work the same way as `pto`.
   const y = Number(year);
   const first = `${y}-${String(m0 + 1).padStart(2, "0")}-01`;
   const last = localDateStr(new Date(y, m0 + 1, 0));
@@ -3568,10 +3681,10 @@ function paidHoursForMonth(events, year, m0, forfaitWeek, workdays, contractWeek
   let nonWorkHours = 0;
   for(const e of events || []){
     const d = e.data;
-    if(!d || d < from || d > last || e.notOvertime) continue;
+    if(!d || d < from || d > last || e.notOvertime || e.bank) continue;
     const inMonth = d >= first;
     const h = eventHours(e);
-    if(e.holiday || e.pto || isWorkday(d, wd)){
+    if(e.holiday || e.pto || e.comp || isWorkday(d, wd)){
       const [iy, iw] = isoWeek(d);
       const k = iy + "-" + iw;
       if(!byWeek[k]) byWeek[k] = { before: 0, inMonth: 0 };
@@ -4098,6 +4211,24 @@ function renderPageOre(){
 
   const greet = greeting(today);
 
+  // Hours bank: only once the profile uses it (a banked day or a recupero).
+  let bankHtml = "";
+  if(events.some(e => e.bank || e.comp)){
+    const bank = hoursBank(events);
+    const bal = bank.balance;
+    const sign = bal > 0.001 ? "+" : bal < -0.001 ? "\u2212" : "";
+    const params = { earned: hStr(bank.earned), used: hStr(bank.used) };
+    const bankSub = bal > 0.001 ? t("bank_sub_pos", params)
+      : bal < -0.001 ? t("bank_sub_neg", params)
+      : t("bank_sub_zero", params);
+    bankHtml = `
+    <section class="avg bank">
+      <div class="avg-k">${t("bank_title")}</div>
+      <div class="avg-amount ${bal > 0.001 ? "ok" : bal < -0.001 ? "danger" : ""}">${sign}${buildHoursHtml(Math.abs(bal))}</div>
+      <div class="avg-sub">${bankSub}</div>
+    </section>`;
+  }
+
   main.innerHTML = `
     <div class="hero">
       <div class="hero-greeting">
@@ -4125,6 +4256,7 @@ function renderPageOre(){
         </div>
       </div>
     </div>
+    ${bankHtml}
 
     <div class="ore-switcher">
       <button data-view="giorni" class="${activeTab==='giorni'?'active':''}">${t("view_days")}</button>
@@ -4159,7 +4291,10 @@ function renderOreYearView(p){
       yp += paidHoursForMonth(events, Number(y), m0, p.settings.forfaitOreSett, p.settings.workdays, p.settings.oreContrattoSett);
     }
     byYear[y].paid = yp;
-    byYear[y].ferie = ptoDayCount(eventsInYear(events, Number(y)));
+    const yearEvents = eventsInYear(events, Number(y));
+    byYear[y].ferie = ptoDayCount(yearEvents);
+    byYear[y].comp = compDayCount(yearEvents);
+    byYear[y].banked = bankedHours(yearEvents);
   }
   const years = Object.values(byYear).sort((a, b) => b.y - a.y);
   if(years.length === 0) return `<div class="ore-empty">${t("no_years")}</div>`;
@@ -4170,6 +4305,8 @@ function renderOreYearView(p){
         <div><span class="k">${t("k_worked")}</span> <span class="v">${hStr(yy.hours)}</span></div>
         <div><span class="k">${t("k_to_pay")}</span> <span class="v">${hStr(yy.paid)}</span></div>
         ${yy.ferie > 0 ? `<div><span class="k">${t("k_pto")}</span> <span class="v ocean">${giorniStr(yy.ferie)}</span></div>` : ""}
+        ${yy.banked > 0 ? `<div><span class="k">${t("k_banked")}</span> <span class="v sage">${hStr(yy.banked)}</span></div>` : ""}
+        ${yy.comp > 0 ? `<div><span class="k">${t("k_comp")}</span> <span class="v sage">${giorniStr(yy.comp)}</span></div>` : ""}
         ${tariffa > 0 ? `<div><span class="k">${t("k_amount")}</span> <span class="v sienna">${eur(yy.paid * tariffa)}</span></div>` : ""}
       </div>
     </div>
@@ -4182,7 +4319,9 @@ function renderOreMonthView(p){
   const cards = t("months").map((name, m0) => {
     const gross = grossHoursForMonth(events, oreYear, m0);
     const paid = paidHoursForMonth(events, oreYear, m0, p.settings.forfaitOreSett, p.settings.workdays, p.settings.oreContrattoSett);
-    const ferie = ptoDayCount(eventsInMonth(events, oreYear, m0));
+    const monthEvents = eventsInMonth(events, oreYear, m0);
+    const ferie = ptoDayCount(monthEvents);
+    const comp = compDayCount(monthEvents);
     const has = gross > 0;
     return `<div class="ore-month-card${has ? " has-data" : ""}" data-m0="${m0}">
       <div class="omc-name">${name}</div>
@@ -4197,6 +4336,10 @@ function renderOreMonthView(p){
       ${ferie > 0 ? `<div class="omc-row ferie">
         <span class="omc-num">${ferie}</span>
         <span class="omc-lab">${tp("omc_pto", ferie)}</span>
+      </div>` : ""}
+      ${comp > 0 ? `<div class="omc-row comp">
+        <span class="omc-num">${comp}</span>
+        <span class="omc-lab">${tp("omc_comp", comp)}</span>
       </div>` : ""}
       ${has && tariffa > 0 ? `<div class="omc-amt">${eur(paid * tariffa)}</div>` : ""}
     </div>`;
@@ -4225,15 +4368,17 @@ function renderOreWeekView(p){
     const [iy, iw] = isoWeek(e.data);
     if(iy !== oreYear) continue;
     const k = iw;
-    if(!byWeek[k]) byWeek[k] = { iw, workH: 0, weekendH: 0, notOvertimeH: 0, count: 0, ferieDates: new Set() };
+    if(!byWeek[k]) byWeek[k] = { iw, workH: 0, weekendH: 0, notOvertimeH: 0, bankH: 0, count: 0, ferieDates: new Set(), compDates: new Set() };
     const h = eventHours(e);
     // Same rule as paidHoursForMonth: a "non contare come straordinario"
     // event is worked time ("Lavorate") but stays out of "Da pagare", and
-    // doesn't use up the weekly threshold either.
+    // doesn't use up the weekly threshold either. Banked hours likewise.
     if(e.notOvertime) byWeek[k].notOvertimeH += h;
-    else if(e.holiday || e.pto || isWorkday(e.data, wd)) byWeek[k].workH += h;
+    else if(e.bank) byWeek[k].bankH += h;
+    else if(e.holiday || e.pto || e.comp || isWorkday(e.data, wd)) byWeek[k].workH += h;
     else byWeek[k].weekendH += h;
     if(e.pto) byWeek[k].ferieDates.add(e.data);
+    if(e.comp) byWeek[k].compDates.add(e.data);
     byWeek[k].count++;
   }
   const weeks = Object.values(byWeek).sort((a, b) => a.iw - b.iw);
@@ -4249,7 +4394,7 @@ function renderOreWeekView(p){
     return head + `<div class="ore-empty">${t("no_weeks", { year: oreYear })}</div>`;
   }
   const rows = weeks.map(w => {
-    const gross = w.workH + w.weekendH + w.notOvertimeH;
+    const gross = w.workH + w.weekendH + w.notOvertimeH + w.bankH;
     const paid = Math.max(0, w.workH - threshold) + w.weekendH;
     return `<div class="ore-week-row" data-iw="${w.iw}">
       <div class="owr-label">${t("week_n", { n: w.iw })}</div>
@@ -4257,6 +4402,8 @@ function renderOreWeekView(p){
         <div><span class="k">${t("k_worked")}</span> <span class="v">${hStr(gross)}</span></div>
         <div><span class="k">${t("k_to_pay")}</span> <span class="v">${hStr(paid)}</span></div>
         ${w.ferieDates.size > 0 ? `<div><span class="k">${t("k_pto")}</span> <span class="v ocean">${giorniStr(w.ferieDates.size)}</span></div>` : ""}
+        ${w.bankH > 0 ? `<div><span class="k">${t("k_banked")}</span> <span class="v sage">${hStr(w.bankH)}</span></div>` : ""}
+        ${w.compDates.size > 0 ? `<div><span class="k">${t("k_comp")}</span> <span class="v sage">${giorniStr(w.compDates.size)}</span></div>` : ""}
         ${tariffa > 0 ? `<div><span class="k">${t("k_amount")}</span> <span class="v sienna">${eur(paid * tariffa)}</span></div>` : ""}
       </div>
     </div>`;
@@ -4276,9 +4423,11 @@ function renderOreCalendarView(p){
   const importo = finalPaid * tariffa;
   const monthEvents = eventsInMonth(events, oreYear, oreMonthIdx);
   const ferie = ptoDayCount(monthEvents);
-  // Ferie and festivi add a standard 8 h day to "Ore lavorate": say so, so
-  // the total doesn't look inflated in a month with vacation days.
-  const hasStandardDays = monthEvents.some(e => e.pto || e.holiday);
+  const comp = compDayCount(monthEvents);
+  const banked = bankedHours(monthEvents);
+  // Ferie, festivi and recuperi add a standard 8 h day to "Ore lavorate": say
+  // so, so the total doesn't look inflated in a month with days off.
+  const hasStandardDays = monthEvents.some(e => e.pto || e.holiday || e.comp);
   return `
     <div class="ore-subhead">
       <button class="ore-back-btn" data-action="back-mesi" type="button">${t("back_months")}</button>
@@ -4298,6 +4447,16 @@ function renderOreCalendarView(p){
       <div class="oms-row">
         <div class="oms-label">${t("k_pto")}</div>
         <div class="oms-value ocean">${giorniStr(ferie)}</div>
+      </div>` : ""}
+      ${banked > 0 ? `
+      <div class="oms-row">
+        <div class="oms-label">${t("k_banked")}</div>
+        <div class="oms-value sage">${hStr(banked)}</div>
+      </div>` : ""}
+      ${comp > 0 ? `
+      <div class="oms-row">
+        <div class="oms-label">${t("k_comp")}</div>
+        <div class="oms-value sage">${giorniStr(comp)}</div>
       </div>` : ""}
       <div class="oms-row">
         <div class="oms-label">${t("cal_ot_calc")}</div>
@@ -4333,7 +4492,8 @@ function renderOreDayList(p){
     const times = evs.map(e =>
       e.pto ? `<span class="odr-kind pto">${t("kind_pto")}</span>`
       : e.holiday ? `<span class="odr-kind festivo">${t("kind_holiday")}</span>`
-      : `${escapeHtml(e.inizio)}–${escapeHtml(e.fine)}`).join(" · ");
+      : e.comp ? `<span class="odr-kind comp">${t("kind_comp")}</span>`
+      : `${escapeHtml(e.inizio)}–${escapeHtml(e.fine)}${e.bank ? ` <span class="odr-kind comp">${t("badge_bank")}</span>` : ""}`).join(" · ");
     const note = evs.map(e => e.nota).filter(Boolean).join(" / ");
     return `<div class="ore-day-row" data-date="${escapeHtml(d)}">
       <div class="odr-date">${formatDateLong(d)}</div>
@@ -4367,6 +4527,7 @@ function renderOreDayDetail(p){
   const eventDates = new Set((p.overtime || []).map(e => e.data));
   const festivoDates = new Set((p.overtime || []).filter(e => e.holiday).map(e => e.data));
   const ptoDates = new Set((p.overtime || []).filter(e => e.pto).map(e => e.data));
+  const compDates = new Set((p.overtime || []).filter(e => e.comp).map(e => e.data));
 
   const strip = [];
   for(let i = 0; i < 7; i++){
@@ -4377,8 +4538,9 @@ function renderOreDayDetail(p){
     const hasEv = eventDates.has(ds);
     const isFestivo = festivoDates.has(ds);
     const isPto = ptoDates.has(ds);
+    const isComp = compDates.has(ds);
     const isSel = ds === date;
-    strip.push(`<button class="dws-day${isSel ? " selected" : ""}${isWeekend ? " weekend" : ""}${hasEv ? " has-events" : ""}${isFestivo ? " festivo" : ""}${isPto ? " pto" : ""}" data-date="${ds}" type="button">
+    strip.push(`<button class="dws-day${isSel ? " selected" : ""}${isWeekend ? " weekend" : ""}${hasEv ? " has-events" : ""}${isFestivo ? " festivo" : ""}${isPto ? " pto" : ""}${isComp ? " comp" : ""}" data-date="${ds}" type="button">
       <span class="dws-name">${names[i]}</span>
       <span class="dws-num">${dt.getDate()}</span>
     </button>`);
@@ -4391,10 +4553,10 @@ function renderOreDayDetail(p){
       <button class="btn full" id="dd-add" type="button" style="margin-top:10px">${t("dd_add_here")}</button>`;
   } else {
     eventsHtml = events.map(e => `
-      <div class="dd-event${e.notOvertime ? " not-overtime" : ""}${e.holiday ? " holiday" : ""}${e.pto ? " pto" : ""}" data-id="${escapeHtml(e.id)}">
-        <div class="dd-event-times">${e.pto ? t("dd_pto_day") : e.holiday ? t("dd_holiday_day") : `${escapeHtml(e.inizio)} → ${escapeHtml(e.fine)}${e.pausa ? t("dd_break", { p: escapeHtml(e.pausa) }) : ""}`}</div>
+      <div class="dd-event${e.notOvertime ? " not-overtime" : ""}${e.holiday ? " holiday" : ""}${e.pto ? " pto" : ""}${e.comp ? " comp" : ""}${e.bank ? " bank" : ""}" data-id="${escapeHtml(e.id)}">
+        <div class="dd-event-times">${e.pto ? t("dd_pto_day") : e.holiday ? t("dd_holiday_day") : e.comp ? t("dd_comp_day") : `${escapeHtml(e.inizio)} → ${escapeHtml(e.fine)}${e.pausa ? t("dd_break", { p: escapeHtml(e.pausa) }) : ""}`}</div>
         ${e.nota ? `<div class="dd-event-note">${escapeHtml(e.nota)}</div>` : ""}
-        <div class="dd-event-hours">${hStr(eventHours(e))}${e.holiday ? ` <span class="dd-event-badge festivo">${t("badge_holiday")}</span>` : ""}${e.pto ? ` <span class="dd-event-badge ferie">${t("badge_pto")}</span>` : ""}${e.notOvertime ? ` <span class="dd-event-badge">${t("badge_not_ot")}</span>` : ""}</div>
+        <div class="dd-event-hours">${hStr(eventHours(e))}${e.holiday ? ` <span class="dd-event-badge festivo">${t("badge_holiday")}</span>` : ""}${e.pto ? ` <span class="dd-event-badge ferie">${t("badge_pto")}</span>` : ""}${e.comp ? ` <span class="dd-event-badge comp">${t("badge_comp")}</span>` : ""}${e.bank ? ` <span class="dd-event-badge comp">${t("badge_bank")}</span>` : ""}${e.notOvertime ? ` <span class="dd-event-badge">${t("badge_not_ot")}</span>` : ""}</div>
       </div>`).join("") + `<button class="btn secondary full" id="dd-add" type="button" style="margin-top:12px">${t("dd_add_another")}</button>`;
   }
 
@@ -4576,11 +4738,15 @@ function renderCalendar(year, m0, events, workdays){
   const eventDates = new Set();
   const festivoDates = new Set();
   const ptoDates = new Set();
+  const compDates = new Set();
+  const bankDates = new Set();
   for(const e of (events || [])){
     if(e.data && e.data.startsWith(`${year}-${mm}-`)){
       eventDates.add(e.data);
       if(e.holiday) festivoDates.add(e.data);
       if(e.pto) ptoDates.add(e.data);
+      if(e.comp) compDates.add(e.data);
+      if(e.bank) bankDates.add(e.data);
     }
   }
 
@@ -4602,6 +4768,8 @@ function renderCalendar(year, m0, events, workdays){
     if(eventDates.has(dateStr)) cls.push("has-events");
     if(festivoDates.has(dateStr)) cls.push("festivo");
     if(ptoDates.has(dateStr)) cls.push("pto");
+    if(compDates.has(dateStr)) cls.push("comp");
+    if(bankDates.has(dateStr)) cls.push("bank");
     if(dateStr === todayStr) cls.push("today");
     const style = (d === 1 && startOffset > 0) ? ` style="grid-column-start: ${startOffset + 1}"` : "";
     cells += `<div class="${cls.join(" ")}" data-date="${dateStr}"${style}>${d}</div>`;
@@ -4629,14 +4797,15 @@ function openOvertimeForm(eventId){
   if(eventId){
     const ev = (p.overtime || []).find(e => e.id === eventId);
     if(!ev){ editingEventId = null; return; }
-    const standardDay = ev.holiday || ev.pto;
+    const standardDay = ev.holiday || ev.pto || ev.comp;
     $("#ot-data").value = ev.data || "";
     $("#ot-inizio").value = standardDay ? defaultInizio : (ev.inizio || "");
     $("#ot-fine").value = standardDay ? defaultFine : (ev.fine || "");
     setPausaPicker(standardDay ? defaultPausa : (ev.pausa || ""));
     $("#ot-nota").value = ev.nota || "";
     $("#ot-not-overtime").checked = !!ev.notOvertime;
-    setDayKind(ev.holiday ? "festivo" : ev.pto ? "ferie" : "lavoro");
+    setDayKind(ev.holiday ? "festivo" : ev.pto ? "ferie" : ev.comp ? "recupero" : "lavoro");
+    setBankChoice(!!ev.bank);
   } else {
     $("#ot-data").value = localDateStr(new Date());
     $("#ot-inizio").value = defaultInizio;
@@ -4645,6 +4814,7 @@ function openOvertimeForm(eventId){
     $("#ot-nota").value = "";
     $("#ot-not-overtime").checked = false;
     setDayKind("lavoro");
+    setBankChoice(false);
   }
   syncDayKindUI();
   openSheet("ot-event-sheet");
@@ -4653,7 +4823,8 @@ function minutesToHHMM(min){
   if(!min) return "";
   return String(Math.floor(min / 60)).padStart(2, "0") + ":" + String(min % 60).padStart(2, "0");
 }
-// "Tipo di giornata": lavoro (clock times) | ferie (pto) | festivo (holiday).
+// "Tipo di giornata": lavoro (clock times) | ferie (pto) | festivo (holiday)
+// | recupero (comp, day in lieu taken from the hours bank).
 function selectedDayKind(){
   const r = $("input[name='ot-kind']:checked");
   return r ? r.value : "lavoro";
@@ -4664,22 +4835,45 @@ function setDayKind(kind){
 function dayKindHint(kind){
   if(kind === "ferie") return t("hint_pto", { h: STANDARD_DAY_HOURS });
   if(kind === "festivo") return t("hint_holiday", { h: STANDARD_DAY_HOURS });
+  if(kind === "recupero") return t("hint_comp", { h: STANDARD_DAY_HOURS });
   return "";
 }
-// Ferie and festivo are fixed standard days: hide the time/pausa inputs (and
-// the conflicting "non straordinario" toggle) since the user doesn't enter
-// hours for them. Also refreshes the hint and the preview.
+// "Ore in un giorno non lavorativo": overtime (default) or into the hours bank.
+function bankChosen(){
+  const r = $("input[name='ot-bank']:checked");
+  return !!r && r.value === "bank";
+}
+function setBankChoice(bank){
+  $$("input[name='ot-bank']").forEach(r => { r.checked = r.value === (bank ? "bank" : "ot"); });
+}
+// The bank choice only applies to work on a non-workday: on a workday the
+// hours already go through the weekly threshold.
+function bankChoiceApplies(){
+  const p = activeProfile();
+  const data = $("#ot-data").value;
+  return !!p && !!data && selectedDayKind() === "lavoro" && !isWorkday(data, p.settings.workdays);
+}
+// Ferie, festivo and recupero are fixed standard days: hide the time/pausa
+// inputs (and the conflicting "non straordinario" toggle) since the user
+// doesn't enter hours for them. Banked hours hide that toggle too: they are
+// already out of the overtime. Also refreshes the hints and the preview.
 function syncDayKindUI(){
   const kind = selectedDayKind();
   const standardDay = kind !== "lavoro";
+  const bankApplies = bankChoiceApplies();
   $("#ot-time-row").style.display = standardDay ? "none" : "";
   $("#ot-pausa-field").style.display = standardDay ? "none" : "";
-  $("#ot-notov-field").style.display = standardDay ? "none" : "";
+  $("#ot-bank-field").style.display = bankApplies ? "" : "none";
+  $("#ot-notov-field").style.display = (standardDay || (bankApplies && bankChosen())) ? "none" : "";
   $("#ot-kind-hint").textContent = dayKindHint(kind);
+  $("#ot-bank-hint").textContent = bankChosen()
+    ? t("hint_bank_bank", { h: STANDARD_DAY_HOURS })
+    : t("hint_bank_ot");
   updateOvertimePreview();
 }
 $$("input[name='ot-kind']").forEach(r => r.addEventListener("change", syncDayKindUI));
-$("#ot-data").addEventListener("change", updateOvertimePreview);
+$$("input[name='ot-bank']").forEach(r => r.addEventListener("change", syncDayKindUI));
+$("#ot-data").addEventListener("change", syncDayKindUI);
 function pausaPickerValue(){
   const h = parseInt($("#ot-pausa-h").textContent, 10) || 0;
   const m = parseInt($("#ot-pausa-m").textContent, 10) || 0;
@@ -4734,9 +4928,18 @@ function updateOvertimePreview(){
       : t("prev_pto", { h: STANDARD_DAY_HOURS });
     return;
   }
+  if(kind === "recupero"){
+    const p = activeProfile();
+    const data = $("#ot-data").value;
+    $("#ot-hours-preview").textContent = (p && data && !isWorkday(data, p.settings.workdays))
+      ? t("prev_comp_nonworkday")
+      : t("prev_comp", { h: STANDARD_DAY_HOURS });
+    return;
+  }
   const e = { inizio: $("#ot-inizio").value, fine: $("#ot-fine").value, pausa: pausaPickerValue() };
   const h = eventHours(e);
-  $("#ot-hours-preview").textContent = h > 0 ? t("prev_duration", { h: fmtFixed(h, 2) }) : t("prev_empty");
+  const durKey = (bankChoiceApplies() && bankChosen()) ? "prev_duration_bank" : "prev_duration";
+  $("#ot-hours-preview").textContent = h > 0 ? t(durKey, { h: fmtFixed(h, 2) }) : t("prev_empty");
 }
 ["ot-inizio","ot-fine"].forEach(id => {
   const inp = $("#" + id);
@@ -4768,18 +4971,20 @@ $("#btn-ot-save").onclick = () => {
   const kind = selectedDayKind();
   const holiday = kind === "festivo";
   const pto = kind === "ferie";
-  // Ferie only replace a day the user would have worked: on a non-workday
-  // they would push STANDARD_DAY_HOURS into the week and invent overtime.
-  if(pto && !isWorkday(data, p.settings.workdays)){
+  const comp = kind === "recupero";
+  // Ferie and recuperi only replace a day the user would have worked: on a
+  // non-workday they would push STANDARD_DAY_HOURS into the week and invent
+  // overtime.
+  if((pto || comp) && !isWorkday(data, p.settings.workdays)){
     const day = formatDateLong(data);
-    showAlert(t("err_pto_nonworkday", { day: day.charAt(0).toUpperCase() + day.slice(1) }));
+    showAlert(t(pto ? "err_pto_nonworkday" : "err_comp_nonworkday", { day: day.charAt(0).toUpperCase() + day.slice(1) }));
     return;
   }
   // Ferie and festivo events carry no clock times — they count as a fixed
   // standard day (STANDARD_DAY_HOURS). Skip the time validation and store
   // empty inizio/fine/pausa.
   let inizio = "", fine = "", pausaVal = "";
-  let notOvertime = false;
+  let notOvertime = false, bank = false;
   if(kind === "lavoro"){
     inizio = $("#ot-inizio").value;
     fine = $("#ot-fine").value;
@@ -4787,7 +4992,8 @@ $("#btn-ot-save").onclick = () => {
     const startM = parseHHMM(inizio), endM = parseHHMM(fine);
     if(startM == null || endM == null){ showAlert(t("err_bad_times")); return; }
     if(endM <= startM){ showAlert(t("err_event_end")); return; }
-    notOvertime = !!$("#ot-not-overtime").checked;
+    bank = bankChoiceApplies() && bankChosen();
+    notOvertime = !bank && !!$("#ot-not-overtime").checked;
     pausaVal = pausaPickerValue();
   }
   if(!Array.isArray(p.overtime)) p.overtime = [];
@@ -4800,6 +5006,8 @@ $("#btn-ot-save").onclick = () => {
       ev.notOvertime = notOvertime;
       ev.holiday = holiday;
       ev.pto = pto;
+      ev.comp = comp;
+      ev.bank = bank;
     }
   } else {
     p.overtime.push({
@@ -4810,6 +5018,8 @@ $("#btn-ot-save").onclick = () => {
       notOvertime,
       holiday,
       pto,
+      comp,
+      bank,
     });
   }
   editingEventId = null;
@@ -4819,7 +5029,7 @@ $("#btn-ot-save").onclick = () => {
   // Work days echo the hours just logged (same figure as the "Duration"
   // preview); holiday and public holiday are a fixed day, nothing to echo.
   toast(kind === "lavoro"
-    ? t("toast_entry_saved_hours", { h: fmtFixed(eventHours({ inizio, fine, pausa: pausaVal }), 2) })
+    ? t(bank ? "toast_entry_saved_bank" : "toast_entry_saved_hours", { h: fmtFixed(eventHours({ inizio, fine, pausa: pausaVal }), 2) })
     : t("toast_entry_saved"));
 };
 $("#btn-ot-delete").onclick = async () => {
@@ -5622,7 +5832,7 @@ const STATE_FROM_IT = { ricevuto: "received", mancante: "missing", non_atteso: "
 const CSV_SEP = ";";
 const SETTINGS_COLS = ["profilo","stipendio","welfare","fringe","mese_fringe","ticket_giorno","bonus_default","forfait_settimana","tariffa_ora","giorni_lavorativi","contratto_settimana","mensilita","pay_giorno","pay_mese_dopo","overtime_abilitato","pausa_predefinita","orario_inizio","orario_fine"];
 const MONTH_COLS = ["profilo","anno","mese","stipendio_stato","stipendio_importo","welfare","ticket_stato","ticket_giorni","fringe","bonus_stato","bonus_importo","rimborso_stato","rimborso_importo","straord_stato","straord_ore_pagare","salary13_stato","salary14_stato","salary15_stato","salary13_importo","salary14_importo","salary15_importo"];
-const STRAORD_COLS = ["profilo","data","inizio","fine","pausa","nota","non_straordinario","festivo","ferie"];
+const STRAORD_COLS = ["profilo","data","inizio","fine","pausa","nota","non_straordinario","festivo","ferie","recupero","da_recuperare"];
 
 function fmtNum(n){
   // Italian decimal, two digits, no thousands separator (avoids extra quoting)
@@ -5741,7 +5951,7 @@ function buildCsv(storeIn){
   for(const [, p] of Object.entries(storeIn.profiles || {})){
     const events = (p.overtime || []).slice().sort((a, b) => (a.data || "").localeCompare(b.data || ""));
     for(const e of events){
-      lines.push(csvRow([p.name, e.data || "", e.inizio || "", e.fine || "", e.pausa || "", e.nota || "", e.notOvertime ? "1" : "0", e.holiday ? "1" : "0", e.pto ? "1" : "0"]));
+      lines.push(csvRow([p.name, e.data || "", e.inizio || "", e.fine || "", e.pausa || "", e.nota || "", e.notOvertime ? "1" : "0", e.holiday ? "1" : "0", e.pto ? "1" : "0", e.comp ? "1" : "0", e.bank ? "1" : "0"]));
     }
   }
   return "﻿" + lines.join("\r\n") + "\r\n";
@@ -5890,15 +6100,21 @@ function parseCsv(text){
       // Ferie and festivo are mutually exclusive; if a file sets both, festivo wins.
       const ferieRaw = (row.ferie || "").trim().toLowerCase();
       const pto = !holiday && (ferieRaw === "1" || ferieRaw === "sì" || ferieRaw === "si" || ferieRaw === "true");
+      // Recupero comes after festivo and ferie in the same way.
+      const compRaw = (row.recupero || "").trim().toLowerCase();
+      const comp = !holiday && !pto && (compRaw === "1" || compRaw === "sì" || compRaw === "si" || compRaw === "true");
       const inizio = (row.inizio || "").trim();
       const fine = (row.fine || "").trim();
-      // Festivo and ferie events carry no clock times — don't validate them as orari.
-      if(!holiday && !pto){
+      // Festivo, ferie and recupero events carry no clock times — don't validate them as orari.
+      if(!holiday && !pto && !comp){
         if(parseHHMM(inizio) == null) throw new Error(t("csv_bad_start", { line: lineNo+1, v: inizio }));
         if(parseHHMM(fine) == null) throw new Error(t("csv_bad_end", { line: lineNo+1, v: fine }));
       }
       const notOvRaw = (row.non_straordinario || "").trim().toLowerCase();
       const notOvertime = notOvRaw === "1" || notOvRaw === "sì" || notOvRaw === "si" || notOvRaw === "true";
+      // Banked hours only exist on work events.
+      const bankRaw = (row.da_recuperare || "").trim().toLowerCase();
+      const bank = !holiday && !pto && !comp && (bankRaw === "1" || bankRaw === "sì" || bankRaw === "si" || bankRaw === "true");
       (overtimeByName[name] = overtimeByName[name] || []).push({
         id: genEventId(),
         data, inizio, fine,
@@ -5907,6 +6123,8 @@ function parseCsv(text){
         notOvertime,
         holiday,
         pto,
+        comp,
+        bank,
       });
     }
   }
@@ -5956,11 +6174,12 @@ async function applyImportedData(parsed, sourceLabel){
  *  Ore-only CSV — scoped to a single profile's overtime events.
  *  Simpler format (no sections): header + rows.
  * ============================================================ */
-// `non_straordinario` (v3.4.3), `festivo` (v3.5.0) and `ferie` (v3.6.0) are appended at the end so files
+// `non_straordinario` (v3.4.3), `festivo` (v3.5.0), `ferie` (v3.6.0), `recupero` and
+// `da_recuperare` (v3.11.0) are appended at the end so files
 // exported by older versions still match as a header *prefix* — parseCsvOre
 // below uses a tolerant comparison that requires the leading columns to match
 // but accepts trailing columns being absent (older files) or extra (forward compat).
-const ORE_COLS = ["profilo","data","inizio","fine","pausa","nota","non_straordinario","festivo","ferie"];
+const ORE_COLS = ["profilo","data","inizio","fine","pausa","nota","non_straordinario","festivo","ferie","recupero","da_recuperare"];
 
 function buildCsvOre(profileName, events){
   const lines = [ORE_COLS.join(CSV_SEP)];
@@ -5975,6 +6194,8 @@ function buildCsvOre(profileName, events){
       e.notOvertime ? "1" : "0",
       e.holiday ? "1" : "0",
       e.pto ? "1" : "0",
+      e.comp ? "1" : "0",
+      e.bank ? "1" : "0",
     ]));
   }
   return "﻿" + lines.join("\r\n") + "\r\n";
@@ -6005,15 +6226,19 @@ function parseCsvOre(text){
     // Ferie and festivo are mutually exclusive; if a file sets both, festivo wins.
     const ferieRaw = (f[8] || "").trim().toLowerCase();
     const pto = !holiday && (ferieRaw === "1" || ferieRaw === "sì" || ferieRaw === "si" || ferieRaw === "true");
+    const compRaw = (f[9] || "").trim().toLowerCase();
+    const comp = !holiday && !pto && (compRaw === "1" || compRaw === "sì" || compRaw === "si" || compRaw === "true");
     const inizio = f[2].trim(), fine = f[3].trim();
-    // Festivo and ferie events carry no clock times — don't validate them as orari.
-    if(!holiday && !pto){
+    // Festivo, ferie and recupero events carry no clock times — don't validate them as orari.
+    if(!holiday && !pto && !comp){
       if(parseHHMM(inizio) == null) throw new Error(t("ore_csv_bad_start", { line: i+1, v: inizio }));
       if(parseHHMM(fine) == null) throw new Error(t("ore_csv_bad_end", { line: i+1, v: fine }));
     }
     const notOvertimeRaw = (f[6] || "").trim().toLowerCase();
     const notOvertime = notOvertimeRaw === "1" || notOvertimeRaw === "sì" || notOvertimeRaw === "si" || notOvertimeRaw === "true";
-    events.push({ id: genEventId(), data, inizio, fine, pausa: f[4].trim(), nota: f[5].trim(), notOvertime, holiday, pto });
+    const bankRaw = (f[10] || "").trim().toLowerCase();
+    const bank = !holiday && !pto && !comp && (bankRaw === "1" || bankRaw === "sì" || bankRaw === "si" || bankRaw === "true");
+    events.push({ id: genEventId(), data, inizio, fine, pausa: f[4].trim(), nota: f[5].trim(), notOvertime, holiday, pto, comp, bank });
   }
   return events;
 }

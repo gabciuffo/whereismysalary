@@ -36,7 +36,8 @@ The app has two main pages, reachable from the tab bar at the bottom of the scre
 ### **Overtime** page: the unpaid extra hours
 
 * **Calendar for daily logging**: open a day and log the hours you worked (weekend hours always count as overtime). In the day detail, the `‹ Week N ›` arrows move to the previous or next week. With the keyboard, type the hour and press Tab: the minutes become `00`.
-* **Day types: Work, Holiday, Public holiday**: holidays and public holidays are logged without times and count as an 8-hour day. In the calendar holidays are blue and public holidays gold; holiday days are counted in the Months, Weeks and Years views.
+* **Day types: Work, Holiday, Public holiday, Day in lieu**: holidays, public holidays and days in lieu are logged without times and count as an 8-hour day. In the calendar holidays are blue, public holidays gold and days in lieu green; they are counted in the Months, Weeks and Years views.
+* **Hours bank**: work on a day off (a Saturday, a Sunday) can be paid as overtime or go into the hours bank ("Time in lieu"). A Day in lieu on a working day takes 8 hours back out. The balance sits under the hero box ("Hours bank: +8.0 h") as soon as you use it; banked days have a green ring in the calendar.
 * **Usual schedule and break**: every new entry starts with your usual hours (for example 9:00 to 18:00) and your break (30 minutes by default), set in the setup wizard and in the settings. On days that differ, you change them in the entry.
 * **Automatic threshold**: contract hours (40 h/week by default) plus any CCNL flat allowance. Everything above becomes unpaid overtime.
 * **Hero box with two figures**: the amount in euros (if you set an hourly rate) next to the total unpaid hours.
@@ -132,6 +133,7 @@ For every day logged in the calendar:
 * **Weekend hours** (days you marked as non-working) count entirely as overtime.
 * **Weekday hours** count as overtime only for the part above the weekly threshold: `paid = max(0, weekdayHours - (contractHours + allowance))`.
 * **Holidays and public holidays** count as 8 hours towards the weekly threshold, like a worked day, because your salary pays them anyway. In a week with one day off, 32 worked hours reach 40; anything above is overtime. Holidays can only be logged on working days.
+* **Hours bank**: work on a non-working day marked "Time in lieu" is not overtime: its hours go into the bank, one hour for one hour. A **Day in lieu** counts like a holiday (8 hours towards the weekly threshold, only on working days) and takes 8 hours out of the bank. Balance = banked hours - 8 × days in lieu, over all years; it goes below zero if you take the day before working the hours.
 * A **week spanning two months** (or two years) counts as a whole. The threshold fills up day by day, in date order, and overtime goes to the month of the days where the week goes over it. Example: Monday 28/9 to Friday 2/10, 10 hours a day. September 0 h (30 h, still under the threshold), October 10 h, as in the Weeks view. A finished month no longer changes when you log hours in the next one.
 
 The amount in euros is `hours × overtime rate`. If the rate is 0, the hero box only shows hours.
@@ -166,7 +168,7 @@ All the logic lives in `index.html`. The best way to find a block is to search f
 | `paymentDateFor`, `isPaymentDue` | When month N's salary becomes "due", based on `payDay` and `payDayNextMonth`. |
 | `loadStore`, `saveStore`, `defaultSettings`, `defaultMonth`, `ensureProfile`, `ensureYear`, `activeProfile`, `runMigrations` | Persistence and data shape in `localStorage`: `{ profiles: { id: { name, settings, years: { 2026: { 1: {...} } } } }, activeProfile, currentYear, _migrations }`. `runMigrations` runs at startup and applies idempotent migrations tagged in `_migrations`. |
 | `expectedAmountFor`, `computeYearTotals`, `monthStatus`, `extraSalaryApplies`, `averageMonthlyPay` | "Expected vs received" logic for Salary, 13th/14th/15th month pay included, and the average monthly pay. |
-| `paidHoursForMonth` and related | Weekly overtime with the `contractHours + allowance` threshold. For weeks spanning two months it also needs the days of the same week in the previous month: always pass the full list of entries, never one already filtered by month. |
+| `paidHoursForMonth`, `hoursBank` and related | Weekly overtime with the `contractHours + allowance` threshold; `hoursBank` is the time-in-lieu balance. For weeks spanning two months it also needs the days of the same week in the previous month: always pass the full list of entries, never one already filtered by month. |
 | `render`, `renderTopbar`, `renderMain`, `renderMonthCard`, `renderPageOre`, `renderOvertimeVisibility`, `switchTab` | Rendering of the two pages. **The app rebuilds the whole `#main` with `innerHTML` on every interaction**: simple and fine at this scale, but careful with inputs that must keep focus. |
 | `openSheet`, `closeSheets`, `openNewProfile` + `$("#btn-...")` handlers | Bottom sheets and buttons. |
 | CSV backup (`buildCsv`, `parseCsv`, `parseCsvLine`, `fmtNum`, `parseNum`, `csvEscape`, `applyImportedData`) | Export and import. Sectioned format, `;` separator, `,` decimal, UTF-8 with BOM. States mapped between English and Italian via `STATE_TO_IT` / `STATE_FROM_IT`. Tolerant parser for older versions. |
@@ -251,12 +253,14 @@ profilo;anno;mese;stipendio_stato;stipendio_importo;welfare;ticket_stato;ticket_
 Anna;2026;1;ricevuto;2100,00;ricevuto;ricevuto;22;non_atteso;non_atteso;0,00;non_atteso;0,00;mancante;;non_atteso;non_atteso;non_atteso;;;
 
 # STRAORDINARI
-profilo;data;inizio;fine;pausa;nota;non_straordinario;festivo;ferie
-Anna;2026-05-13;09:00;19:30;00:45;riunione clienti;0;0;0
-Anna;2026-08-10;;;;;0;0;1
+profilo;data;inizio;fine;pausa;nota;non_straordinario;festivo;ferie;recupero;da_recuperare
+Anna;2026-05-13;09:00;19:30;00:45;riunione clienti;0;0;0;0;0
+Anna;2026-08-10;;;;;0;0;1;0;0
+Anna;2026-10-17;09:00;17:00;00:30;;0;0;0;0;1
+Anna;2026-10-23;;;;;0;0;0;1;0
 ```
 
-In `# STRAORDINARI` (overtime) the `non_straordinario`, `festivo` and `ferie` columns are `0` or `1`; public holiday and holiday rows have no times. `pausa_predefinita` is in minutes; `orario_inizio` and `orario_fine` are `HH:MM` or empty.
+In `# STRAORDINARI` (overtime) the `non_straordinario`, `festivo`, `ferie`, `recupero` (day in lieu) and `da_recuperare` (hours into the bank) columns are `0` or `1`; public holiday, holiday and day in lieu rows have no times. `pausa_predefinita` is in minutes; `orario_inizio` and `orario_fine` are `HH:MM` or empty.
 
 Allowed states: `ricevuto` (received), `mancante` (missing), `non_atteso` (not due). Months left at their defaults are omitted from the export.
 
