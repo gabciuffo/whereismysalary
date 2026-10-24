@@ -6,6 +6,23 @@ Entries are in reverse chronological order (newest first). Versions follow [SemV
 
 ---
 
+## [3.10.0] - 2026-10-24
+
+The Salary page now shows the average monthly pay: what the whole year is worth per month, with the 13th/14th month pay, welfare, meal vouchers, fringe benefits and bonuses spread over the months. A reference figure to compare a payslip with, or to answer "how much do I actually make a month".
+
+### Average monthly pay
+
+* **Where**: a card right under the hero box, "Average monthly pay · 2026" ("Stipendio medio mensile · 2026"). It follows the year picker, like the hero.
+* **The figure**: the yearly package divided by the months with a salary. Under it, the package and the number of months ("€33,532.00 over the year, spread across 12 months").
+* **The yearly package** uses the same expected amounts as "Expected" in the hero: every item received or still to come, per-month overrides included. Bonuses and fringe benefits count only in the months where they are marked as received or missing, as everywhere else in the app.
+* **Left out**: expense refunds, which give back money already spent, and overtime, which the app tracks as unpaid extra work. The card says so in a note.
+* **Months with a salary**: 12, or fewer when the salary is marked "not due" in some months (a job started in March), so a partial year doesn't drag the average down. With fewer than 12 the sub line says how many.
+* **"How it adds up"**: a collapsible list with one row per item, its yearly amount and its monthly share. Items at €0 in the year don't appear. The list stays open while you mark the months (`avgBreakdownOpen`, in memory only).
+* **No card** when the year adds up to €0 (no salary set) or the salary is "not due" in every month.
+* **Where in the code**: `averageMonthlyPay(profile, year, totals)` next to `computeYearTotals`, `AVG_PAY_EXCLUDED` for the items left out, new `avg_*` keys in both dictionaries, `.avg` styles under the hero ones. Nothing new is stored: no change to the store, the CSV or the gist.
+
+---
+
 ## [3.9.1] - 2026-10-23
 
 Saving a work entry now tells you how many hours you logged, not just that it was saved.

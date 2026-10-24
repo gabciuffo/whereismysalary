@@ -245,7 +245,7 @@
   /* Flex column with the value pushed to the bottom: keeps all three values
      visually aligned on the same baseline even when labels wrap to 2 lines. */
   .hero-stat{ display: flex; flex-direction: column; }
-  .hero-stat .k{
+  .hero-stat .k, .avg-k{
     font-size: 11px; color: var(--ink-muted);
     text-transform: uppercase; letter-spacing: .08em; font-weight: 600;
     line-height: 1.3;
@@ -261,6 +261,50 @@
   }
   .hero-stat.ok .v{ color: var(--sage) }
   .hero-stat.danger .v{ color: var(--terracotta) }
+
+  /* ---------- Average monthly pay (Salary page, under the hero) ---------- */
+  .avg{
+    margin-top: 14px;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: 18px 20px 6px;
+    box-shadow: var(--shadow-rest);
+  }
+  .avg-amount{
+    font-family: var(--serif);
+    font-size: 30px; font-weight: 600;
+    letter-spacing: -.02em; line-height: 1.1;
+    margin-top: 8px;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+  .avg-amount .cents{
+    font-size: .55em; font-weight: 500;
+    color: var(--ink-muted); letter-spacing: -.01em;
+  }
+  .avg-per{
+    font-style: italic; font-size: 15px; font-weight: 400;
+    color: var(--ink-muted); letter-spacing: 0;
+    margin-left: 6px;
+  }
+  .avg-sub{
+    font-family: var(--serif); font-style: italic;
+    font-size: 14px; color: var(--ink-soft);
+    margin-top: 4px; line-height: 1.5;
+  }
+  .avg details{ margin-top: 10px; border-top: 1px dashed var(--line); }
+  /* No tri-state pill here, so the amount keeps its column on the right,
+     also on the phone. */
+  .avg .comp{
+    padding: 10px 0;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "icon info amount";
+  }
+  .avg .comp-amount{ text-align: right; font-size: 15px; padding-top: 0; }
+  .avg-note{
+    font-size: 12px; color: var(--ink-muted);
+    line-height: 1.5; margin: 6px 0 12px;
+  }
 
   /* ---------- Section header ---------- */
   .section-head{
@@ -2318,7 +2362,7 @@
  *  Storage key: "stipendio.v1"
  * ============================================================ */
 
-const VERSION = "3.9.1";
+const VERSION = "3.10.0";
 
 const STORAGE_KEY = "stipendio.v1";
 const SYNC_KEY = "stipendio.sync.v1";
@@ -2456,6 +2500,14 @@ const I18N = {
     legend_not_due: "not due",
     recap_title: "Summary by item · {year}",
     recap_detail: "Received {received} of {expected}",
+    avg_title: "Average monthly pay · {year}",
+    avg_per_month: "/ month",
+    avg_sub: "{total} over the year, spread across 12 months.",
+    avg_sub_months_one: "{total} over the year, all in the one month with a salary.",
+    avg_sub_months_other: "{total} over the year, spread across the {n} months with a salary.",
+    avg_breakdown: "How it adds up",
+    avg_row_detail: "{amount} a year",
+    avg_note: "Every item expected in the year, received or still to come, divided by the months with a salary. Bonuses and fringe benefits count in the months where you marked them as received or missing. Expense refunds and overtime are left out: they are not part of your usual pay.",
     help_html: '<strong>How it works.</strong> For each item press <span class="pip-ok"></span> if you received it, <span class="pip-miss"></span> if it was due but hasn\'t arrived yet, <span class="pip-na"></span> if it isn\'t due that month. Meal vouchers are worked out automatically from Italian working days: tap the number to override it (holidays, sick leave, remote work). For bonuses and refunds, enter the amount expected that month.',
     state_received: "Received",
     state_missing: "Missing",
@@ -2915,6 +2967,14 @@ const I18N = {
     legend_not_due: "non spetta",
     recap_title: "Riepilogo per voce — {year}",
     recap_detail: "Ricevuto {received} di {expected}",
+    avg_title: "Stipendio medio mensile · {year}",
+    avg_per_month: "/ mese",
+    avg_sub: "{total} nell'anno, divisi su 12 mesi.",
+    avg_sub_months_one: "{total} nell'anno, tutti nell'unico mese con stipendio.",
+    avg_sub_months_other: "{total} nell'anno, divisi sui {n} mesi con stipendio.",
+    avg_breakdown: "Come si compone",
+    avg_row_detail: "{amount} all'anno",
+    avg_note: "Tutte le voci attese nell'anno, ricevute o ancora da ricevere, divise per i mesi con stipendio. Bonus e fringe benefit contano nei mesi in cui li hai segnati come ricevuti o mancanti. Rimborsi spese e straordinari restano fuori: non fanno parte della paga abituale.",
     help_html: '<strong>Come funziona.</strong> Per ogni voce premi <span class="pip-ok"></span> se l\'hai ricevuta, <span class="pip-miss"></span> se ti spettava ma non è ancora arrivata, <span class="pip-na"></span> se quel mese non ti spetta. I buoni pasto si calcolano in automatico sui giorni lavorativi italiani — tocca il numero per sovrascriverlo (ferie, malattia, smart working). Per bonus e rimborsi inserisci l\'importo previsto del mese.',
     state_received: "Ricevuto",
     state_missing: "Mancante",
@@ -3596,6 +3656,8 @@ runMigrations();
 // Session-only UI state — survives re-renders but not page reloads.
 // Tracks which month accordion is open (one at a time).
 let openMonthIdx = null;
+// Whether the breakdown of the average monthly pay is open.
+let avgBreakdownOpen = false;
 
 function defaultSettings(){
   return {
@@ -3795,6 +3857,27 @@ function computeYearTotals(profile, year){
     }
   }
   return { expected, received, missing, perComponent };
+}
+
+// Items left out of the average monthly pay: expense refunds give back money
+// already spent, and overtime is tracked apart as unpaid extra work.
+const AVG_PAY_EXCLUDED = ["refund", "overtime"];
+
+// Average monthly pay for the year: the expected amount of every pay item
+// (received or still to come, per-month overrides and marked bonuses
+// included), spread over the months with a salary. 12 for a full year,
+// fewer when the salary is marked "not due" in some months (a job started
+// in March). `totals` is the computeYearTotals result for the same year.
+function averageMonthlyPay(profile, year, totals){
+  const data = ensureYear(profile, year);
+  let months = 0;
+  for(let m=1; m<=12; m++) if(data[m].salary.state !== "not_expected") months++;
+  const items = COMPONENTS
+    .filter(c => !AVG_PAY_EXCLUDED.includes(c.key) && componentApplies(c, profile.settings))
+    .map(c => ({ comp: c, yearly: totals.perComponent[c.key].expected }))
+    .filter(it => it.yearly > 0);
+  const total = items.reduce((sum, it) => sum + it.yearly, 0);
+  return { total, months, monthly: months ? total / months : 0, items };
 }
 
 function monthStatus(profile, year, m0){
@@ -4864,6 +4947,33 @@ function renderMain(){
 
   const greet = greeting(today);
 
+  const avg = averageMonthlyPay(p, year, totals);
+  let avgHtml = "";
+  if(avg.total > 0 && avg.months > 0){
+    const avgSplit = splitEur(avg.monthly);
+    const avgSub = avg.months === 12
+      ? t("avg_sub", { total: eur(avg.total) })
+      : tp("avg_sub_months", avg.months, { total: eur(avg.total) });
+    avgHtml = `
+    <section class="avg">
+      <div class="avg-k">${t("avg_title", { year })}</div>
+      <div class="avg-amount">${avgSplit.currency} ${avgSplit.intPart}<span class="cents">${avgSplit.decimal}${avgSplit.fracPart}</span><span class="avg-per">${t("avg_per_month")}</span></div>
+      <div class="avg-sub">${avgSub}</div>
+      <details id="avg-details" ${avgBreakdownOpen ? "open" : ""}>
+        <summary>${t("avg_breakdown")}</summary>
+        ${avg.items.map(it => `<div class="comp">
+          <div class="comp-icon">${it.comp.icon}</div>
+          <div class="comp-info">
+            <div class="comp-name">${compLabel(it.comp)}</div>
+            <div class="comp-detail">${t("avg_row_detail", { amount: eur(it.yearly) })}</div>
+          </div>
+          <div class="comp-amount">${eur(it.yearly / avg.months)}</div>
+        </div>`).join("")}
+        <p class="avg-note">${t("avg_note")}</p>
+      </details>
+    </section>`;
+  }
+
   const html = `
     <div class="hero">
       <div class="hero-greeting">
@@ -4888,6 +4998,7 @@ function renderMain(){
         </div>
       </div>
     </div>
+    ${avgHtml}
 
     <div class="section-head">
       <div class="section-title">${t("year_title")}</div>
@@ -4938,6 +5049,8 @@ function renderMain(){
   /* ----- Event wiring ----- */
   $("#y-prev").onclick = () => { store.currentYear--; saveStore(); render(); };
   $("#y-next").onclick = () => { store.currentYear++; saveStore(); render(); };
+  const avgDetails = $("#avg-details");
+  if(avgDetails) avgDetails.ontoggle = () => { avgBreakdownOpen = avgDetails.open; };
 
   $$(".month-head").forEach(el => {
     el.onclick = () => {

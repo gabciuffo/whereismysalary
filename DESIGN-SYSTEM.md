@@ -185,6 +185,22 @@ Details:
 * `.hero-stat` is a flex column with `margin-top: auto` on the value → the three KPIs line up on the same baseline even when the labels wrap.
 * On the Overtime page `.hero-amount` sits inside a `.hero-amounts` row that can hold two figures side by side (euros and hours, same size and weight), wrapping to two lines only on very narrow screens.
 
+### 5.1.1 Average monthly pay card (Salary)
+
+A quieter card right under the Salary hero: what the year is worth per month.
+
+```
+.avg  (card surface, --shadow-rest, like .recap and .help)
+├── .avg-k       (service label, same style as .hero-stat .k)
+├── .avg-amount  (serif 30px, ink, cents at 55%, italic "/ month")
+├── .avg-sub     (yearly package and number of months, serif italic)
+└── details      ("How it adds up": .comp rows + .avg-note)
+```
+
+* **Second voice, not a second hero.** 30px against the hero's 40 to 56px, ink instead of sage or terracotta, no accent: the hero stays the figure that speaks.
+* **The rows have no tri-state pill**, so on the phone the amount keeps its column on the right instead of dropping under the name.
+* **The breakdown stays open across re-renders** through `avgBreakdownOpen`, in memory only, like `openMonthIdx`.
+
 ### 5.2 Month card (Salary)
 
 ```

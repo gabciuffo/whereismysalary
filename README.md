@@ -26,6 +26,7 @@ The app has two main pages, reachable from the tab bar at the bottom of the scre
 ### **Salary** page: the payslip, month by month
 
 * **What they still owe you**: a single figure at the top, recalculated over the months whose payday has already passed.
+* **Average monthly pay**: right under it, what the year is worth per month, with salary, 13th/14th/15th month pay, welfare, meal vouchers, fringe benefits and bonuses spread over the months. "How it adds up" shows each item's yearly amount and monthly share.
 * **Tracked pay items**: salary, welfare, fringe benefits, meal vouchers, bonuses, expense refunds, plus the 13th/14th/15th month pay as separate items in the right months (12 to 15 monthly payments per year). Items you don't have (welfare, meal vouchers or fringe benefits set to 0) don't appear in the months or in the yearly summary.
 * **Status per month**: ✓ received · ! missing · — not due. Plus an "Overtime" column that links to the Overtime page.
 * **Configurable payday**: your pay day (1 to 28) decides when the app expects the month's salary. A switch covers people paid the following month (for example, May paid on 15 June).
@@ -114,6 +115,16 @@ Working days exclude the weekdays you marked as non-working (Saturday and Sunday
 
 > ⚠️ Local patron saint holidays (Sant'Ambrogio in Milan, San Petronio in Bologna and so on) are **not** included: the app only counts national holidays. If you need them, override that month's number of days by hand.
 
+### Average monthly pay
+
+`averageMonthlyPay = yearly package / months with a salary`, where:
+
+* the **yearly package** is the expected amount of every item in the year, received or still to come, as in "Expected" in the hero box: per-month overrides included, bonuses and fringe benefits only in the months where you marked them as received or missing;
+* **expense refunds and overtime are left out**: a refund gives back money you spent, and overtime is tracked apart as unpaid extra work;
+* the **months with a salary** are 12, or fewer if the salary is marked "not due" in some months (for example a job started in March).
+
+It follows the year chosen with the year picker.
+
 ### Overtime
 
 For every day logged in the calendar:
@@ -154,7 +165,7 @@ All the logic lives in `index.html`. The best way to find a block is to search f
 | `easterSunday`, `italianHolidays`, `workingDaysInMonth` | Italian calendar and working days (respecting the `workdays` in the settings). |
 | `paymentDateFor`, `isPaymentDue` | When month N's salary becomes "due", based on `payDay` and `payDayNextMonth`. |
 | `loadStore`, `saveStore`, `defaultSettings`, `defaultMonth`, `ensureProfile`, `ensureYear`, `activeProfile`, `runMigrations` | Persistence and data shape in `localStorage`: `{ profiles: { id: { name, settings, years: { 2026: { 1: {...} } } } }, activeProfile, currentYear, _migrations }`. `runMigrations` runs at startup and applies idempotent migrations tagged in `_migrations`. |
-| `expectedAmountFor`, `computeYearTotals`, `monthStatus`, `extraSalaryApplies` | "Expected vs received" logic for Salary, 13th/14th/15th month pay included. |
+| `expectedAmountFor`, `computeYearTotals`, `monthStatus`, `extraSalaryApplies`, `averageMonthlyPay` | "Expected vs received" logic for Salary, 13th/14th/15th month pay included, and the average monthly pay. |
 | `paidHoursForMonth` and related | Weekly overtime with the `contractHours + allowance` threshold. For weeks spanning two months it also needs the days of the same week in the previous month: always pass the full list of entries, never one already filtered by month. |
 | `render`, `renderTopbar`, `renderMain`, `renderMonthCard`, `renderPageOre`, `renderOvertimeVisibility`, `switchTab` | Rendering of the two pages. **The app rebuilds the whole `#main` with `innerHTML` on every interaction**: simple and fine at this scale, but careful with inputs that must keep focus. |
 | `openSheet`, `closeSheets`, `openNewProfile` + `$("#btn-...")` handlers | Bottom sheets and buttons. |

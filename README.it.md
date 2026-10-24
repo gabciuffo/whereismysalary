@@ -24,6 +24,7 @@ L'app ha due pagine principali, accessibili dalla tabbar in fondo allo schermo:
 ### Pagina **Salary** — la busta paga mese per mese
 
 - **Quanto ti devono ancora** — un'unica cifra in cima alla pagina, ricalcolata sui mesi il cui giorno di pagamento è già passato.
+- **Stipendio medio mensile** — subito sotto, quanto vale l'anno al mese: stipendio, 13ª/14ª/15ª, welfare, buoni pasto, fringe benefit e bonus divisi sui mesi. "Come si compone" mostra per ogni voce l'importo annuo e la quota mensile.
 - **Voci di paga tracciate** — stipendio, welfare, fringe benefit, buoni pasto, bonus, rimborso spese, più 13ª/14ª/15ª come voci separate nei mesi giusti (configurabili da 12 a 15 mensilità annue). Le voci che non hai (welfare, buoni pasto o fringe a 0) non compaiono nei mesi né nel riepilogo annuale.
 - **Stato per mese** — ✓ ricevuto · ! mancante · — non spettato. Più una colonna "Straordinari" che rimanda alla pagina Overtime.
 - **Giorno di pagamento configurabile** — il tuo `payDay` (1–28) determina quando l'app considera "atteso" lo stipendio del mese. Toggle per chi viene pagato il mese successivo (es. maggio incassato il 15 giugno).
@@ -118,6 +119,16 @@ I giorni lavorativi sono calcolati escludendo i giorni della settimana che hai m
 
 > ⚠️ Le festività dei santi patroni locali (Sant'Ambrogio a Milano, San Petronio a Bologna, ecc.) **non** sono incluse: l'app conta solo le festività nazionali. Se ne hai bisogno, sovrascrivi il numero di giorni a mano per quel mese.
 
+### Stipendio medio mensile
+
+`averageMonthlyPay = pacchetto annuo / mesi con stipendio`, dove:
+
+- il **pacchetto annuo** è l'importo atteso di tutte le voci dell'anno, ricevute o ancora da ricevere, come "Atteso" nel riquadro in alto: override per mese compresi, bonus e fringe benefit solo nei mesi in cui li hai segnati come ricevuti o mancanti;
+- **rimborsi spese e straordinari restano fuori**: il rimborso restituisce soldi che hai speso, gli straordinari si contano a parte come lavoro extra non pagato;
+- i **mesi con stipendio** sono 12, o meno se in qualche mese lo stipendio è segnato "non spetta" (per esempio un lavoro iniziato a marzo).
+
+Segue l'anno scelto con il selettore dell'anno.
+
 ### Overtime
 
 Per ogni giorno loggato nel calendario:
@@ -158,7 +169,7 @@ Tutta la logica vive in `index.html` (markup, stili, script in unico file). I fi
 | `easterSunday`, `italianHolidays`, `workingDaysInMonth` | Calendario italiano, calcolo giorni lavorativi (rispetta i `workdays` configurati nelle settings). |
 | `paymentDateFor`, `isPaymentDue` | Determinano quando lo stipendio del mese N è "dovuto", in base a `payDay` e `payDayNextMonth`. |
 | `loadStore`, `saveStore`, `defaultSettings`, `defaultMonth`, `ensureProfile`, `ensureYear`, `activeProfile`, `runMigrations` | Persistenza e shape del dato in `localStorage`. Lo store ha forma `{ profiles: { id: { name, settings, years: { 2026: { 1: {...} } } } }, activeProfile, currentYear, _migrations }`. `runMigrations` gira a bootstrap e applica trasformazioni idempotenti taggate in `_migrations`. |
-| `expectedAmountFor`, `computeYearTotals`, `monthStatus`, `extraSalaryApplies` | Logica di calcolo "atteso vs ricevuto" per Salary, comprese 13ª/14ª/15ª. |
+| `expectedAmountFor`, `computeYearTotals`, `monthStatus`, `extraSalaryApplies`, `averageMonthlyPay` | Logica di calcolo "atteso vs ricevuto" per Salary, comprese 13ª/14ª/15ª, e stipendio medio mensile. |
 | `paidHoursForMonth` e correlati | Calcolo ore straordinario su base settimanale, con soglia `oreContratto + forfait`. Per le settimane a cavallo di mese conta anche i giorni della stessa settimana nel mese prima: vuole sempre l'elenco completo degli eventi, mai uno già filtrato per mese. |
 | `render`, `renderTopbar`, `renderMain`, `renderMonthCard`, `renderPageOre`, `renderOvertimeVisibility`, `switchTab` | Rendering delle due pagine. **L'app rifà l'intero `#main` con `innerHTML` ad ogni interazione** — semplice, funziona bene su questa scala, ma occhio se aggiungi input con focus persistente. |
 | `openSheet`, `closeSheets`, `openNewProfile` + handler `$("#btn-...")` | UI dei sheet (modali a fondo schermo) e bottoni. |
